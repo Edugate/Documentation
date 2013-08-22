@@ -354,11 +354,25 @@ You can use **email-default.php** as a template. Ther are two parts:
 
    * reply_to
 
-   * mail_subject_suffix
+   * mail_subject_suffix - it allows to add text to every mail's subject.
+
+    .. code:: php
+     
+     $config['mail_subject_suffix'] = '[RR3]';
 
    * mail_header
 
-   * mail_footer 
+   * mail_footer - adds footer to sent mails
+  
+    .. code:: php
+    
+     $config['mail_footer'] = "
+     \r\n \r\n
+     YOUR FOOTER \r\n
+     -- \r\n
+     COMPANY\r\n
+     Phone: xxxxxxxxx\r\n
+     email:xxxxxxxxxxxx\r\n";
 
 #. override default bodies
    
@@ -367,9 +381,9 @@ You can use **email-default.php** as a template. Ther are two parts:
    
    * defaultmail['joinfed'] - override defaul mail sent when join federation is requested.
    
-   .. code:: php
+    .. code:: php
 
-    $config['defaultmail']['joinfed'] = "
+     $config['defaultmail']['joinfed'] = "
                Hi,\r\nJust few moments ago Administator of Provider %s (%s) \r\n
                sent request to Administrators of Federation: %s \r\n 
                to access  him as new federation member.\r\n
@@ -379,16 +393,16 @@ You can use **email-default.php** as a template. Ther are two parts:
                \r\n=============================================================\r\n ";
 
  
-   .. note::
+    .. note::
  
-    you need to keep number of %s and the same meaning order: providername, provider EntityID, federationName, awaiting URL, additional message
+     you need to keep number of %s and the same meaning order: providername, provider EntityID, federationName, awaiting URL, additional message
 
    * localizedmail['joinfed'] - Sometime you'd like to sen notification in you local language. Thanks to this option you can easly override default. However as we work in multinational world the final mail will contain both localized part and builtin/($config['defaultmail']['joinfed']) part.
 
  
-   .. code:: php
+    .. code:: php
 
-    $config['localized']['joinfed'] = "
+     $config['localized']['joinfed'] = "
                Hi,\r\nWlasnie przed chwila Administator of Dostawcy Serwisu/Tozsamosci: %s (%s) \r\n
                wyslal prosbe  do Administratorow Federacji: %s \r\n 
                to access  him as new federation member.\r\n
@@ -398,9 +412,9 @@ You can use **email-default.php** as a template. Ther are two parts:
                \r\n=============================================================\r\n ";
 
  
-   .. note::
+    .. note::
  
-    you need to keep number of %s and the same meaning order: providername, provider EntityID, federationName, awaiting URL, additional message
+     you need to keep number of %s and the same meaning order: providername, provider EntityID, federationName, awaiting URL, additional message
 
 
 
