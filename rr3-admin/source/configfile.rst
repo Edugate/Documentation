@@ -324,43 +324,83 @@ You can use **email-default.php** as a template. Ther are two parts:
 
 #. usage in RR3
 
- * mail_sending_active - boolean FALSE/TRUE - if FALSE then not mails are sent at all. It takes presedence..
+   * mail_sending_active - boolean FALSE/TRUE - if FALSE then not mails are sent at all. It takes presedence..
 
-   .. code:: php
+     .. code:: php
 
-     $config['mail_sending_active'] = TRUE;
-
-
- * notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in RR3
-
-   .. code:: php
-
-     $config['notify_if_provider_rm_from_fed'] = TRUE;
-
- * notify_if_queue_rejected - boolean - if TRUE then requestere will be notified by email if his request is rejected.
-
-   .. code:: php
-
-     $config['notify_if_queue_rejected'] = TRUE;
+       $config['mail_sending_active'] = TRUE;
 
 
- * notify_admins_if_queue_accepted
+   * notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in RR3
 
- * notify_requester_if_queue_accepted
+     .. code:: php
+
+       $config['notify_if_provider_rm_from_fed'] = TRUE;
+
+   * notify_if_queue_rejected - boolean - if TRUE then requestere will be notified by email if his request is rejected.
+
+     .. code:: php
+
+       $config['notify_if_queue_rejected'] = TRUE;
+
+
+   * notify_admins_if_queue_accepted
+
+   * notify_requester_if_queue_accepted
  
- * mail_from
+   * mail_from
 
- * fake_mail_from
+   * fake_mail_from
 
- * reply_to
+   * reply_to
 
- * mail_subject_suffix
+   * mail_subject_suffix
 
- * mail_header
+   * mail_header
 
- * mail_footer 
+   * mail_footer 
+
+#. override default bodies
+   
+   Here is possibility to overwrite default text sent in notifications. Right now it's partly implemented.
+   
+   
+   * defaultmail['joinfed'] - override defaul mail sent when join federation is requested.
+   
+   .. code:: php
+
+    $config['defaultmail']['joinfed'] = "
+               Hi,\r\nJust few moments ago Administator of Provider %s (%s) \r\n
+               sent request to Administrators of Federation: %s \r\n 
+               to access  him as new federation member.\r\n
+               To accept or reject this request please go to Resource Registry\r\n %s \r\n
+               \r\n\r\n======= additional message attached by requestor ===========\r\n
+               %s
+               \r\n=============================================================\r\n ";
 
  
+   .. note::
+ 
+    you need to keep number of %s and the same meaning order: providername, provider EntityID, federationName, awaiting URL, additional message
+
+   * localizedmail['joinfed'] - Sometime you'd like to sen notification in you local language. Thanks to this option you can easly override default. However as we work in multinational world the final mail will contain both localized part and builtin/($config['defaultmail']['joinfed']) part.
+
+ 
+   .. code:: php
+
+    $config['localized']['joinfed'] = "
+               Hi,\r\nWlasnie przed chwila Administator of Dostawcy Serwisu/Tozsamosci: %s (%s) \r\n
+               wyslal prosbe  do Administratorow Federacji: %s \r\n 
+               to access  him as new federation member.\r\n
+               To accept or reject this request please go to Resource Registry\r\n %s \r\n
+               \r\n\r\n======= dodatkowa wiadomosc dolaczona ===========\r\n
+               %s
+               \r\n=============================================================\r\n ";
+
+ 
+   .. note::
+ 
+    you need to keep number of %s and the same meaning order: providername, provider EntityID, federationName, awaiting URL, additional message
 
 
 
