@@ -1,0 +1,509 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration files &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Registration process" href="register.html" />
+    <link rel="prev" title="Installation process" href="installation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation process"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="configuration-files">
+<span id="configfile"></span><h1>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h1>
+<p>There are a few config files used by RR3 and they&#8217;re stored in <strong>/opt/rr3/application/config/</strong> folder.</p>
+<div class="section" id="config-php">
+<h2>config.php<a class="headerlink" href="#config-php" title="Permalink to this headline">¶</a></h2>
+<p>This is standard config file for codeigniter based application. It can be copied from <strong>/opt/codeigniter/application/config/config.php</strong> file. Please follow Codeigniter documentation. In most cases it will be default with some below exceptions:</p>
+<p>Please follow Codeigniter documentation. In most cases it will be default with some below exceptions:</p>
+<ul>
+<li><p class="first">base_url</p>
+<div class="code php highlight-python"><pre>$config['base_url']     = 'https://yourhost.example.com/rr3/';</pre>
+</div>
+</li>
+<li><p class="first">index_page</p>
+<div class="code php highlight-python"><pre>$config['index_page'] = '';</pre>
+</div>
+</li>
+<li><p class="first">log_threshold - you decide what log level</p>
+</li>
+<li><p class="first">log_path - set location for example:</p>
+<div class="code php highlight-python"><pre>$config['log_path'] = '/var/log/rr3/';</pre>
+</div>
+</li>
+<li><p class="first">encryption_key - you need to set encryption key. you can generate with</p>
+</li>
+</ul>
+<blockquote>
+<div><div class="code bash highlight-python"><pre>tr -c -d '0123456789abcdefghijklmnopqrstuvwxyz' &lt;/dev/urandom | dd bs=32 count=1 2&gt;/dev/null;echo</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>sess_driver - please uset native  drive, example:</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['sess_driver']                  = 'native';
+$config['sess_valid_drivers']   = array();
+$config['sess_cookie_name']             = 'ci_session';
+$config['sess_expiration']              = 7200;
+$config['sess_expire_on_close'] = FALSE;
+$config['sess_encrypt_cookie']  = FALSE;
+$config['sess_use_database']    = FALSE;
+$config['sess_table_name']              = 'ci_sessions';
+$config['sess_match_ip']                = FALSE;
+$config['sess_match_useragent'] = TRUE;
+$config['sess_time_to_update']  = 300;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>csrf_protection - set to TRUE, however as csrf_regenerate set to FALSE as there is a problem with ajax forms</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'csrf_test_name';
+$config['csrf_cookie_name'] = 'csrf_cookie_name';
+$config['csrf_expire'] = 7200;
+$config['csrf_regenerate'] = FALSE;
+$config['csrf_exclude_uris'] = array();</pre>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="config-rr-php">
+<h2>config_rr.php<a class="headerlink" href="#config-rr-php" title="Permalink to this headline">¶</a></h2>
+<p>As template please use <strong>config_rr-default.php</strong></p>
+<ul>
+<li><p class="first">pageTitlePref - if set then is included into every page&#8217;s title as prefix, example:</p>
+<div class="code php highlight-python"><pre>$config['pageTitlePref'] = 'RR3:: ';</pre>
+</div>
+</li>
+<li><p class="first">rr_setup_allowed - it should be always be set to FALSE. TRUE only when setup is initialized</p>
+<div class="code php highlight-python"><pre>$config['rr_setup_allowed'] = FALSE;</pre>
+</div>
+</li>
+<li><p class="first">site_logo - set filename to be used as main logo in top-left corner. File should be stored in <strong>/opt/rr3/images/</strong> folder.</p>
+<div class="code php highlight-python"><pre>$config['site_logo'] = 'logo-default.png';</pre>
+</div>
+</li>
+<li><p class="first">syncpass - please generate strong key. It&#8217;s used by synchronization - interfederation tool</p>
+</li>
+</ul>
+<blockquote>
+<div><div class="code bash highlight-python"><pre>tr -c -d '0123456789abcdefghijklmnopqrstuvwxyz' &lt;/dev/urandom | dd bs=32 count=1 2&gt;/dev/null;echo</pre>
+</div>
+<p>then assign generated value to attr like:</p>
+<div class="code php highlight-python"><pre>$config['syncpass'] = 'qp7zwgm6vqzptb87uoe7zzfiq1gx1oa6';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>support_mailto - set support email. For example this email is displayed as contact mail.</li>
+<li>rr_rm_member_from_fed - right now it must be set to TRUE</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_rm_member_from_fed'] = TRUE;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>rr_logobaseurl - if NULL then <strong>base_url</strong> is set. It&#8217;s used for generating Metadata logo paths if RR3 is a source of logo.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_logobaseurl'] = NULL;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>rr_logouriprefix - used together with <strong>rr_logobaseurl</strong> . By default <strong>logos</strong> directory is used.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_logouriprefix'] = 'logos/';</pre>
+</div>
+<p>The url generated will look like: <em>https://yourhost.example.com/rr3/logos/example-logo.png</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you decide to use different location but under <strong>/opt/rr3</strong> then remember to exclude the folder in apache rewtite rules</p>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>rr_logoupload - it decides wether user may upload logos to the system. By default set to FALSE</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_logoupload'] = FALSE;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>rr_logoupload_relpath -  if <strong>rr_logoupload</strong> is TRUE then you can decide the defaul location for uploaded logos by users. Bu default you can set <strong>logos/</strong> . You may decide to review every uploaded image the please create another folder under <strong>/opt/rr3</strong> and set its name. The you will need to copy manually reviewed logos from this location into &#8220;logos&#8221; folder.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_logoupload'] = 'logos/';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>rr_logo_maxwidth, rr_logo_maxheight - if <strong>rr_logoupload</strong> is TRUE then  you can decide maximum allowed dimesions in px.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_logo_maxwidth'] = 300;
+$config['rr_logo_maxheight'] = 300;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>rr_logo_types -  applied when <strong>rr_logoupload</strong> is TRUE. What type of logos is allowed to be uploaded. Recommended : png</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_logo_types'] = 'png|jpg';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>rr_logo_maxsize - applied when <strong>rr_logoupload</strong> is TRUE. Maximum allowed size upladed image in KB</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['rr_logo_maxsize'] = 2000;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>autoregister_federated - if federated access to RR3 is enabled you can decide wether user who used federated access but doesn&#8217;t exist in RR3 should be autoprovisioned or not. Strongly recommend to not allow it. If it&#8217;s set to FALSE then new (not registered) user will get error page with contact support email address.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['autoregister_federated'] = FALSE;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>register_defaultrole - if you decide to enable <strong>autoregister_federated</strong> then please set default role with lowest permissions. In this case please set &#8220;Guest&#8221;</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['register_defaultrole'] = 'Guest';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Shib_required - define required attributes needed to be provided by IdP. By default please require Shib_username and Shib_mail which their mapping are defined next</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['Shib_required'] = array('Shib_mail','Shib_username');</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Shib_username - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as username in RR3. Strongly recommend eppn or othe unique scoped attr</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['Shib_username'] = 'eppn';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Shib_mail - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as user&#8217;s email address in RR3. By default mail</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['Shib_mail'] = 'mail';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Shibboleth - is array containing information wether shibboleth based federated access should be enabled, uri which resolves shibboleth assertion and logout uri which is called in iframe during RR3 logout process - it allows to destroy both RR3 and shibboleth session</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['Shibboleth']['loginapp_uri'] = 'auth/fedauth';
+$config['Shibboleth']['logout_uri'] = '/Shibboleth.sso/Logout';
+$config['Shibboleth']['enabled'] = TRUE;</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you enable federated access then you need to protect <strong>auth/fedauth</strong> by shibboleth in apache configuration</p>
+<p class="last">Also when <strong>$config[&#8216;Shibboleth&#8217;][&#8216;enabled&#8217;] = TRUE</strong> you will see &#8220;Federate login&#8221; button on login page.</p>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>nameids - array of allowed NameID in RR3</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['nameids'] = array(
+     'urn:mace:shibboleth:1.0:nameIdentifier' =&gt; 'urn:mace:shibboleth:1.0:nameIdentifier',
+     'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' =&gt; 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+     'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'=&gt;'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
+     'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' =&gt; 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
+     'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' =&gt; 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+             );</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>metadata_validuntil_days - the value in days give how long generated metadata is valid - in metadata <strong>validUntil</strong> is generated datetime from now + number of days</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['metadata_validuntil_days'] = '7';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>policy_dropdown - dropdown element for attribute policy - this config will be removed in future release, but right now is mandatory.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['policy_dropdown'] = array('0' =&gt; 'never', '1' =&gt; 'permit only if required', '2' =&gt; 'permit if required or desired');</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>authorities</li>
+<li>includeRegistrationAuth</li>
+<li>registrationAutority</li>
+<li>load_registrationAutority</li>
+<li>fedloginbtn - optional value used to replace default text for federated button in login form. Example can be like this:</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['fedloginbtn'] = 'Login via Edugate or Social Media';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>arp_cache_time - set time in seconds how long generated array for AttributeReleasePolicy XML file (shibboleth format) should be in cache.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['arp_cache_time'] = 1200;</pre>
+</div>
+<p>metadata_cache_time</p>
+</div></blockquote>
+<ul class="simple">
+<li>geocenterpoint - this option allows you to define default lang/lat for loaded map when no geo points are set. If not set then (-6.247856140071235,53.34961629053703). Example:</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['geocenterpoint'] = array('-9.126273968749956','38.684286647936936');</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>memcached - it&#8217;s optional but please use memcached.php config file instead</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['memcached'] = array(
+               'optional'=&gt;array(
+                      'hostname'  =&gt; 'localhost',
+                      'port'      =&gt; '11211',
+                      'weight'    =&gt; '1'
+                      )
+               );</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>cacheprefix - add prefix to each key cached object</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['cacheprefix'] = 'rr3_';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>translator_access - (optional) allows permitted user to modify existing translation. You can set only one person per language.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['translator_access']['pl'] = 'user444@example';</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>gearman - (optional) boolean value - whether to enable gearman. There some benefits using gearman.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['gearman'] = TRUE;</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>gearmanconf - used if  <strong>$config[&#8216;gearman&#8217;]</strong>  is set TRUE. Details about gearman-job-server</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['gearmanconf']['jobserver'] = array(array('ip'=&gt;'127.0.0.1','port'=&gt;'4730'));</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>disable_extcirclemeta - (optional) but in most cases should be set to TRUE. It defines whether should or shouldnt generate circle metadata for providers which are set external.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><pre>$config['disable_extcirclemeta'] = TRUE;</pre>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="email-php">
+<h2>email.php<a class="headerlink" href="#email-php" title="Permalink to this headline">¶</a></h2>
+<p>You can use <strong>email-default.php</strong> as a template. Ther are two parts:</p>
+<ol class="arabic">
+<li><p class="first">connection details</p>
+<div class="code php highlight-python"><pre>$config['protocol'] = 'smtp';
+$config['smtp_host'] = "SMTP_HOST";
+$config['smtp_port'] = 25;
+$config['charset'] = 'utf-8';
+$config['crlf'] = "\r\n";
+$config['newline'] = "\r\n";
+$config['wordwrap'] = TRUE;
+$config['useragent']='ResourceRegistr3';
+$config['smtp_user'] = 'USER';
+$config['smtp_pass'] = 'PASS';
+$config['smtp_crypto'] = 'tls';</pre>
+</div>
+</li>
+<li><p class="first">usage in RR3</p>
+</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first">mail_sending_active - boolean FALSE/TRUE - if FALSE then not mails are sent at all. It takes presedence..</p>
+<div class="code php highlight-python"><pre>$config['mail_sending_active'] = TRUE;</pre>
+</div>
+</li>
+<li><p class="first">notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in RR3</p>
+<div class="code php highlight-python"><pre>$config['notify_if_provider_rm_from_fed'] = TRUE;</pre>
+</div>
+</li>
+<li><p class="first">notify_if_queue_rejected - boolean - if TRUE then requestere will be notified by email if his request is rejected.</p>
+<div class="code php highlight-python"><pre>$config['notify_if_queue_rejected'] = TRUE;</pre>
+</div>
+</li>
+<li><p class="first">notify_admins_if_queue_accepted</p>
+</li>
+<li><p class="first">notify_requester_if_queue_accepted</p>
+</li>
+<li><p class="first">mail_from</p>
+</li>
+<li><p class="first">fake_mail_from</p>
+</li>
+<li><p class="first">reply_to</p>
+</li>
+<li><p class="first">mail_subject_suffix</p>
+</li>
+<li><p class="first">mail_header</p>
+</li>
+<li><p class="first">mail_footer</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="database-php">
+<h2>database.php<a class="headerlink" href="#database-php" title="Permalink to this headline">¶</a></h2>
+<p>this file contains information about connection to dabase.
+As template <strong>database-default.php</strong> can be used. Some of options are ignored by doctrine. So please focus and change username, password, database</p>
+<div class="code php highlight-python"><pre>$active_group = 'default';
+$active_record = TRUE;
+
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'CHANGEME';
+$db['default']['password'] = 'CHANGEME';
+$db['default']['database'] = 'CHANGEME';
+$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbprefix'] = '';
+$db['default']['pconnect'] = TRUE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = '';
+$db['default']['char_set'] = 'utf8';
+$db['default']['dbcollat'] = 'utf8_general_ci';
+$db['default']['swap_pre'] = '';
+$db['default']['autoinit'] = TRUE;
+$db['default']['stricton'] = FALSE;</pre>
+</div>
+</div>
+<div class="section" id="memcached-php">
+<h2>memcached.php<a class="headerlink" href="#memcached-php" title="Permalink to this headline">¶</a></h2>
+<p>file contains information about available memcached servers
+As template <strong>memcached-default.php</strong> can be used - default</p>
+<div class="code php highlight-python"><pre>$config = array(
+       'default' =&gt; array(
+               'hostname' =&gt; '127.0.0.1',
+               'port'     =&gt; '11211',
+               'weight'   =&gt; '1',
+       ),
+);</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you don&#8217;t set this file you may get Notice/Error on some pages.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuration files</a><ul>
+<li><a class="reference internal" href="#config-php">config.php</a></li>
+<li><a class="reference internal" href="#config-rr-php">config_rr.php</a></li>
+<li><a class="reference internal" href="#email-php">email.php</a></li>
+<li><a class="reference internal" href="#database-php">database.php</a></li>
+<li><a class="reference internal" href="#memcached-php">memcached.php</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation process</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="register.html"
+                        title="next chapter">Registration process</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation process"
+             >previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Janusz Ulanowski.
+    </div>
+  </body>
+</html>

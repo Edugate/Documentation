@@ -1,0 +1,169 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Registration process &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Identity/Service Providers overview" href="entitydetails.html" />
+    <link rel="prev" title="Configuration files" href="configfile.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="entitydetails.html" title="Identity/Service Providers overview"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="configfile.html" title="Configuration files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="registration-process">
+<h1>Registration process<a class="headerlink" href="#registration-process" title="Permalink to this headline">¶</a></h1>
+<p>You can register two type of services: Identity Providers and Service Providers.
+As registration form is filled and posted the request is sent for approval.
+Only users with admin rights may approve the request.</p>
+<div class="section" id="identity-provider-registration-form">
+<h2>Identity Provider registration form<a class="headerlink" href="#identity-provider-registration-form" title="Permalink to this headline">¶</a></h2>
+<p>Definition for <a class="reference internal" href="glossary.html#term-identity-provider"><em class="xref std std-term">Identity Provider</em></a></p>
+<a class="reference internal image-reference" href="_images/idpregister.png"><img alt="IdP Register Form" src="_images/idpregister.png" style="width: 565.8px; height: 527.4px;" /></a>
+<p>The form is available on <a class="reference external" href="https://youhost/alias/providers/idp_registration">https://youhost/alias/providers/idp_registration</a></p>
+<dl class="docutils">
+<dt>Home Organization</dt>
+<dd>The name of your organization</dd>
+<dt><a class="reference internal" href="glossary.html#term-federation"><em class="xref std std-term">Federation</em></a></dt>
+<dd>Federation you want to join. If you want to apply later please select &#8220;&gt;&gt; None &lt;&lt;&#8221;</dd>
+<dt><a class="reference internal" href="glossary.html#term-metadata"><em class="xref std std-term">Metadata</em></a> location</dt>
+<dd>You can add location of your provider&#8217;s metadata as additional information for FMP administrator</dd>
+<dt><a class="reference internal" href="glossary.html#term-entityid"><em class="xref std std-term">EntityID</em></a></dt>
+<dd>This is unique ID of a provider. About the naming please follow <a class="reference external" href="https://wiki.shibboleth.net/confluence/display/SHIB2/EntityNaming">https://wiki.shibboleth.net/confluence/display/SHIB2/EntityNaming</a></dd>
+<dt>PrivacyStatement URL</dt>
+<dd>Optional but strongly recommended URL to your Organization&#8217;s Privacy Statement</dd>
+<dt><a class="reference internal" href="glossary.html#term-scope"><em class="xref std std-term">Scope</em></a></dt>
+<dd>Domain of your Organization</dd>
+<dt>Binding Type of Single-Sign-On Handler</dt>
+<dd>Binding Type of Single-Sign-On Handler</dd>
+<dt><a class="reference internal" href="glossary.html#term-idp"><em class="xref std std-term">IdP</em></a> Signing Certificate</dt>
+<dd>Certificate used for signing/encrypting SAML requests/responses
+This certificate is recommened to be selfsigned as some Service Providers might not work with your IdP in the future</dd>
+<dt>Primary contact</dt>
+<dd>Fill information about yourself</dd>
+</dl>
+</div>
+<div class="section" id="service-provider-registration-form">
+<h2>Service Provider registration form<a class="headerlink" href="#service-provider-registration-form" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/spregister.png"><img alt="SP Register Form" src="_images/spregister.png" style="width: 567.6px; height: 488.4px;" /></a>
+<p>The form is available on <a class="reference external" href="https://youhost/alias/providers/sp_registration">https://youhost/alias/providers/sp_registration</a></p>
+</div>
+<div class="section" id="idp-sp-approval-process">
+<h2>IdP/SP Approval Process<a class="headerlink" href="#idp-sp-approval-process" title="Permalink to this headline">¶</a></h2>
+<p>When Identity or Service Provider is registered then it will appear in queue list in the system. Only users with admin right may approve it.</p>
+<p>See snapshot</p>
+<a class="reference internal image-reference" href="_images/queuelist.png"><img alt="Queue list" src="_images/queuelist.png" style="width: 564.0px; height: 218.4px;" /></a>
+<p>Details of the request</p>
+<a class="reference internal image-reference" href="_images/queuedetails.png"><img alt="details" src="_images/queuedetails.png" style="width: 561.0px; height: 462.0px;" /></a>
+<p>As you review the request you can reject or approve it. As soon as it&#8217;s been approved administrator may need to delegate &#8220;sufficient rights&#8221; to the requester.</p>
+</div>
+<div class="section" id="federation-registration-form">
+<h2>Federation registration form<a class="headerlink" href="#federation-registration-form" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/fedregister.png"><img alt="federation register" src="_images/fedregister.png" style="width: 553.8px; height: 367.8px;" /></a>
+<p>The form is available on <a class="reference external" href="https://youhost/alias/federations/federation_registration">https://youhost/alias/federations/federation_registration</a></p>
+</div>
+<div class="section" id="federation-approval-process">
+<h2>Federation approval process<a class="headerlink" href="#federation-approval-process" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Registration process</a><ul>
+<li><a class="reference internal" href="#identity-provider-registration-form">Identity Provider registration form</a></li>
+<li><a class="reference internal" href="#service-provider-registration-form">Service Provider registration form</a></li>
+<li><a class="reference internal" href="#idp-sp-approval-process">IdP/SP Approval Process</a></li>
+<li><a class="reference internal" href="#federation-registration-form">Federation registration form</a></li>
+<li><a class="reference internal" href="#federation-approval-process">Federation approval process</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="configfile.html"
+                        title="previous chapter">Configuration files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="entitydetails.html"
+                        title="next chapter">Identity/Service Providers overview</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="entitydetails.html" title="Identity/Service Providers overview"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="configfile.html" title="Configuration files"
+             >previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Janusz Ulanowski.
+    </div>
+  </body>
+</html>

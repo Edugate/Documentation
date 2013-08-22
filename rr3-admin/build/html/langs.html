@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Language &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Identity/Service Providers overview" href="entitydetails.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="entitydetails.html" title="Identity/Service Providers overview"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="language">
+<h1>Language<a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h1>
+<p>RR3 supports multilanguage. Loading language is defined in <strong>/opt/rr3/application/core/MY_Controller.php</strong>
+Firstly english language is loaded and then cookie called <strong>rrlang</strong> is checked. If its value is in range allowed languages then
+selected language is selected otherwise english is used.
+Files if langs definitions are located in <strong>/opt/rr3/application/language/</strong>. Every lang has own folder and all of them except english are based to letter lang code.</p>
+<div class="section" id="supported-languages">
+<h2>Supported languages<a class="headerlink" href="#supported-languages" title="Permalink to this headline">¶</a></h2>
+<p>You can select only one of below supported languages</p>
+<ul class="simple">
+<li>English (EN)</li>
+<li>Italian (IT)</li>
+<li>Lithuanian (LT)</li>
+<li>Polish (PL)</li>
+<li>Portuguese (PT)</li>
+<li>Spanish (ES)</li>
+</ul>
+</div>
+<div class="section" id="translation">
+<h2>Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h2>
+<p>To modify existing translation open <strong>https://yourhost.example.com/rr3/manage/translator/tolanguage/${langCode}</strong> where <strong>${langCode}</strong> is two-letter lang code like es, pt, pl etc  can be any of allowed langs. Example URL for polish translation: <strong>https://yourhost.example.com/rr3/manage/translator/tolanguage/pl</strong>.</p>
+<p>Next thing is to define permission who can translate and into what language. You need to set it in <strong>config_rr.php</strong> file. For example to give polish translation permission to user with username <strong>joebloggs</strong> add below line into <strong>config_rr.php</strong></p>
+<div class="code php highlight-python"><pre>$config['translator_access']['pl'] = 'joebloggs';</pre>
+</div>
+<p>Also make sure that lang file(s) in <strong>/opt/rr3/application/language/pl</strong> are writable by apache owner</p>
+<p>Please contribute your changes to main code on github</p>
+</div>
+<div class="section" id="add-new-language">
+<h2>Add new language<a class="headerlink" href="#add-new-language" title="Permalink to this headline">¶</a></h2>
+<p>If you want to add language which is not supported nor allowed yet you need to make some temporary changes.</p>
+<ol class="arabic simple">
+<li>the best option is firstly to send request on Github to add lang to allowed group. Then pull new revision and you can start translating and after even partial translation please contribute your code.</li>
+<li>If you want to do it on your own. then you need to create and modify few files. For instance we want you create German translation:</li>
+</ol>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">create folder <strong>de</strong> in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english</p>
+<div class="code bash highlight-python"><pre>mkdir /opt/rr3/application/language/de
+cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/</pre>
+</div>
+<p>and set proper owner/permissions</p>
+</li>
+<li><p class="first">open /opt/rr3/application/controllers/manage/Translator.php</p>
+<p>find <strong>$allowedlangs</strong> in</p>
+<div class="code php highlight-python"><pre>public function tolanguage($l)
+{
+
+}</pre>
+</div>
+<p>and add new language code. Then you need to add below line into <strong>config_rr.php</strong> file</p>
+<div class="code php highlight-python"><pre>$config['translator_access']['de'] = 'your username';</pre>
+</div>
+</li>
+<li><p class="first">This part adds your language to selection form (top-right corner of the website)</p>
+<p>open /opt/rr3/application/view/page.php</p>
+<p>find part</p>
+<div class="code php highlight-python"><pre>$langs = array(
+             'en' =&gt; array('path'=&gt;'english','val'=&gt;'english'),
+             'it' =&gt; array('path'=&gt;'it','val'=&gt;'italiano'),
+             'lt' =&gt; array('path'=&gt;'lt','val'=&gt;'lietuvos'),
+             'pl' =&gt; array('path'=&gt;'pl','val'=&gt;'polski'),
+             'pt' =&gt; array('path'=&gt;'pt','val'=&gt;'português'),
+             'es' =&gt; array('path'=&gt;'es','val'=&gt;'española'),
+            );</pre>
+</div>
+<p>and add definition for German language, it should look like</p>
+<div class="code php highlight-python"><pre>$langs = array(
+             'de' =&gt; array('path'=&gt;'de','val'=&gt;'deutsch'),
+             'en' =&gt; array('path'=&gt;'english','val'=&gt;'english'),
+             'it' =&gt; array('path'=&gt;'it','val'=&gt;'italiano'),
+             'lt' =&gt; array('path'=&gt;'lt','val'=&gt;'lietuvos'),
+             'pl' =&gt; array('path'=&gt;'pl','val'=&gt;'polski'),
+             'pt' =&gt; array('path'=&gt;'pt','val'=&gt;'português'),
+             'es' =&gt; array('path'=&gt;'es','val'=&gt;'española'),
+            );</pre>
+</div>
+</li>
+<li><p class="first">modify ajax</p>
+<p>open <strong>/opt/rr3/application/controllers/Ajax.php</strong></p>
+<p>and find function</p>
+<div class="code php highlight-python"><pre>public function changelanguage($language)
+{
+   if ($this-&gt;input-&gt;is_ajax_request())
+   {
+       log_message('debug', 'ajax');
+       $language = substr($language, 0, 2);
+       if ($language === 'pl')
+       {
+           $cookie_value = 'pl';
+       }
+       elseif ($language === 'pt')
+       {
+           $cookie_value = 'pt';
+       }</pre>
+</div>
+<p>And again add definition for your language</p>
+</li>
+<li><p class="first">This last part that allows to switch into your new language</p>
+<p>open <strong>/opt/rr3/application/core/MY_Controller.php</strong></p>
+<p>find</p>
+<div class="code php highlight-python"><pre>$langs = array('pl','pt','it','lt','es');</pre>
+</div>
+<p>and add you language.</p>
+</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Language</a><ul>
+<li><a class="reference internal" href="#supported-languages">Supported languages</a></li>
+<li><a class="reference internal" href="#translation">Translation</a></li>
+<li><a class="reference internal" href="#add-new-language">Add new language</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="entitydetails.html"
+                        title="previous chapter">Identity/Service Providers overview</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="entitydetails.html" title="Identity/Service Providers overview"
+             >previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Janusz Ulanowski.
+    </div>
+  </body>
+</html>

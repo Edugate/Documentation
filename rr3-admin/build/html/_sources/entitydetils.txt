@@ -1,0 +1,15 @@
+Identity/Service Providers overview
+***********************************
+
+Listing providers
+=================
+
+.. image:: images/menulist.png
+    :scale: 50%
+    :alt: menu list idps
+
+
+.. image:: images/listproviders.png
+    :scale: 50%
+    :alt: menu list idps
+

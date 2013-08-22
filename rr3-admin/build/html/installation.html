@@ -1,0 +1,285 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation process &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Configuration files" href="configfile.html" />
+    <link rel="prev" title="Welcome to RR3 - Administration guide!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="configfile.html" title="Configuration files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to RR3 - Administration guide!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation-process">
+<h1>Installation process<a class="headerlink" href="#installation-process" title="Permalink to this headline">¶</a></h1>
+<p>In the documentation there predefined:</p>
+<ul class="simple">
+<li>website <a class="reference external" href="https://yourhost.example.com/rr3">https://yourhost.example.com/rr3</a></li>
+<li>Codeigniter framework will be installed in  <em>/opt/codeigniter</em></li>
+<li>ResourceRegistry3 source code will stored in <em>/opt/rr3</em></li>
+</ul>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>mysql &gt; 5.1  (it should work with postgres etc but not tested)</li>
+<li>PHP &gt;= 5.3 with modules: php-apc, php5-cli, php5-curl, php5-mysql, php5-mcrypt, php5-memcached</li>
+<li>Apache &gt;= 2.2 with enabled modules: rewrite, unique_id</li>
+<li>Shibboleth-SP &gt;= 2.4 - optional needed for federated access</li>
+<li>Codeigniter framework 3.0 - it&#8217;s not official release yet from git://github.com/EllisLab/CodeIgniter.git</li>
+</ul>
+<blockquote>
+<div><div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">please use release/3.0 branch</p>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Doctrine &gt; 2.3.3 <a class="reference external" href="http://www.doctrine-project.org/downloads/DoctrineORM-2.3.3-full.tar.gz">http://www.doctrine-project.org/downloads/DoctrineORM-2.3.3-full.tar.gz</a> into APP_PATH/libraries/Doctrine</li>
+</ul>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Doctrine it will be downloaded within install script</p>
+</div>
+</div></blockquote>
+<ul>
+<li><p class="first">Zend Framework</p>
+<p>Only Zend-ACL (Acl dir, Acl.php,  Exception.php) part from <a class="reference external" href="http://framework.zend.com/download/current/">http://framework.zend.com/download/current/</a>
+into APP_PATH/libraries/Zend</p>
+</li>
+</ul>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Zend-ACL it will be downloaded within install script</p>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Memcached server on the same host</li>
+<li>gearman-php, gearnam-job-server - allows to enable additional features in RR3</li>
+</ul>
+</div>
+<div class="section" id="download-rr3-and-codeigniter">
+<h2>Download RR3 and Codeigniter<a class="headerlink" href="#download-rr3-and-codeigniter" title="Permalink to this headline">¶</a></h2>
+<p>In the time writing this document there wasn&#8217;t official release of Codeigniter version 3.0.
+So we are going to use source code from GitHub repository</p>
+<div class="code bash highlight-python"><pre>git clone git://github.com/EllisLab/CodeIgniter.git /opt/codeigniter
+cd /opt/codeigniter
+git checkout -b release/3.0 origin/release/3.0
+git pull</pre>
+</div>
+<p>ResourceRegistry3 is published on GITHUB <a class="reference external" href="https://github.com/Edugate/ResourceRegistry">https://github.com/Edugate/ResourceRegistry</a>  under MIT License.</p>
+<div class="code bash highlight-python"><pre>git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
+cd /opt/rr3</pre>
+</div>
+<p>Set <em>index.php</em> file</p>
+<div class="code bash highlight-python"><pre>cp /opt/codeigniter/index.php /opt/rr3/</pre>
+</div>
+<p>and modify it. You need to change default path to system folder. Open <em>/opt/rr3/index.php</em> file and find</p>
+<div class="code php highlight-python"><pre>$system_path = 'system';</pre>
+</div>
+<p>and change to</p>
+<div class="code php highlight-python"><pre>$system_path = '/opt/codeigniter/system';</pre>
+</div>
+<p>You may also want to set production environment. To do it find line</p>
+<div class="code php highlight-python"><pre>define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');</pre>
+</div>
+<p>and before that line add</p>
+<div class="code php highlight-python"><pre>$_SERVER['CI_ENV'] = 'production';</pre>
+</div>
+</div>
+<div class="section" id="apache-php-configuration">
+<h2>Apache/PHP configuration<a class="headerlink" href="#apache-php-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="code apache highlight-python"><pre>Alias /rr3 /opt/rr3
+  &lt;Directory /opt/rr3&gt;
+
+        #  you may need to uncomment next line
+        #  Require all granted
+
+          RewriteEngine On
+          RewriteBase /rr3
+          RewriteCond $1 !^(Shibboleth\.sso|index\.php|logos|signedmetadata|flags|images|app|schemas|fonts|styles|images|js|robots\.txt|pub|includes)
+          RewriteRule  ^(.*)$ /rr3/index.php?/$1 [L]
+  &lt;/Directory&gt;
+  &lt;Directory /opt/rr3/application&gt;
+          Order allow,deny
+          Deny from all
+  &lt;/Directory&gt;</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">you may need to add below into <strong>&lt;Directory /opt/rr3&gt;</strong> section</p>
+</div>
+</div>
+<div class="section" id="mysql">
+<h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<p>You need to create database and set permissions for instance:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre><span class="n">DBUSER</span> <span class="o">=</span> <span class="s">&#39;rr3user&#39;</span>
+<span class="n">DBPASS</span> <span class="o">=</span> <span class="s">&#39;rr3pass&#39;</span>
+<span class="n">DATABASENAME</span><span class="o">=</span> <span class="s">&#39;rr3&#39;</span>
+</pre></div>
+</div>
+<p>Log in to mysql as superuser and run:</p>
+<div class="code bash highlight-python"><pre>mysql&gt; create database rr3 CHARACTER SET utf8 COLLATE utf8_general_ci;
+mysql&gt; grant all on rr3.* to rr3user@'localhost' identified by 'rr3pass';
+mysql&gt; flush privileges;</pre>
+</div>
+</div>
+<div class="section" id="install-sh-script">
+<h2>install.sh script<a class="headerlink" href="#install-sh-script" title="Permalink to this headline">¶</a></h2>
+<p>Now it&#8217;s time to run install.sh script. Go to <strong>/opt/rr3/</strong></p>
+<div class="code bash highlight-python"><pre>./install.sh</pre>
+</div>
+<p>What it does is downloading Doctrine, Zend-ACL, Geshi, XMLseclib and exctract them.
+Then you need to set required config files - you can copy templates and customize them.
+Stay in  <strong>/opt/rr3/</strong></p>
+<div class="code bash highlight-python"><pre>cp config-default.php -&gt; config.php
+cp config_rr-default.php -&gt; config_rr.php
+cp database-default.php -&gt; database.php
+cp email-default.php -&gt; email.php
+cp memcached-default.php -&gt; memcached.php</pre>
+</div>
+<p>Please follow section <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a></p>
+<p>Set permission - writeable by apache user. Ralive path of folders need to be set:</p>
+<ul class="simple">
+<li>application/cache</li>
+<li>application/models/Proxies</li>
+</ul>
+</div>
+<div class="section" id="database-populate-tables">
+<h2>Database - populate tables<a class="headerlink" href="#database-populate-tables" title="Permalink to this headline">¶</a></h2>
+<p>To populate tables we are going to use doctrine tool.</p>
+<p>Go to <strong>application</strong> folder and you should see <strong>doctrine</strong> file. It should be executable.</p>
+<div class="code bash highlight-python"><pre>./doctrine</pre>
+</div>
+<p>You will get many available options, be carefull. To populate tables please run below command. It will parse all entities in application/model</p>
+<div class="code bash highlight-python"><pre>./doctrine orm:schema-tool:create</pre>
+</div>
+<p>If you going to run application in production mode then you also need to regenerate proxies:</p>
+<div class="code bash highlight-python"><pre>./doctrine orm:generate-proxies</pre>
+</div>
+<p>and verify owner of application/models/Proxies/* - apache user should be owner</p>
+<p>In the future after every update you will need to run</p>
+<div class="code bash highlight-python"><pre>./doctrine orm:schema-tool:update
+./doctrine orm:generate-proxies</pre>
+</div>
+</div>
+<div class="section" id="final-setup-step">
+<span id="id1"></span><h2>Final setup step<a class="headerlink" href="#final-setup-step" title="Permalink to this headline">¶</a></h2>
+<p>This is the last step in Installation process.
+To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
+<div class="code php highlight-python"><pre>$config['rr_setup_allowed'] = TRUE;</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">remember to change it back to FALSE</p>
+</div>
+<p>Open page <strong>https://yourhost.example.com/rr3/setup</strong> and fill the form.</p>
+<p>After submit user you entered will be in Administration group.</p>
+<p>Again: <strong>please change rr_setup_allowed to FALSE</strong></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation process</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#download-rr3-and-codeigniter">Download RR3 and Codeigniter</a></li>
+<li><a class="reference internal" href="#apache-php-configuration">Apache/PHP configuration</a></li>
+<li><a class="reference internal" href="#mysql">MySQL</a></li>
+<li><a class="reference internal" href="#install-sh-script">install.sh script</a></li>
+<li><a class="reference internal" href="#database-populate-tables">Database - populate tables</a></li>
+<li><a class="reference internal" href="#final-setup-step">Final setup step</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to RR3 - Administration guide!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="configfile.html"
+                        title="next chapter">Configuration files</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="configfile.html" title="Configuration files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to RR3 - Administration guide!"
+             >previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Janusz Ulanowski.
+    </div>
+  </body>
+</html>
