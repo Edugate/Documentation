@@ -186,6 +186,9 @@ As template please use **config_rr-default.php**
 
   $config['Shib_mail'] = 'mail';
 
+
+.. _configfilefederation:
+
 * Shibboleth - is array containing information wether shibboleth based federated access should be enabled, uri which resolves shibboleth assertion and logout uri which is called in iframe during RR3 logout process - it allows to destroy both RR3 and shibboleth session
 
  .. code:: php

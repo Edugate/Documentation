@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Enable Federated access &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Upgrading" href="update.html" />
+    <link rel="prev" title="Language" href="langs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="update.html" title="Upgrading"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="langs.html" title="Language"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="enable-federated-access">
+<h1>Enable Federated access<a class="headerlink" href="#enable-federated-access" title="Permalink to this headline">¶</a></h1>
+<p>RR3 supports both local authentication and federated access. Right now shibboleth-sp is supported. There will be support for simpleSAMLphp too.</p>
+<p>Obviusly you need to have shibboleth-sp configured.</p>
+<ol class="arabic">
+<li><p class="first">Enable federated access in RR3</p>
+<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a> :</p>
+<p>autoregister_federated, register_defaultrole, Shib_required, Shib_username, Shib_mail, Shibboleth</p>
+</li>
+<li><p class="first">Next thing is to protect specific URI in apache with shibboleth. Here is example part from apache config.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">remove or replace ALIAS with your base location for RR3</p>
+</div>
+<div class="code apache highlight-python"><pre>&lt;Location /ALIAS/auth/fedauth&gt;
+  Options -Indexes FollowSymLinks MultiViews
+  Order allow,deny
+  Allow from all
+  AuthType shibboleth
+  ShibRequireSession On
+  require valid-user
+&lt;/Location&gt;
+&lt;Location /ALIAS/index.php/auth/fedauth&gt;
+  Options -Indexes FollowSymLinks MultiViews
+  Order allow,deny
+  Allow from all
+  AuthType shibboleth
+  ShibRequireSession On
+  require valid-user
+ &lt;/Location&gt;</pre>
+</div>
+</li>
+<li><p class="first">You may also want to enable embeded DiscoveryService. To get this working you need to have DiscoFeed enabled in shibboleth2.xml file:</p>
+<div class="code apache highlight-python"><pre>&lt;Handler type="DiscoveryFeed" Location="/DiscoFeed"/&gt;</pre>
+</div>
+<p>enable and set as default</p>
+<div class="code apache highlight-python"><pre>&lt;SessionInitiator type="Chaining" Location="/DS" id="DS" isDefault="true"  relayState="cookie"&gt;
+   &lt;SessionInitiator type="SAML2" acsIndex="1" template="bindingTemplate.html"/&gt;
+   &lt;SessionInitiator type="Shib1" acsIndex="5"/&gt;
+   &lt;SessionInitiator type="SAMLDS" URL="https://yourHOST/ALIAS/eds"/&gt;
+&lt;/SessionInitiator&gt;</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">replace URL=&#8221;<a class="reference external" href="https://yourHOST/ALIAS/eds">https://yourHOST/ALIAS/eds</a>&#8221; with yours</p>
+</div>
+</li>
+</ol>
+<p>Now you should be able to see both local authentication part and federated access.</p>
+<a class="reference internal image-reference" href="_images/loginform1.png"><img alt="Login Form" src="_images/loginform1.png" style="width: 578.0px; height: 376.0px;" /></a>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="langs.html"
+                        title="previous chapter">Language</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="update.html"
+                        title="next chapter">Upgrading</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="update.html" title="Upgrading"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="langs.html" title="Language"
+             >previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Janusz Ulanowski.
+    </div>
+  </body>
+</html>

@@ -25,6 +25,7 @@ Contents:
    installation.rst
    configfile.rst
    langs.rst
+   federatedconf.rst
    update.rst
    register.rst
    entitydetails.rst
