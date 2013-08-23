@@ -3,8 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to RR3 - Administration guide!
+Welcome to RR3 - Administration guide! (Draft) - updated: 2013/08/22
 =====================================
+
+.. note::
+ 
+ The documentation is not final version yet.
+
+ It means there is still missing content.
+
+ If section title has **(final)** means it's complete - if any mistake fill the bug
+
+
+
 
 Contents:
 

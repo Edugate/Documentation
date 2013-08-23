@@ -1,4 +1,4 @@
-Installation process
+Installation process (final)
 *******************
 In the documentation there predefined:
 
@@ -30,12 +30,12 @@ Requirements
 
 * Memcached server on the same host
 
-*  gearman-php, gearnam-job-server - allows to enable additional features in RR3 
+* gearman-php, gearnam-job-server - allows to enable additional features in RR3 
 
 Download RR3 and Codeigniter
 ============================
 
-In the time writing this document there wasn't official release of Codeigniter version 3.0.
+In the time writting this document there wasn't official release of Codeigniter version 3.0.
 So we are going to use source code from GitHub repository
 
 .. code:: bash
@@ -105,11 +105,6 @@ Apache/PHP configuration
                 Deny from all
         </Directory>
 
-
-.. note:: 
- you may need to add below into **<Directory /opt/rr3>** section
-
-.. code:: apache
 
 
 
