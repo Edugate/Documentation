@@ -61,3 +61,16 @@ Now you should be able to see both local authentication part and federated acces
 .. image:: images/loginform1.png
     :scale: 100%
     :alt: Login Form
+
+You can decide what kind of access (local authn or/and federated access) can be used by user. 
+If you create user and set only federated access then even there is password set during creation user can't login using local authentication.
+
+There are three possibilites:
+
+* only local authentication
+
+* only federated access
+
+* bot local authentication and federated access
+
+
