@@ -44,7 +44,9 @@ restart apache  and  check
 
 .. code:: php
 
- <?php  phpinfo(); ?> 
+ <?php 
+   phpinfo(); 
+ ?> 
 
 and/or
 
