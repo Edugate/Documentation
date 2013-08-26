@@ -19,6 +19,10 @@ Welcome to RR3 - Administration guide! (Draft) - updated: 2013/08/22
 
 Contents:
 
+
+Installation, configuration ...
+################################
+
 .. toctree::
    :maxdepth: 2
 
@@ -27,6 +31,15 @@ Contents:
    langs.rst
    federatedconf.rst
    update.rst
+   metadatasigner.rst
+   gearman.rst
+
+Userguide
+#########
+
+.. toctree::
+   :maxdepth: 2
+
    register.rst
    entitydetails.rst
    

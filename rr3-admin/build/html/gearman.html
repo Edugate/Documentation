@@ -1,0 +1,265 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gearman &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Registration process" href="register.html" />
+    <link rel="prev" title="Metadata (signing)" href="metadatasigner.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="metadatasigner.html" title="Metadata (signing)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="gearman">
+<h1>Gearman<a class="headerlink" href="#gearman" title="Permalink to this headline">¶</a></h1>
+<p>RR3 has ablity to interconnect with gearman.</p>
+<p>What is Gearman you can find on <a class="reference external" href="http://gearman.org/">http://gearman.org/</a></p>
+<p>Here is example instruction how to install gearman  from source and add support into php.</p>
+<div class="section" id="libgearm">
+<h2>libgearm<a class="headerlink" href="#libgearm" title="Permalink to this headline">¶</a></h2>
+<p>Go to <a class="reference external" href="https://launchpad.net/gearmand">https://launchpad.net/gearmand</a> and download lates version of gearmand
+for example <a class="reference external" href="https://launchpad.net/gearmand/1.2/1.1.9/+download/gearmand-1.1.9.tar.gz">https://launchpad.net/gearmand/1.2/1.1.9/+download/gearmand-1.1.9.tar.gz</a> released on 2013-08-02
+and install it</p>
+</div>
+<div class="section" id="php-gearman">
+<h2>php-gearman<a class="headerlink" href="#php-gearman" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;re going to use pecl  so before please make sure have installed php-pear.</p>
+<div class="code bash highlight-python"><pre>pecl search  gearman</pre>
+</div>
+<p>you should get listed gearman 1.1.1 (stable)  1.1.1 PHP wrapper to libgearman</p>
+<div class="code bash highlight-python"><pre>pecl install  gearman</pre>
+</div>
+<p>then enable gearman in one of php ini files (depends on distribution)</p>
+<div class="code bash highlight-python"><div class="highlight"><pre><span class="n">extension</span><span class="o">=</span><span class="n">gearman</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">some distribution have seperated config for php (apache) and php (cli)</p>
+</div>
+<p>restart apache  and  check</p>
+<div class="code php highlight-python"><pre>&lt;?php  phpinfo(); ?&gt;</pre>
+</div>
+<p>and/or</p>
+<div class="code bash highlight-python"><pre>php -i|grep -i gearm</pre>
+</div>
+</div>
+<div class="section" id="gearman-job-server">
+<h2>gearman-job-server<a class="headerlink" href="#gearman-job-server" title="Permalink to this headline">¶</a></h2>
+<p>You need gearman-job-server server running to handle jobs. As gearman-job-server has no security profile please configure the service to listen on local interface.</p>
+<p>example:</p>
+<p><strong>/etc/default/gearman-job-server</strong></p>
+<div class="code bash highlight-python"><div class="highlight"><pre><span class="n">PARAMS</span><span class="o">=</span><span class="s">&quot;--listen=127.0.0.1&quot;</span>
+</pre></div>
+</div>
+<p><strong>/etc/init.d/gearman-job-server</strong></p>
+<div class="code bash highlight-python"><pre>#!/bin/sh
+
+# Gearman server and library
+# Copyright (C) 2008 Brian Aker, Eric Day
+# All rights reserved.
+#
+# Use and distribution licensed under the BSD license.  See
+# the COPYING file in this directory for full text.
+
+### BEGIN INIT INFO
+# Provides:          gearman-job-server
+# Required-Start:    $network $remote_fs $syslog
+# Required-Stop:     $network $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable gearman job server
+### END INIT INFO
+
+prefix=/usr/local
+exec_prefix=${prefix}
+NAME=gearmand
+DAEMON=${exec_prefix}/sbin/gearmand
+PIDDIR=/var/run/gearman
+PIDFILE=${PIDDIR}/gearmand.pid
+GEARMANUSER="gearman"
+PARAMS=""
+
+
+test -x ${DAEMON} || exit 0
+
+. /lib/lsb/init-functions
+
+test -f /etc/default/gearman-job-server &amp;&amp; . /etc/default/gearman-job-server
+
+start()
+{
+  log_daemon_msg "Starting Gearman Server" "gearmand"
+  if ! test -d ${PIDDIR}
+  then
+    mkdir ${PIDDIR}
+    chown ${GEARMANUSER} ${PIDDIR}
+  fi
+  if start-stop-daemon \
+    --start \
+    --exec $DAEMON \
+    -- --pid-file=$PIDFILE \
+       --user=$GEARMANUSER \
+       --daemon \
+       --log-file=/var/log/gearman-job-server/gearman.log \
+       $PARAMS
+  then
+    log_end_msg 0
+  else
+    log_end_msg 1
+    log_warning_msg "Please take a look at the syslog"
+    exit 1
+  fi
+}
+
+
+stop()
+{
+  log_daemon_msg "Stopping Gearman Server" "gearmand"
+  if start-stop-daemon \
+    --stop \
+    --oknodo \
+    --exec $DAEMON \
+    --pidfile $PIDFILE
+  then
+    log_end_msg 0
+  else
+    log_end_msg 1
+    exit 1
+  fi
+}
+
+status()
+{
+    status_of_proc -p $PIDFILE $DAEMON $NAME &amp;&amp; exit 0 || exit $?
+}
+
+case "$1" in
+
+  start)
+    start
+  ;;
+
+  stop)
+    stop
+  ;;
+
+  status)
+    status
+  ;;
+
+  restart|force-reload)
+    stop
+    start
+  ;;
+
+
+  *)
+    echo "Usage: $0 {start|stop|restart|force-reload|status}"
+  ;;
+
+esac</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gearman</a><ul>
+<li><a class="reference internal" href="#libgearm">libgearm</a></li>
+<li><a class="reference internal" href="#php-gearman">php-gearman</a></li>
+<li><a class="reference internal" href="#gearman-job-server">gearman-job-server</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="metadatasigner.html"
+                        title="previous chapter">Metadata (signing)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="register.html"
+                        title="next chapter">Registration process</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="metadatasigner.html" title="Metadata (signing)"
+             >previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Janusz Ulanowski.
+    </div>
+  </body>
+</html>
