@@ -1,0 +1,132 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Metadata &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Metadata (signing)" href="metadatasigner.html" />
+    <link rel="prev" title="Upgrading" href="update.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="metadatasigner.html" title="Metadata (signing)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="update.html" title="Upgrading"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="metadata">
+<span id="id1"></span><h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf">http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf</a></p>
+<p>RR3 generates three types of unsigned metadata.</p>
+<ol class="arabic">
+<li><p class="first">metadata for federation</p>
+<p>Generates metadata containing all entities (Identity Providers and Relying Parties) not matter if they are managed localy or imported as external entities.</p>
+<p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/federation/ENCODED_FEDNAME/metadata.xml">https://yourhost.example.com/rr3/metadata/federation/ENCODED_FEDNAME/metadata.xml</a>
+where <strong>ENCODED_FEDNAME</strong> is genereated by taking <strong>Federation name</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><em>base64url_encode</em></a></p>
+<p>So it&#8217;s imported to not change the name of federation created in RR3</p>
+</li>
+<li><p class="first">metadata for federation exported for interfederation purpose</p>
+<p>Generates metadata containing only  localy managed Identity Providers and Relying Parties</p>
+<p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/federationexport/ENCODED_FEDNAME/metadata.xml">https://yourhost.example.com/rr3/metadata/federationexport/ENCODED_FEDNAME/metadata.xml</a>
+where <strong>ENCODED_FEDNAME</strong> is genereated by taking <strong>Federation name</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><em>base64url_encode</em></a></p>
+</li>
+<li><p class="first">metadata for single entity</p>
+<p>Generated metadata containing single entity. General purpose is to review how information about entity are presented in Metadata.</p>
+<p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/service/ENCODED_ENTITYID/metadata.xml">https://yourhost.example.com/rr3/metadata/service/ENCODED_ENTITYID/metadata.xml</a>
+where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID of IdP/SP</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><em>base64url_encode</em></a></p>
+</li>
+<li><p class="first">metadata - circle of trust - per entity</p>
+<p>Generated metadata contains all trusted entities. If metadata is generated for Sevice Provider then it contains trusted IdPs.
+If metadata is generated for Identity Provider then it will contain only trusted Service Providers.</p>
+<p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/circle/ENCODED_ENTITYID/metadata.xml">https://yourhost.example.com/rr3/metadata/circle/ENCODED_ENTITYID/metadata.xml</a>
+where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID of IdP/SP</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><em>base64url_encode</em></a></p>
+</li>
+</ol>
+<p><a class="reference internal" href="metadatasigner.html#metadatasigning"><em>Metadata (signing)</em></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="update.html"
+                        title="previous chapter">Upgrading</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="metadatasigner.html"
+                        title="next chapter">Metadata (signing)</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="metadatasigner.html" title="Metadata (signing)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="update.html" title="Upgrading"
+             >previous</a> |</li>
+        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Janusz Ulanowski.
+    </div>
+  </body>
+</html>

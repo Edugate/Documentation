@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to RR3 - Administration guide! (Draft) - updated: 2013/08/26
+Welcome to RR3 - Administration guide! (Draft) - updated: 2013/08/27
 =====================================
 
 .. note::
@@ -31,6 +31,7 @@ Installation, configuration ...
    langs.rst
    federatedconf.rst
    update.rst
+   metadata.rst
    metadatasigner.rst
    gearman.rst
 

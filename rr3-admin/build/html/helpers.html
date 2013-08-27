@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Metadata (signing) &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    <title>Helper functions &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,9 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
-    <link rel="next" title="Gearman" href="gearman.html" />
-    <link rel="prev" title="Metadata" href="metadata.html" /> 
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,12 +33,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="gearman.html" title="Gearman"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="metadata.html" title="Metadata"
-             accesskey="P">previous</a> |</li>
         <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -50,18 +42,31 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <p><em>incomplete</em></p>
-<div class="section" id="metadata-signing">
-<span id="metadatasigning"></span><h1>Metadata (signing)<a class="headerlink" href="#metadata-signing" title="Permalink to this headline">¶</a></h1>
-<p>Current version of RR3 can not sign <a class="reference internal" href="metadata.html#metadata"><em>Metadata</em></a> by itself. We have here two (maybe more) options.</p>
-<div class="section" id="signing-from-cron">
-<h2>Signing from cron<a class="headerlink" href="#signing-from-cron" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="helper-functions">
+<h1>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="base64url-encode">
+<span id="id1"></span><h2>base64url_encode<a class="headerlink" href="#base64url-encode" title="Permalink to this headline">¶</a></h2>
+<p>Helper function in file <em>${RR3}/application/helpers/url_encoder_helper.php</em>
+This modified base64_encode to get working with codeigniter.</p>
+<div class="code php highlight-python"><pre>function base64url_encode($plainText)
+{
+   $base64 = base64_encode($plainText);
+   $base64url = strtr($base64, '+/=', '-_~');
+   return $base64url;
+}</pre>
 </div>
-<div class="section" id="signing-withing-website">
-<h2>Signing withing website<a class="headerlink" href="#signing-withing-website" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes after provider&#8217;s detail modification or membership change you want to sign metadata immediately and sign circle/federation metadata directly on site.
-Here is recipe how to do it.</p>
-<p>you need to have Gearman JobServer, php-gearman and gearman worker script written.</p>
+</div>
+<div class="section" id="base64url-decode">
+<span id="id2"></span><h2>base64url_decode<a class="headerlink" href="#base64url-decode" title="Permalink to this headline">¶</a></h2>
+<p>Helper function in file <em>${RR3}/application/helpers/url_encoder_helper.php</em>
+Oposite to base64url_encode</p>
+<div class="code php highlight-python"><pre>function base64url_decode($encoded)
+{
+   $base64 = strtr($encoded,'-_~','+/=');
+   $plainText = base64_decode($base64);
+   return $plainText;
+}</pre>
+</div>
 </div>
 </div>
 
@@ -73,19 +78,13 @@ Here is recipe how to do it.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Metadata (signing)</a><ul>
-<li><a class="reference internal" href="#signing-from-cron">Signing from cron</a></li>
-<li><a class="reference internal" href="#signing-withing-website">Signing withing website</a></li>
+<li><a class="reference internal" href="#">Helper functions</a><ul>
+<li><a class="reference internal" href="#base64url-encode">base64url_encode</a></li>
+<li><a class="reference internal" href="#base64url-decode">base64url_decode</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="metadata.html"
-                        title="previous chapter">Metadata</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="gearman.html"
-                        title="next chapter">Gearman</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -109,12 +108,6 @@ Here is recipe how to do it.</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="gearman.html" title="Gearman"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="metadata.html" title="Metadata"
-             >previous</a> |</li>
         <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

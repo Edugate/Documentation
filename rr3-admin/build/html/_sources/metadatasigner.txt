@@ -1,9 +1,16 @@
+*incomplete*
+
+.. _metadatasigning:
+
 Metadata (signing) 
 *****************
+
+Current version of RR3 can not sign :ref:`metadata` by itself. We have here two (maybe more) options. 
 
 
 Signing from cron
 =================
+
 
 
 
