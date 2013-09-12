@@ -277,6 +277,10 @@ As template please use **config_rr-default.php**
  
   $config['cacheprefix'] = 'rr3_';
 
+ .. warning::
+ 
+  cacheprefix is deprecated 
+   
 
 * translator_access - (optional) allows permitted user to modify existing translation. You can set only one person per language.
 
