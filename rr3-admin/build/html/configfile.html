@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -14,7 +13,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -352,6 +351,14 @@ $config['Shibboleth']['enabled'] = TRUE;</pre>
 <div><div class="code php highlight-python"><pre>$config['disable_extcirclemeta'] = TRUE;</pre>
 </div>
 </div></blockquote>
+<ul>
+<li><p class="first">entpartschangesdisallowed - (optional) - array of elements do not allow to modify by enduser. For the moment entityid and scope may be disabled.</p>
+<p>$config[&#8216;entpartschangesdisallowed&#8217;] = array(&#8216;entityid&#8217;,&#8217;scope&#8217;);</p>
+</li>
+<li><p class="first">arpbyinherit - (optional) - enable AttributeReleasePolicy generator with new logic. Policy for attribute is inherited in order &#8220;supported -&gt; default -&gt; federation -&gt; service provider&#8221; . If disabled then default generator is used: If there is any attribute set for specific SP then default/federation policies are ignored and rest supported attributes which have not set policy fot this SP are set as Deny. Recommended is to use new generator:</p>
+</li>
+</ul>
+<p>$config[&#8216;arpbyinherit&#8217;] = TRUE;</p>
 </div>
 <div class="section" id="email-php">
 <h2>email.php<a class="headerlink" href="#email-php" title="Permalink to this headline">¶</a></h2>

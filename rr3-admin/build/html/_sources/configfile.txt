@@ -307,6 +307,14 @@ As template please use **config_rr-default.php**
 
   $config['disable_extcirclemeta'] = TRUE;
 
+* entpartschangesdisallowed - (optional) - array of elements do not allow to modify by enduser. For the moment entityid and scope may be disabled.
+
+  $config['entpartschangesdisallowed'] = array('entityid','scope');
+
+* arpbyinherit - (optional) - enable AttributeReleasePolicy generator with new logic. Policy for attribute is inherited in order "supported -> default -> federation -> service provider" . If disabled then default generator is used: If there is any attribute set for specific SP then default/federation policies are ignored and rest supported attributes which have not set policy fot this SP are set as Deny. Recommended is to use new generator:
+
+$config['arpbyinherit'] = TRUE;
+
 
 email.php
 =========
