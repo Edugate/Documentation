@@ -71,7 +71,8 @@ Files if langs definitions are located in <strong>/opt/rr3/application/language/
 <h2>Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h2>
 <p>To modify existing translation open <strong>https://yourhost.example.com/rr3/manage/translator/tolanguage/${langCode}</strong> where <strong>${langCode}</strong> is two-letter lang code like es, pt, pl etc  can be any of allowed langs. Example URL for polish translation: <strong>https://yourhost.example.com/rr3/manage/translator/tolanguage/pl</strong>.</p>
 <p>Next thing is to define permission who can translate and into what language. You need to set it in <strong>config_rr.php</strong> file. For example to give polish translation permission to user with username <strong>joebloggs</strong> add below line into <strong>config_rr.php</strong></p>
-<div class="code php highlight-python"><pre>$config['translator_access']['pl'] = 'joebloggs';</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;translator_access&#39;][&#39;pl&#39;] = &#39;joebloggs&#39;;
+</pre></div>
 </div>
 <p>Also make sure that lang file(s) in <strong>/opt/rr3/application/language/pl</strong> are writable by apache owner</p>
 <p>Please contribute your changes to main code on github</p>
@@ -86,70 +87,77 @@ Files if langs definitions are located in <strong>/opt/rr3/application/language/
 <blockquote>
 <div><ol class="arabic">
 <li><p class="first">create folder <strong>de</strong> in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english</p>
-<div class="code bash highlight-python"><pre>mkdir /opt/rr3/application/language/de
-cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>mkdir /opt/rr3/application/language/de
+cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/
+</pre></div>
 </div>
 <p>and set proper owner/permissions</p>
 </li>
 <li><p class="first">open /opt/rr3/application/controllers/manage/Translator.php</p>
 <p>find <strong>$allowedlangs</strong> in</p>
-<div class="code php highlight-python"><pre>public function tolanguage($l)
+<div class="code php highlight-python"><div class="highlight"><pre>public function tolanguage($l)
 {
 
-}</pre>
+}
+</pre></div>
 </div>
 <p>and add new language code. Then you need to add below line into <strong>config_rr.php</strong> file</p>
-<div class="code php highlight-python"><pre>$config['translator_access']['de'] = 'your username';</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;translator_access&#39;][&#39;de&#39;] = &#39;your username&#39;;
+</pre></div>
 </div>
 </li>
 <li><p class="first">This part adds your language to selection form (top-right corner of the website)</p>
 <p>open /opt/rr3/application/view/page.php</p>
 <p>find part</p>
-<div class="code php highlight-python"><pre>$langs = array(
-             'en' =&gt; array('path'=&gt;'english','val'=&gt;'english'),
-             'it' =&gt; array('path'=&gt;'it','val'=&gt;'italiano'),
-             'lt' =&gt; array('path'=&gt;'lt','val'=&gt;'lietuvos'),
-             'pl' =&gt; array('path'=&gt;'pl','val'=&gt;'polski'),
-             'pt' =&gt; array('path'=&gt;'pt','val'=&gt;'português'),
-             'es' =&gt; array('path'=&gt;'es','val'=&gt;'española'),
-            );</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$langs = array(
+             &#39;en&#39; =&gt; array(&#39;path&#39;=&gt;&#39;english&#39;,&#39;val&#39;=&gt;&#39;english&#39;),
+             &#39;it&#39; =&gt; array(&#39;path&#39;=&gt;&#39;it&#39;,&#39;val&#39;=&gt;&#39;italiano&#39;),
+             &#39;lt&#39; =&gt; array(&#39;path&#39;=&gt;&#39;lt&#39;,&#39;val&#39;=&gt;&#39;lietuvos&#39;),
+             &#39;pl&#39; =&gt; array(&#39;path&#39;=&gt;&#39;pl&#39;,&#39;val&#39;=&gt;&#39;polski&#39;),
+             &#39;pt&#39; =&gt; array(&#39;path&#39;=&gt;&#39;pt&#39;,&#39;val&#39;=&gt;&#39;português&#39;),
+             &#39;es&#39; =&gt; array(&#39;path&#39;=&gt;&#39;es&#39;,&#39;val&#39;=&gt;&#39;española&#39;),
+            );
+</pre></div>
 </div>
 <p>and add definition for German language, it should look like</p>
-<div class="code php highlight-python"><pre>$langs = array(
-             'de' =&gt; array('path'=&gt;'de','val'=&gt;'deutsch'),
-             'en' =&gt; array('path'=&gt;'english','val'=&gt;'english'),
-             'it' =&gt; array('path'=&gt;'it','val'=&gt;'italiano'),
-             'lt' =&gt; array('path'=&gt;'lt','val'=&gt;'lietuvos'),
-             'pl' =&gt; array('path'=&gt;'pl','val'=&gt;'polski'),
-             'pt' =&gt; array('path'=&gt;'pt','val'=&gt;'português'),
-             'es' =&gt; array('path'=&gt;'es','val'=&gt;'española'),
-            );</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$langs = array(
+             &#39;de&#39; =&gt; array(&#39;path&#39;=&gt;&#39;de&#39;,&#39;val&#39;=&gt;&#39;deutsch&#39;),
+             &#39;en&#39; =&gt; array(&#39;path&#39;=&gt;&#39;english&#39;,&#39;val&#39;=&gt;&#39;english&#39;),
+             &#39;it&#39; =&gt; array(&#39;path&#39;=&gt;&#39;it&#39;,&#39;val&#39;=&gt;&#39;italiano&#39;),
+             &#39;lt&#39; =&gt; array(&#39;path&#39;=&gt;&#39;lt&#39;,&#39;val&#39;=&gt;&#39;lietuvos&#39;),
+             &#39;pl&#39; =&gt; array(&#39;path&#39;=&gt;&#39;pl&#39;,&#39;val&#39;=&gt;&#39;polski&#39;),
+             &#39;pt&#39; =&gt; array(&#39;path&#39;=&gt;&#39;pt&#39;,&#39;val&#39;=&gt;&#39;português&#39;),
+             &#39;es&#39; =&gt; array(&#39;path&#39;=&gt;&#39;es&#39;,&#39;val&#39;=&gt;&#39;española&#39;),
+            );
+</pre></div>
 </div>
 </li>
 <li><p class="first">modify ajax</p>
 <p>open <strong>/opt/rr3/application/controllers/Ajax.php</strong></p>
 <p>and find function</p>
-<div class="code php highlight-python"><pre>public function changelanguage($language)
+<div class="code php highlight-python"><div class="highlight"><pre>public function changelanguage($language)
 {
    if ($this-&gt;input-&gt;is_ajax_request())
    {
-       log_message('debug', 'ajax');
+       log_message(&#39;debug&#39;, &#39;ajax&#39;);
        $language = substr($language, 0, 2);
-       if ($language === 'pl')
+       if ($language === &#39;pl&#39;)
        {
-           $cookie_value = 'pl';
+           $cookie_value = &#39;pl&#39;;
        }
-       elseif ($language === 'pt')
+       elseif ($language === &#39;pt&#39;)
        {
-           $cookie_value = 'pt';
-       }</pre>
+           $cookie_value = &#39;pt&#39;;
+       }
+</pre></div>
 </div>
 <p>And again add definition for your language</p>
 </li>
 <li><p class="first">This last part that allows to switch into your new language</p>
 <p>open <strong>/opt/rr3/application/core/MY_Controller.php</strong></p>
 <p>find</p>
-<div class="code php highlight-python"><pre>$langs = array('pl','pt','it','lt','es');</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$langs = array(&#39;pl&#39;,&#39;pt&#39;,&#39;it&#39;,&#39;lt&#39;,&#39;es&#39;);
+</pre></div>
 </div>
 <p>and add you language.</p>
 </li>

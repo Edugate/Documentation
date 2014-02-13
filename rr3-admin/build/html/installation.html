@@ -102,34 +102,41 @@ into APP_PATH/libraries/Zend</p>
 <h2>Download RR3 and Codeigniter<a class="headerlink" href="#download-rr3-and-codeigniter" title="Permalink to this headline">¶</a></h2>
 <p>In the time writting this document there wasn&#8217;t official release of Codeigniter version 3.0.
 So we are going to use source code from GitHub repository</p>
-<div class="code bash highlight-python"><pre>git clone git://github.com/EllisLab/CodeIgniter.git /opt/codeigniter
+<div class="code bash highlight-python"><div class="highlight"><pre>git clone git://github.com/EllisLab/CodeIgniter.git /opt/codeigniter
 cd /opt/codeigniter
 git checkout -b release/3.0 origin/release/3.0
-git pull</pre>
+git pull
+</pre></div>
 </div>
 <p>ResourceRegistry3 is published on GITHUB <a class="reference external" href="https://github.com/Edugate/ResourceRegistry">https://github.com/Edugate/ResourceRegistry</a>  under MIT License.</p>
-<div class="code bash highlight-python"><pre>git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
-cd /opt/rr3</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
+cd /opt/rr3
+</pre></div>
 </div>
 <p>Set <em>index.php</em> file</p>
-<div class="code bash highlight-python"><pre>cp /opt/codeigniter/index.php /opt/rr3/</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>cp /opt/codeigniter/index.php /opt/rr3/
+</pre></div>
 </div>
 <p>and modify it. You need to change default path to system folder. Open <em>/opt/rr3/index.php</em> file and find</p>
-<div class="code php highlight-python"><pre>$system_path = 'system';</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$system_path = &#39;system&#39;;
+</pre></div>
 </div>
 <p>and change to</p>
-<div class="code php highlight-python"><pre>$system_path = '/opt/codeigniter/system';</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$system_path = &#39;/opt/codeigniter/system&#39;;
+</pre></div>
 </div>
 <p>You may also want to set production environment. To do it find line</p>
-<div class="code php highlight-python"><pre>define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>define(&#39;ENVIRONMENT&#39;, isset($_SERVER[&#39;CI_ENV&#39;]) ? $_SERVER[&#39;CI_ENV&#39;] : &#39;development&#39;);
+</pre></div>
 </div>
 <p>and before that line add</p>
-<div class="code php highlight-python"><pre>$_SERVER['CI_ENV'] = 'production';</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$_SERVER[&#39;CI_ENV&#39;] = &#39;production&#39;;
+</pre></div>
 </div>
 </div>
 <div class="section" id="apache-php-configuration">
 <h2>Apache/PHP configuration<a class="headerlink" href="#apache-php-configuration" title="Permalink to this headline">¶</a></h2>
-<div class="code apache highlight-python"><pre>Alias /rr3 /opt/rr3
+<div class="code apache highlight-python"><div class="highlight"><pre>Alias /rr3 /opt/rr3
   &lt;Directory /opt/rr3&gt;
 
         #  you may need to uncomment next line
@@ -143,7 +150,8 @@ cd /opt/rr3</pre>
   &lt;Directory /opt/rr3/application&gt;
           Order allow,deny
           Deny from all
-  &lt;/Directory&gt;</pre>
+  &lt;/Directory&gt;
+</pre></div>
 </div>
 </div>
 <div class="section" id="mysql">
@@ -155,24 +163,27 @@ cd /opt/rr3</pre>
 </pre></div>
 </div>
 <p>Log in to mysql as superuser and run:</p>
-<div class="code bash highlight-python"><pre>mysql&gt; create database rr3 CHARACTER SET utf8 COLLATE utf8_general_ci;
-mysql&gt; grant all on rr3.* to rr3user@'localhost' identified by 'rr3pass';
-mysql&gt; flush privileges;</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>mysql&gt; create database rr3 CHARACTER SET utf8 COLLATE utf8_general_ci;
+mysql&gt; grant all on rr3.* to rr3user@&#39;localhost&#39; identified by &#39;rr3pass&#39;;
+mysql&gt; flush privileges;
+</pre></div>
 </div>
 </div>
 <div class="section" id="install-sh-script">
 <h2>install.sh script<a class="headerlink" href="#install-sh-script" title="Permalink to this headline">¶</a></h2>
 <p>Now it&#8217;s time to run install.sh script. Go to <strong>/opt/rr3/</strong></p>
-<div class="code bash highlight-python"><pre>./install.sh</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>./install.sh
+</pre></div>
 </div>
 <p>What it does is downloading Doctrine, Zend-ACL, Geshi, XMLseclib and exctract them.
 Then you need to set required config files - you can copy templates and customize them.
 Stay in  <strong>/opt/rr3/</strong></p>
-<div class="code bash highlight-python"><pre>cp config-default.php -&gt; config.php
+<div class="code bash highlight-python"><div class="highlight"><pre>cp config-default.php -&gt; config.php
 cp config_rr-default.php -&gt; config_rr.php
 cp database-default.php -&gt; database.php
 cp email-default.php -&gt; email.php
-cp memcached-default.php -&gt; memcached.php</pre>
+cp memcached-default.php -&gt; memcached.php
+</pre></div>
 </div>
 <p>Please follow section <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a></p>
 <p>Set permission - writeable by apache user. Ralive path of folders need to be set:</p>
@@ -185,25 +196,30 @@ cp memcached-default.php -&gt; memcached.php</pre>
 <h2>Database - populate tables<a class="headerlink" href="#database-populate-tables" title="Permalink to this headline">¶</a></h2>
 <p>To populate tables we are going to use doctrine tool.</p>
 <p>Go to <strong>application</strong> folder and you should see <strong>doctrine</strong> file. It should be executable.</p>
-<div class="code bash highlight-python"><pre>./doctrine</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine
+</pre></div>
 </div>
 <p>You will get many available options, be carefull. To populate tables please run below command. It will parse all entities in application/model</p>
-<div class="code bash highlight-python"><pre>./doctrine orm:schema-tool:create</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:create
+</pre></div>
 </div>
 <p>If you going to run application in production mode then you also need to regenerate proxies:</p>
-<div class="code bash highlight-python"><pre>./doctrine orm:generate-proxies</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:generate-proxies
+</pre></div>
 </div>
 <p>and verify owner of application/models/Proxies/* - apache user should be owner</p>
 <p>In the future after every update you will need to run</p>
-<div class="code bash highlight-python"><pre>./doctrine orm:schema-tool:update
-./doctrine orm:generate-proxies</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:update
+./doctrine orm:generate-proxies
+</pre></div>
 </div>
 </div>
 <div class="section" id="final-setup-step">
 <span id="id1"></span><h2>Final setup step<a class="headerlink" href="#final-setup-step" title="Permalink to this headline">¶</a></h2>
 <p>This is the last step in Installation process.
 To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
-<div class="code php highlight-python"><pre>$config['rr_setup_allowed'] = TRUE;</pre>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_setup_allowed&#39;] = TRUE;
+</pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>

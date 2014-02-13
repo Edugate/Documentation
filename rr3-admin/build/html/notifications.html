@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Helper functions &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    <title>Notification system &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" /> 
+    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Registration process" href="register.html" />
+    <link rel="prev" title="Gearman" href="gearman.html" /> 
   </head>
   <body>
     <div class="related">
@@ -32,6 +34,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gearman.html" title="Gearman"
+             accesskey="P">previous</a> |</li>
         <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -41,33 +49,21 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="helper-functions">
-<h1>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="base64url-encode">
-<span id="id1"></span><h2>base64url_encode<a class="headerlink" href="#base64url-encode" title="Permalink to this headline">¶</a></h2>
-<p>Helper function in file <em>${RR3}/application/helpers/url_encoder_helper.php</em>
-This modified base64_encode to get working with codeigniter.</p>
-<div class="code php highlight-python"><div class="highlight"><pre>function base64url_encode($plainText)
-{
-   $base64 = base64_encode($plainText);
-   $base64url = strtr($base64, &#39;+/=&#39;, &#39;-_~&#39;);
-   return $base64url;
-}
+  <div class="section" id="notification-system">
+<h1>Notification system<a class="headerlink" href="#notification-system" title="Permalink to this headline">¶</a></h1>
+<p>Jagger doesn&#8217;t send mail notification during operational processes as it could slow down the system.
+Instead it creates notifications in mailqueue table with its status.</p>
+<p>So you need a tool to monitor the mailqueue and preocess notificatations if needed.</p>
+<div class="section" id="setup-jaggermailer">
+<h2>Setup JaggerMailer<a class="headerlink" href="#setup-jaggermailer" title="Permalink to this headline">¶</a></h2>
+<p>This is simple process in demon mode wchich allow to monitor the mailqueue and send messages.
+The only thing you need to run is:</p>
+<blockquote>
+<div><div class="code bash highlight-python"><div class="highlight"><pre>php /JAGGER_PATH/index.php gworkers mailqueuesender
 </pre></div>
 </div>
-</div>
-<div class="section" id="base64url-decode">
-<span id="id2"></span><h2>base64url_decode<a class="headerlink" href="#base64url-decode" title="Permalink to this headline">¶</a></h2>
-<p>Helper function in file <em>${RR3}/application/helpers/url_encoder_helper.php</em>
-Oposite to base64url_encode</p>
-<div class="code php highlight-python"><div class="highlight"><pre>function base64url_decode($encoded)
-{
-   $base64 = strtr($encoded,&#39;-_~&#39;,&#39;+/=&#39;);
-   $plainText = base64_decode($base64);
-   return $plainText;
-}
-</pre></div>
-</div>
+</div></blockquote>
+<p>The process will be checking mailqueue for new mails to be sent every 60secs</p>
 </div>
 </div>
 
@@ -79,13 +75,18 @@ Oposite to base64url_encode</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Helper functions</a><ul>
-<li><a class="reference internal" href="#base64url-encode">base64url_encode</a></li>
-<li><a class="reference internal" href="#base64url-decode">base64url_decode</a></li>
+<li><a class="reference internal" href="#">Notification system</a><ul>
+<li><a class="reference internal" href="#setup-jaggermailer">Setup JaggerMailer</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gearman.html"
+                        title="previous chapter">Gearman</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="register.html"
+                        title="next chapter">Registration process</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -109,6 +110,12 @@ Oposite to base64url_encode</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gearman.html" title="Gearman"
+             >previous</a> |</li>
         <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

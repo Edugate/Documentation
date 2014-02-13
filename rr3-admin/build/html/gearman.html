@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
-    <link rel="next" title="Registration process" href="register.html" />
+    <link rel="next" title="Notification system" href="notifications.html" />
     <link rel="prev" title="Metadata (signing)" href="metadatasigner.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="register.html" title="Registration process"
+          <a href="notifications.html" title="Notification system"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="metadatasigner.html" title="Metadata (signing)"
@@ -63,10 +63,12 @@ and install it</p>
 <div class="section" id="php-gearman">
 <h2>php-gearman<a class="headerlink" href="#php-gearman" title="Permalink to this headline">¶</a></h2>
 <p>We&#8217;re going to use pecl  so before please make sure have installed php-pear.</p>
-<div class="code bash highlight-python"><pre>pecl search  gearman</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>pecl search  gearman
+</pre></div>
 </div>
 <p>you should get listed gearman 1.1.1 (stable)  1.1.1 PHP wrapper to libgearman</p>
-<div class="code bash highlight-python"><pre>pecl install  gearman</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>pecl install  gearman
+</pre></div>
 </div>
 <p>then enable gearman in one of php ini files (depends on distribution)</p>
 <div class="code bash highlight-python"><div class="highlight"><pre><span class="n">extension</span><span class="o">=</span><span class="n">gearman</span><span class="o">.</span><span class="n">so</span>
@@ -77,12 +79,14 @@ and install it</p>
 <p class="last">some distribution have seperated config for php (apache) and php (cli)</p>
 </div>
 <p>restart apache  and  check</p>
-<div class="code php highlight-python"><pre>&lt;?php
+<div class="code php highlight-python"><div class="highlight"><pre>&lt;?php
   phpinfo();
-?&gt;</pre>
+?&gt;
+</pre></div>
 </div>
 <p>and/or</p>
-<div class="code bash highlight-python"><pre>php -i|grep -i gearm</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>php -i|grep -i gearm
+</pre></div>
 </div>
 </div>
 <div class="section" id="gearman-job-server">
@@ -94,7 +98,7 @@ and install it</p>
 </pre></div>
 </div>
 <p><strong>/etc/init.d/gearman-job-server</strong></p>
-<div class="code bash highlight-python"><pre>#!/bin/sh
+<div class="code bash highlight-python"><div class="highlight"><pre>#!/bin/sh
 
 # Gearman server and library
 # Copyright (C) 2008 Brian Aker, Eric Day
@@ -119,8 +123,8 @@ NAME=gearmand
 DAEMON=${exec_prefix}/sbin/gearmand
 PIDDIR=/var/run/gearman
 PIDFILE=${PIDDIR}/gearmand.pid
-GEARMANUSER="gearman"
-PARAMS=""
+GEARMANUSER=&quot;gearman&quot;
+PARAMS=&quot;&quot;
 
 
 test -x ${DAEMON} || exit 0
@@ -131,7 +135,7 @@ test -f /etc/default/gearman-job-server &amp;&amp; . /etc/default/gearman-job-se
 
 start()
 {
-  log_daemon_msg "Starting Gearman Server" "gearmand"
+  log_daemon_msg &quot;Starting Gearman Server&quot; &quot;gearmand&quot;
   if ! test -d ${PIDDIR}
   then
     mkdir ${PIDDIR}
@@ -149,7 +153,7 @@ start()
     log_end_msg 0
   else
     log_end_msg 1
-    log_warning_msg "Please take a look at the syslog"
+    log_warning_msg &quot;Please take a look at the syslog&quot;
     exit 1
   fi
 }
@@ -157,7 +161,7 @@ start()
 
 stop()
 {
-  log_daemon_msg "Stopping Gearman Server" "gearmand"
+  log_daemon_msg &quot;Stopping Gearman Server&quot; &quot;gearmand&quot;
   if start-stop-daemon \
     --stop \
     --oknodo \
@@ -176,7 +180,7 @@ status()
     status_of_proc -p $PIDFILE $DAEMON $NAME &amp;&amp; exit 0 || exit $?
 }
 
-case "$1" in
+case &quot;$1&quot; in
 
   start)
     start
@@ -197,10 +201,11 @@ case "$1" in
 
 
   *)
-    echo "Usage: $0 {start|stop|restart|force-reload|status}"
+    echo &quot;Usage: $0 {start|stop|restart|force-reload|status}&quot;
   ;;
 
-esac</pre>
+esac
+</pre></div>
 </div>
 </div>
 </div>
@@ -225,8 +230,8 @@ esac</pre>
   <p class="topless"><a href="metadatasigner.html"
                         title="previous chapter">Metadata (signing)</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="register.html"
-                        title="next chapter">Registration process</a></p>
+  <p class="topless"><a href="notifications.html"
+                        title="next chapter">Notification system</a></p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -251,7 +256,7 @@ esac</pre>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="register.html" title="Registration process"
+          <a href="notifications.html" title="Notification system"
              >next</a> |</li>
         <li class="right" >
           <a href="metadatasigner.html" title="Metadata (signing)"

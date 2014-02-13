@@ -57,29 +57,34 @@
 <p>Here are steps:</p>
 <ol class="arabic">
 <li><p class="first">update code from gihub</p>
-<div class="code bash highlight-python"><pre>cd /opt/rr3
-git pull</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>cd /opt/rr3
+git pull
+</pre></div>
 </div>
 </li>
 <li><p class="first">check and update database schema</p>
-<div class="code bash highlight-python"><pre>cd /opt/rr3/application
-./doctrine orm:schema-tool:update</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>cd /opt/rr3/application
+./doctrine orm:schema-tool:update
+</pre></div>
 </div>
 <p>If there is some changes then you get something like this</p>
-<div class="code bash highlight-python"><pre>ATTENTION: This operation should not be executed in a production environment.
+<div class="code bash highlight-python"><div class="highlight"><pre>ATTENTION: This operation should not be executed in a production environment.
            Use the incremental update to detect changes during development and use
            the SQL DDL provided to manually update your database in production.
 
-The Schema-Tool would execute "1" queries to update the database.
+The Schema-Tool would execute &quot;1&quot; queries to update the database.
 Please run the operation by passing one of the following options:
    orm:schema-tool:update --force to execute the command
-   orm:schema-tool:update --dump-sql to dump the SQL statements to the screen</pre>
+   orm:schema-tool:update --dump-sql to dump the SQL statements to the screen
+</pre></div>
 </div>
 <p>That&#8217;s why you should always make backup. No you can try to force it by executing</p>
-<div class="code bash highlight-python"><pre>./doctrine orm:schema-tool:update --force</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:update --force
+</pre></div>
 </div>
 <p>and then regenerate proxies</p>
-<div class="code bash highlight-python"><pre>./doctrine orm:generate-proxies</pre>
+<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:generate-proxies
+</pre></div>
 </div>
 </li>
 <li><p class="first">reload apache because as you use apc then some code may be still in cache</p>
