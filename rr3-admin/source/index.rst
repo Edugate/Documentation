@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to RR3 - Administration guide! (Draft) - updated: 2014/02/13
+Welcome to Jagger - Administration guide! (Draft) - updated: 2014/03/11
 =====================================
 
 .. note::

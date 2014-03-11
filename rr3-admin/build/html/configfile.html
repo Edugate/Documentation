@@ -119,7 +119,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <p>As template please use <strong>config_rr-default.php</strong></p>
 <ul>
 <li><p class="first">pageTitlePref - if set then is included into every page&#8217;s title as prefix, example:</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;pageTitlePref&#39;] = &#39;RR3:: &#39;;
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;pageTitlePref&#39;] = &#39;Jagger:: &#39;;
 </pre></div>
 </div>
 </li>
@@ -241,7 +241,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>Shib_username - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as username in RR3. Strongly recommend eppn or othe unique scoped attr</li>
+<li>Shib_username - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as username in Jagger. Strongly recommend eppn or othe unique scoped attr</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_username&#39;] = &#39;eppn&#39;;
@@ -249,10 +249,35 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>Shib_mail - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as user&#8217;s email address in RR3. By default mail</li>
+<li>Shib_mail - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as user&#8217;s email address in Jagger. By default mail</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_mail&#39;] = &#39;mail&#39;;
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Shib_fname - optional - id of attribute from Shibboleth (attribute-map.xml) wchich will be mapped as user&#8217;s first name in Jagger.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_fname&#39;] = &#39;givenName&#39;;
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Shib_sname - optional - id of attribute from Shibboleth (attribute-map.xml) wchich will be mapped as user&#8217;s surname in Jagger.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_fname&#39;] = &#39;sn&#39;;
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>shibb_updatefullname - optional - if TRUE then every time when user is loggedin his first and last name will be updated with values (if exist) provided by Shibboleth.</li>
+</ul>
+<p>$config[&#8216;shibb_updatefullname&#8217;] = TRUE;</p>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;shibb_updatefullname&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>

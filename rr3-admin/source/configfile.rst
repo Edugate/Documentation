@@ -74,7 +74,7 @@ As template please use **config_rr-default.php**
 
   .. code:: php
  
-    $config['pageTitlePref'] = 'RR3:: ';
+    $config['pageTitlePref'] = 'Jagger:: ';
 
 * rr_setup_allowed - it should be always be set to FALSE. TRUE only when setup is initialized 
  
@@ -174,18 +174,39 @@ As template please use **config_rr-default.php**
 
   $config['Shib_required'] = array('Shib_mail','Shib_username');
 
-* Shib_username - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as username in RR3. Strongly recommend eppn or othe unique scoped attr
+* Shib_username - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as username in Jagger. Strongly recommend eppn or othe unique scoped attr
 
  .. code:: php
   
   $config['Shib_username'] = 'eppn';
 
-* Shib_mail - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as user's email address in RR3. By default mail
+* Shib_mail - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as user's email address in Jagger. By default mail
 
  .. code:: php
 
   $config['Shib_mail'] = 'mail';
 
+* Shib_fname - optional - id of attribute from Shibboleth (attribute-map.xml) wchich will be mapped as user's first name in Jagger. 
+ 
+ .. code:: php
+ 
+  $config['Shib_fname'] = 'givenName';
+
+
+
+* Shib_sname - optional - id of attribute from Shibboleth (attribute-map.xml) wchich will be mapped as user's surname in Jagger. 
+ 
+ .. code:: php
+ 
+  $config['Shib_fname'] = 'sn';
+
+* shibb_updatefullname - optional - if TRUE then every time when user is loggedin his first and last name will be updated with values (if exist) provided by Shibboleth.  
+
+$config['shibb_updatefullname'] = TRUE;
+
+ .. code:: php
+ 
+  $config['shibb_updatefullname'] = TRUE;
 
 .. _configfilefederation:
 
