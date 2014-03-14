@@ -242,6 +242,13 @@ $config['shibb_updatefullname'] = TRUE;
  
    $config['metadata_validuntil_days'] = '7';
 
+* unsignedmeta_iplimits - optional - limit direct access to unsigned (circle, federation, federationexport) metadatas. dont forget to add ip(s) of server(s) which are user to sign metadata, monitoring etc. example:
+
+
+ .. code:: php
+ 
+   $config['unsignedmeta_iplimits'] = array('127.0.0.1');
+
 * policy_dropdown - dropdown element for attribute policy - this config will be removed in future release, but right now is mandatory.
 
  .. code:: php

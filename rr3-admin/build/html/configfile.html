@@ -319,6 +319,14 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </div>
 </div></blockquote>
 <ul class="simple">
+<li>unsignedmeta_iplimits - optional - limit direct access to unsigned (circle, federation, federationexport) metadatas. dont forget to add ip(s) of server(s) which are user to sign metadata, monitoring etc. example:</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;unsignedmeta_iplimits&#39;] = array(&#39;127.0.0.1&#39;);
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
 <li>policy_dropdown - dropdown element for attribute policy - this config will be removed in future release, but right now is mandatory.</li>
 </ul>
 <blockquote>
