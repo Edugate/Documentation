@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Metadata &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    <title>Metadata &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" />
     <link rel="next" title="Metadata (signing)" href="metadatasigner.html" />
     <link rel="prev" title="Upgrading" href="update.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="update.html" title="Upgrading"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -52,13 +52,13 @@
   <div class="section" id="metadata">
 <span id="id1"></span><h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf">http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf</a></p>
-<p>RR3 generates three types of unsigned metadata.</p>
+<p>JAGGER generates three types of unsigned metadata.</p>
 <ol class="arabic">
 <li><p class="first">metadata for federation</p>
 <p>Generates metadata containing all entities (Identity Providers and Relying Parties) not matter if they are managed localy or imported as external entities.</p>
 <p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/federation/ENCODED_FEDNAME/metadata.xml">https://yourhost.example.com/rr3/metadata/federation/ENCODED_FEDNAME/metadata.xml</a>
 where <strong>ENCODED_FEDNAME</strong> is genereated by taking <strong>Federation name</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><em>base64url_encode</em></a></p>
-<p>So it&#8217;s imported to not change the name of federation created in RR3</p>
+<p>So it&#8217;s imported to not change the name of federation created in JAGGER</p>
 </li>
 <li><p class="first">metadata for federation exported for interfederation purpose</p>
 <p>Generates metadata containing only  localy managed Identity Providers and Relying Parties</p>
@@ -121,11 +121,11 @@ where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID
         <li class="right" >
           <a href="update.html" title="Upgrading"
              >previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Janusz Ulanowski.
+        &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

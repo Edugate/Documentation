@@ -3,7 +3,7 @@ Upgrading
 In branch *1.x-stable* trying to keep backward compatibility so there are some deprecated code or columns/tables not used in current version.
 
  
-Generally you can upgrade the RR3 code by pulling new revision from GitHub.
+Generally you can upgrade the JAGGER code by pulling new revision from GitHub.
 
 Before that i would recommend alway make backup code and database. 
 

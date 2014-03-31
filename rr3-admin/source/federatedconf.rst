@@ -1,11 +1,11 @@
 Enable Federated access
 **********************
 
-RR3 supports both local authentication and federated access. Right now shibboleth-sp is supported. There will be support for simpleSAMLphp too.
+JAGGER supports both local authentication and federated access. Right now shibboleth-sp is supported. There will be support for simpleSAMLphp too.
 
 Obviusly you need to have shibboleth-sp configured.
 
-#. Enable federated access in RR3
+#. Enable federated access in JAGGER
 
    Find and set following keywords  in  :ref:`configfile` :
 
@@ -15,7 +15,7 @@ Obviusly you need to have shibboleth-sp configured.
   
    .. note::
      
-     remove or replace ALIAS with your base location for RR3
+     remove or replace ALIAS with your base location for JAGGER
 
    .. code:: apache
 

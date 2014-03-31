@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Registration process &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    <title>Registration process &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" />
     <link rel="next" title="Identity/Service Providers overview" href="entitydetails.html" />
     <link rel="prev" title="Notification system" href="notifications.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="notifications.html" title="Notification system"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -57,19 +57,21 @@ Only users with admin rights may approve the request.</p>
 <div class="section" id="identity-provider-registration-form">
 <h2>Identity Provider registration form<a class="headerlink" href="#identity-provider-registration-form" title="Permalink to this headline">¶</a></h2>
 <p>Definition for <a class="reference internal" href="glossary.html#term-identity-provider"><em class="xref std std-term">Identity Provider</em></a></p>
-<a class="reference internal image-reference" href="_images/idpregister.png"><img alt="IdP Register Form" src="_images/idpregister.png" style="width: 565.8px; height: 527.4px;" /></a>
-<p>The form is available on <a class="reference external" href="https://youhost/alias/providers/idp_registration">https://youhost/alias/providers/idp_registration</a></p>
+<a class="reference internal image-reference" href="_images/idpreg1.png"><img alt="IdP Register Form Step1" src="_images/idpreg1.png" style="width: 778.2px; height: 360.6px;" /></a>
+<p>The form is available on <a class="reference external" href="https://youhost/alias/providers/idp_registration">https://youhost/alias/providers/idp_registration</a>
+The Step1 contains an optional text field.
+If you have you IdP&#8217;s metatada you can put into this field and click on &#8220;Parse metadata&#8221;.
+This process will populate basic information into fields on next steps.</p>
+<a class="reference internal image-reference" href="_images/idpreg2.png"><img alt="IdP Register Form Step1 - after metadata parsed" src="_images/idpreg2.png" style="width: 778.2px; height: 360.6px;" /></a>
+<a class="reference internal image-reference" href="_images/idpreg3.png"><img alt="IdP Register Form Step2" src="_images/idpreg3.png" style="width: 778.2px; height: 360.6px;" /></a>
+<a class="reference internal image-reference" href="_images/idpreg4.png"><img alt="IdP Register Form Step3" src="_images/idpreg4.png" style="width: 778.2px; height: 542.4px;" /></a>
 <dl class="docutils">
 <dt>Home Organization</dt>
 <dd>The name of your organization</dd>
 <dt><a class="reference internal" href="glossary.html#term-federation"><em class="xref std std-term">Federation</em></a></dt>
 <dd>Federation you want to join. If you want to apply later please select &#8220;&gt;&gt; None &lt;&lt;&#8221;</dd>
-<dt><a class="reference internal" href="glossary.html#term-metadata"><em class="xref std std-term">Metadata</em></a> location</dt>
-<dd>You can add location of your provider&#8217;s metadata as additional information for FMP administrator</dd>
 <dt><a class="reference internal" href="glossary.html#term-entityid"><em class="xref std std-term">EntityID</em></a></dt>
 <dd>This is unique ID of a provider. About the naming please follow <a class="reference external" href="https://wiki.shibboleth.net/confluence/display/SHIB2/EntityNaming">https://wiki.shibboleth.net/confluence/display/SHIB2/EntityNaming</a></dd>
-<dt>PrivacyStatement URL</dt>
-<dd>Optional but strongly recommended URL to your Organization&#8217;s Privacy Statement</dd>
 <dt><a class="reference internal" href="glossary.html#term-scope"><em class="xref std std-term">Scope</em></a></dt>
 <dd>Domain of your Organization</dd>
 <dt>Binding Type of Single-Sign-On Handler</dt>
@@ -166,11 +168,11 @@ This certificate is recommened to be selfsigned as some Service Providers might 
         <li class="right" >
           <a href="notifications.html" title="Notification system"
              >previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Janusz Ulanowski.
+        &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

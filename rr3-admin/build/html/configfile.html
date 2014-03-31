@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Configuration files &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    <title>Configuration files &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" />
     <link rel="next" title="Language" href="langs.html" />
     <link rel="prev" title="Installation process (final)" href="installation.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation process (final)"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -51,7 +51,7 @@
             
   <div class="section" id="configuration-files">
 <span id="configfile"></span><h1>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h1>
-<p>There are a few config files used by RR3 and they&#8217;re stored in <strong>/opt/rr3/application/config/</strong> folder.</p>
+<p>There are a few config files used by JAGGER and they&#8217;re stored in <strong>/opt/rr3/application/config/</strong> folder.</p>
 <div class="section" id="config-php">
 <h2>config.php<a class="headerlink" href="#config-php" title="Permalink to this headline">¶</a></h2>
 <p>This is standard config file for codeigniter based application. It can be copied from <strong>/opt/codeigniter/application/config/config.php</strong> file. Please follow Codeigniter documentation. In most cases it will be default with some below exceptions:</p>
@@ -155,7 +155,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>rr_logobaseurl - if NULL then <strong>base_url</strong> is set. It&#8217;s used for generating Metadata logo paths if RR3 is a source of logo.</li>
+<li>rr_logobaseurl - if NULL then <strong>base_url</strong> is set. It&#8217;s used for generating Metadata logo paths if JAGGER is a source of logo.</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logobaseurl&#39;] = NULL;
@@ -217,7 +217,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>autoregister_federated - if federated access to RR3 is enabled you can decide wether user who used federated access but doesn&#8217;t exist in RR3 should be autoprovisioned or not. Strongly recommend to not allow it. If it&#8217;s set to FALSE then new (not registered) user will get error page with contact support email address.</li>
+<li>autoregister_federated - if federated access to JAGGER is enabled you can decide wether user who used federated access but doesn&#8217;t exist in JAGGER should be autoprovisioned or not. Strongly recommend to not allow it. If it&#8217;s set to FALSE then new (not registered) user will get error page with contact support email address.</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;autoregister_federated&#39;] = FALSE;
@@ -282,7 +282,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 </div>
 </div></blockquote>
 <ul class="simple" id="configfilefederation">
-<li>Shibboleth - is array containing information wether shibboleth based federated access should be enabled, uri which resolves shibboleth assertion and logout uri which is called in iframe during RR3 logout process - it allows to destroy both RR3 and shibboleth session</li>
+<li>Shibboleth - is array containing information wether shibboleth based federated access should be enabled, uri which resolves shibboleth assertion and logout uri which is called in iframe during JAGGER logout process - it allows to destroy both JAGGER and shibboleth session</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shibboleth&#39;][&#39;loginapp_uri&#39;] = &#39;auth/fedauth&#39;;
@@ -297,7 +297,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>nameids - array of allowed NameID in RR3</li>
+<li>nameids - array of allowed NameID in JAGGER</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;nameids&#39;] = array(
@@ -308,6 +308,10 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
      &#39;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&#39; =&gt; &#39;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&#39;,
              );
 </pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">$config[&#8216;nameids&#8217;] - is obsolete and not used any more</p>
 </div>
 </div></blockquote>
 <ul class="simple">
@@ -449,14 +453,14 @@ $config[&#39;smtp_crypto&#39;] = &#39;tls&#39;;
 </pre></div>
 </div>
 </li>
-<li><p class="first">usage in RR3</p>
+<li><p class="first">usage in JAGGER</p>
 <ul>
 <li><p class="first">mail_sending_active - boolean FALSE/TRUE - if FALSE then not mails are sent at all. It takes presedence..</p>
 <div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;mail_sending_active&#39;] = TRUE;
 </pre></div>
 </div>
 </li>
-<li><p class="first">notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in RR3</p>
+<li><p class="first">notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in JAGGER</p>
 <div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;notify_if_provider_rm_from_fed&#39;] = TRUE;
 </pre></div>
 </div>
@@ -480,7 +484,7 @@ $config[&#39;smtp_crypto&#39;] = &#39;tls&#39;;
 </li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;mail_subject_suffix&#39;] = &#39;[RR3]&#39;;
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;mail_subject_suffix&#39;] = &#39;[JAGGER]&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -641,11 +645,11 @@ As template <strong>memcached-default.php</strong> can be used - default</p>
         <li class="right" >
           <a href="installation.html" title="Installation process (final)"
              >previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Janusz Ulanowski.
+        &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

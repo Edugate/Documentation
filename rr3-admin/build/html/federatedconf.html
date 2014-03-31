@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Enable Federated access &mdash; RR3 - Admin Guide Draft 1.0 documentation</title>
+    <title>Enable Federated access &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="RR3 - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" />
     <link rel="next" title="Upgrading" href="update.html" />
     <link rel="prev" title="Language" href="langs.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="langs.html" title="Language"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -51,17 +51,17 @@
             
   <div class="section" id="enable-federated-access">
 <h1>Enable Federated access<a class="headerlink" href="#enable-federated-access" title="Permalink to this headline">¶</a></h1>
-<p>RR3 supports both local authentication and federated access. Right now shibboleth-sp is supported. There will be support for simpleSAMLphp too.</p>
+<p>JAGGER supports both local authentication and federated access. Right now shibboleth-sp is supported. There will be support for simpleSAMLphp too.</p>
 <p>Obviusly you need to have shibboleth-sp configured.</p>
 <ol class="arabic">
-<li><p class="first">Enable federated access in RR3</p>
+<li><p class="first">Enable federated access in JAGGER</p>
 <p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a> :</p>
 <p>autoregister_federated, register_defaultrole, Shib_required, Shib_username, Shib_mail, Shibboleth</p>
 </li>
 <li><p class="first">Next thing is to protect specific URI in apache with shibboleth. Here is example part from apache config.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">remove or replace ALIAS with your base location for RR3</p>
+<p class="last">remove or replace ALIAS with your base location for JAGGER</p>
 </div>
 <div class="code apache highlight-python"><div class="highlight"><pre>&lt;Location /ALIAS/auth/fedauth&gt;
   Options -Indexes FollowSymLinks MultiViews
@@ -153,11 +153,11 @@ If you create user and set only federated access then even there is password set
         <li class="right" >
           <a href="langs.html" title="Language"
              >previous</a> |</li>
-        <li><a href="index.html">RR3 - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Janusz Ulanowski.
+        &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

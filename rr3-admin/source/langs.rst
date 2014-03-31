@@ -1,6 +1,6 @@
 Language
 *********
-RR3 supports multilanguage. Loading language is defined in **/opt/rr3/application/core/MY_Controller.php**
+JAGGER supports multilanguage. Loading language is defined in **/opt/rr3/application/core/MY_Controller.php**
 Firstly english language is loaded and then cookie called **rrlang** is checked. If its value is in range allowed languages then
 selected language is selected otherwise english is used.
 Files if langs definitions are located in **/opt/rr3/application/language/**. Every lang has own folder and all of them except english are based to letter lang code.
@@ -10,7 +10,11 @@ Supported languages
 
 You can select only one of below supported languages
 
-* English (EN)
+* English (EN) - default
+
+* Czech (CS)
+
+* French-Canadian (FR-CA)
 
 * Italian (IT)
 
@@ -21,6 +25,8 @@ You can select only one of below supported languages
 * Portuguese (PT)
 
 * Spanish (ES)
+
+
 
 
 Translation 

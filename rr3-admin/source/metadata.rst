@@ -5,7 +5,7 @@ Metadata
 
 http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf
 
-RR3 generates three types of unsigned metadata.
+JAGGER generates three types of unsigned metadata.
 
 
 #. metadata for federation
@@ -15,7 +15,7 @@ RR3 generates three types of unsigned metadata.
    The URL of unsigned metadata is like https://yourhost.example.com/rr3/metadata/federation/ENCODED_FEDNAME/metadata.xml
    where **ENCODED_FEDNAME** is genereated by taking **Federation name** and encoding it with helper function :ref:`base64url_encode`  
    
-   So it's imported to not change the name of federation created in RR3
+   So it's imported to not change the name of federation created in JAGGER 
 
 #. metadata for federation exported for interfederation purpose
 

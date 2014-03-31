@@ -1,5 +1,5 @@
 Installation process (final)
-*******************
+****************************
 In the documentation there predefined:
 
 * website https://yourhost.example.com/rr3 
@@ -30,10 +30,10 @@ Requirements
 
 * Memcached server on the same host
 
-* gearman-php, gearnam-job-server - allows to enable additional features in RR3 
+* gearman-php, gearnam-job-server - allows to enable additional features in JAGGER 
 
-Download RR3 and Codeigniter
-============================
+Download JAGGER and Codeigniter
+===============================
 
 In the time writting this document there wasn't official release of Codeigniter version 3.0.
 So we are going to use source code from GitHub repository

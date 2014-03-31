@@ -10,11 +10,26 @@ Identity Provider registration form
 
 Definition for :term:`Identity Provider`
 
-.. image:: images/idpregister.png
+.. image:: images/idpreg1.png
     :scale: 60%
-    :alt: IdP Register Form
+    :alt: IdP Register Form Step1
 
 The form is available on https://youhost/alias/providers/idp_registration
+The Step1 contains an optional text field.
+If you have you IdP's metatada you can put into this field and click on "Parse metadata". 
+This process will populate basic information into fields on next steps.                           
+
+.. image:: images/idpreg2.png
+    :scale: 60%
+    :alt: IdP Register Form Step1 - after metadata parsed
+
+.. image:: images/idpreg3.png
+    :scale: 60%
+    :alt: IdP Register Form Step2
+
+.. image:: images/idpreg4.png
+    :scale: 60%
+    :alt: IdP Register Form Step3 
 
 Home Organization
     The name of your organization 
@@ -22,14 +37,8 @@ Home Organization
 :term:`Federation`
     Federation you want to join. If you want to apply later please select ">> None <<"
 
-:term:`Metadata` location
-    You can add location of your provider's metadata as additional information for FMP administrator
-
 :term:`EntityID`
     This is unique ID of a provider. About the naming please follow https://wiki.shibboleth.net/confluence/display/SHIB2/EntityNaming
-
-PrivacyStatement URL
-    Optional but strongly recommended URL to your Organization's Privacy Statement
 
 :term:`Scope`
     Domain of your Organization

@@ -40,8 +40,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'RR3 - Admin Guide Draft'
-copyright = u'2013, Janusz Ulanowski'
+project = u'JAGGER - Admin Guide Draft'
+copyright = u'2014, Janusz Ulanowski'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -163,7 +163,7 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'RR3-AdminGuidedoc'
+htmlhelp_basename = 'JAGGER-AdminGuidedoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -182,7 +182,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'RR3-AdminGuide.tex', u'RR3 - AdminGuide Documentation',
+  ('index', 'JAGGER-AdminGuide.tex', u'JAGGER - AdminGuide Documentation',
    u'Janusz Ulanowski', 'manual'),
 ]
 
@@ -212,7 +212,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'rr3-adminguide', u'RR3 - AdminGuide Documentation',
+    ('index', 'rr3-adminguide', u'JAGGER - AdminGuide Documentation',
      [u'Janusz Ulanowski'], 1)
 ]
 
@@ -226,8 +226,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'RR3-AdminGuide', u'RR3 - AdminGuide Documentation',
-   u'Janusz Ulanowski', 'RR3-AdminGuide', '',
+  ('index', 'JAGGER-AdminGuide', u'JAGGER - AdminGuide Documentation',
+   u'Janusz Ulanowski', 'JAGGER-AdminGuide', '',
    'Miscellaneous'),
 ]
 

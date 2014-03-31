@@ -2,7 +2,7 @@
 
 Configuration files
 *******************
-There are a few config files used by RR3 and they're stored in **/opt/rr3/application/config/** folder. 
+There are a few config files used by JAGGER and they're stored in **/opt/rr3/application/config/** folder. 
 
 config.php
 ==========
@@ -108,7 +108,7 @@ As template please use **config_rr-default.php**
 
     $config['rr_rm_member_from_fed'] = TRUE;
 
-* rr_logobaseurl - if NULL then **base_url** is set. It's used for generating Metadata logo paths if RR3 is a source of logo.  
+* rr_logobaseurl - if NULL then **base_url** is set. It's used for generating Metadata logo paths if JAGGER is a source of logo.  
 
  .. code:: php
  
@@ -156,7 +156,7 @@ As template please use **config_rr-default.php**
 
    $config['rr_logo_maxsize'] = 2000;  
 
-* autoregister_federated - if federated access to RR3 is enabled you can decide wether user who used federated access but doesn't exist in RR3 should be autoprovisioned or not. Strongly recommend to not allow it. If it's set to FALSE then new (not registered) user will get error page with contact support email address.
+* autoregister_federated - if federated access to JAGGER is enabled you can decide wether user who used federated access but doesn't exist in JAGGER should be autoprovisioned or not. Strongly recommend to not allow it. If it's set to FALSE then new (not registered) user will get error page with contact support email address.
 
  .. code:: php
   
@@ -210,7 +210,7 @@ $config['shibb_updatefullname'] = TRUE;
 
 .. _configfilefederation:
 
-* Shibboleth - is array containing information wether shibboleth based federated access should be enabled, uri which resolves shibboleth assertion and logout uri which is called in iframe during RR3 logout process - it allows to destroy both RR3 and shibboleth session
+* Shibboleth - is array containing information wether shibboleth based federated access should be enabled, uri which resolves shibboleth assertion and logout uri which is called in iframe during JAGGER logout process - it allows to destroy both JAGGER and shibboleth session
 
  .. code:: php
 
@@ -224,7 +224,7 @@ $config['shibb_updatefullname'] = TRUE;
   
   Also when **$config['Shibboleth']['enabled'] = TRUE** you will see "Federate login" button on login page.
 
-* nameids - array of allowed NameID in RR3
+* nameids - array of allowed NameID in JAGGER
 
  .. code:: php
 
@@ -235,6 +235,10 @@ $config['shibb_updatefullname'] = TRUE;
         'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
         'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
                 );
+
+ .. warning:: 
+ 
+  $config['nameids'] - is obsolete and not used any more 
 
 * metadata_validuntil_days - the value in days give how long generated metadata is valid - in metadata **validUntil** is generated datetime from now + number of days
 
@@ -365,7 +369,7 @@ You can use **email-default.php** as a template. Ther are two parts:
      $config['smtp_pass'] = 'PASS';
      $config['smtp_crypto'] = 'tls';
 
-#. usage in RR3
+#. usage in JAGGER
 
    * mail_sending_active - boolean FALSE/TRUE - if FALSE then not mails are sent at all. It takes presedence..
 
@@ -374,7 +378,7 @@ You can use **email-default.php** as a template. Ther are two parts:
        $config['mail_sending_active'] = TRUE;
 
 
-   * notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in RR3
+   * notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in JAGGER
 
      .. code:: php
 
@@ -401,7 +405,7 @@ You can use **email-default.php** as a template. Ther are two parts:
 
     .. code:: php
      
-     $config['mail_subject_suffix'] = '[RR3]';
+     $config['mail_subject_suffix'] = '[JAGGER]';
 
    * mail_header
 

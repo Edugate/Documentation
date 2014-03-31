@@ -1,7 +1,7 @@
 Gearman
 *******
 
-RR3 has ablity to interconnect with gearman. 
+JAGGER has ablity to interconnect with gearman. 
 
 What is Gearman you can find on http://gearman.org/
 
