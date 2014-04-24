@@ -6,7 +6,7 @@ selected language is selected otherwise english is used.
 Files if langs definitions are located in **/opt/rr3/application/language/**. Every lang has own folder and all of them except english are based to letter lang code.
 
 Supported languages
-==================
+===================
 
 You can select only one of below supported languages
 
@@ -53,7 +53,8 @@ If you want to add language which is not supported nor allowed yet you need to m
 #. the best option is firstly to send request on Github to add lang to allowed group. Then pull new revision and you can start translating and after even partial translation please contribute your code.
 
 #. If you want to do it on your own. then you need to create and modify few files. For instance we want you create German translation:
- #. create folder **de** in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english 
+
+#. create folder **de** in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english 
 
     .. code:: bash
 

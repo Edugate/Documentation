@@ -82,19 +82,23 @@ Files if langs definitions are located in <strong>/opt/rr3/application/language/
 <div class="section" id="add-new-language">
 <h2>Add new language<a class="headerlink" href="#add-new-language" title="Permalink to this headline">¶</a></h2>
 <p>If you want to add language which is not supported nor allowed yet you need to make some temporary changes.</p>
-<ol class="arabic simple">
-<li>the best option is firstly to send request on Github to add lang to allowed group. Then pull new revision and you can start translating and after even partial translation please contribute your code.</li>
-<li>If you want to do it on your own. then you need to create and modify few files. For instance we want you create German translation:</li>
-</ol>
-<blockquote>
-<div><ol class="arabic">
+<ol class="arabic">
+<li><p class="first">the best option is firstly to send request on Github to add lang to allowed group. Then pull new revision and you can start translating and after even partial translation please contribute your code.</p>
+</li>
+<li><p class="first">If you want to do it on your own. then you need to create and modify few files. For instance we want you create German translation:</p>
+</li>
 <li><p class="first">create folder <strong>de</strong> in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>mkdir /opt/rr3/application/language/de
+<blockquote>
+<div><div class="code bash highlight-python"><div class="highlight"><pre>mkdir /opt/rr3/application/language/de
 cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/
 </pre></div>
 </div>
 <p>and set proper owner/permissions</p>
+</div></blockquote>
 </li>
+</ol>
+<blockquote>
+<div><ol class="arabic">
 <li><p class="first">open /opt/rr3/application/controllers/manage/Translator.php</p>
 <p>find <strong>$allowedlangs</strong> in</p>
 <div class="code php highlight-python"><div class="highlight"><pre>public function tolanguage($l)
