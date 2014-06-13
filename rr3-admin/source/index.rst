@@ -44,6 +44,7 @@ Userguide
 
    register.rst
    entitydetails.rst
+   validators.rst
    
 
 Indices and tables

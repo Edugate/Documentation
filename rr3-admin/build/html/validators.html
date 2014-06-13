@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Federation Metadata Validators &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="federation-metadata-validators">
+<h1>Federation Metadata Validators<a class="headerlink" href="#federation-metadata-validators" title="Permalink to this headline">¶</a></h1>
+<p>This document describes metadata validators in JAGGER.</p>
+<div class="section" id="about-validators">
+<h2>About Validators<a class="headerlink" href="#about-validators" title="Permalink to this headline">¶</a></h2>
+<p>When an entity, for example a Service Provider (SP), should be joined to a federation, you may use external validators to check metadata of such an entity before asking to join the federation. Using this technique, the person asking to join the SP to the federation can find out if metadata are correct or contains all the required information within.</p>
+</div>
+<div class="section" id="adding-a-validator">
+<h2>Adding a Validator<a class="headerlink" href="#adding-a-validator" title="Permalink to this headline">¶</a></h2>
+<p>To add (or edit) federation validators go to <tt class="docutils literal"><span class="pre">Federations</span></tt>, choose a desired federation and click on <tt class="docutils literal"><span class="pre">Validators</span></tt> tab.</p>
+<ol class="arabic simple">
+<li>General</li>
+</ol>
+<ul class="simple">
+<li><strong>Federation validator name:</strong> e.g. ext-scope</li>
+<li><strong>Enabled:</strong> check the checkbox to enable the validator</li>
+<li><strong>Description:</strong> e.g. External ext-scope (Extensions/Scope) validator</li>
+<li><strong>URL of federation validator:</strong> e.g. <a class="reference external" href="https://myhost.tld/validator/ext-scope.php">https://myhost.tld/validator/ext-scope.php</a>?</li>
+<li><strong>HTTP Method:</strong> e.g. GET</li>
+<li><strong>Arg name where entity metadata will be assigned to:</strong> e.g. from</li>
+<li><strong>Optional args to be sent in POST/GET:</strong> optional field</li>
+<li><strong>Args separator in URL (GET):</strong> &amp;</li>
+<li><strong>Expected document type in response:</strong> xml (cannot be changed, only XML at this moment)</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Response</li>
+</ol>
+<ul class="simple">
+<li><strong>Elements names containing return code:</strong> e.g. returncode</li>
+<li><strong>Expected value for success:</strong> e.g. 0</li>
+<li><strong>Expected value for warning:</strong> e.g. 1</li>
+<li><strong>Expected value for error:</strong> e.g. 2</li>
+<li><strong>Expected value for critical:</strong> e.g. 3</li>
+<li><strong>Elements names containing message:</strong> e.g. message info</li>
+</ul>
+</div>
+<div class="section" id="validation-results">
+<h2>Validation Results<a class="headerlink" href="#validation-results" title="Permalink to this headline">¶</a></h2>
+<p>A XML document sent back to JAGGER as a validation result has to be a well-formed XML document, i.e. all the elements (returncode, message and info as mentioned above) have to be inside a root-element, for example:</p>
+<div class="code xml highlight-python"><div class="highlight"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;validation&gt;
+   &lt;returncode&gt;0&lt;/returncode&gt;
+   &lt;message&gt;Lorem ipsum&lt;/message&gt;
+   &lt;info&gt;Lorem ipsum dolor sit amet...&lt;/info&gt;
+&lt;/validation&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="metadata-validator-example">
+<h2>Metadata Validator Example<a class="headerlink" href="#metadata-validator-example" title="Permalink to this headline">¶</a></h2>
+<p>Metadata can be validated in a number of ways. In the example below, a shell script is executed by a PHP script. Depending on the exit code of the shell script a PHP script generates a XML document as an answer.</p>
+<div class="code php highlight-python"><div class="highlight"><pre>&lt;?php
+$command = &quot;./ext-scope.sh $_GET[from]&quot;;
+exec($command, $output, $returncode);
+
+if($returncode == 0) {
+   echo &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot;?&gt;\n&quot;;
+   echo &quot;&lt;validation&gt;\n&quot;;
+   echo &quot;\t&lt;returncode&gt;0&lt;/returncode&gt;\n&quot;;
+   echo &quot;\t&lt;message&gt;Element &#39;shibmd:Scope&#39; present.&lt;/message&gt;\n&quot;;
+   echo &quot;&lt;/validation&gt;\n&quot;;
+} elseif($returncode == 1) {
+   echo &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot;?&gt;\n&quot;;
+   echo &quot;&lt;validation&gt;\n&quot;;
+   echo &quot;\t&lt;returncode&gt;1&lt;/returncode&gt;\n&quot;;
+   echo &quot;\t&lt;message&gt;&quot;;
+   foreach ($output as $output_line)
+       echo $output_line;
+   echo &quot;&lt;/message&gt;\n&quot;;
+   echo &quot;\t&lt;info&gt;Element &#39;shibmd:Scope&#39; is missing! For more info, see https://myhost.tld/metadata/ext-scope&lt;/info&gt;\n&quot;;
+   echo &quot;&lt;/validation&gt;\n&quot;;
+}
+?&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Q: I have defined more validators, but I can see just the first one and the others are hidden.</div>
+<div class="line">A: Yes, that is right. It will be fixed soon.</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Federation Metadata Validators</a><ul>
+<li><a class="reference internal" href="#about-validators">About Validators</a></li>
+<li><a class="reference internal" href="#adding-a-validator">Adding a Validator</a></li>
+<li><a class="reference internal" href="#validation-results">Validation Results</a></li>
+<li><a class="reference internal" href="#metadata-validator-example">Metadata Validator Example</a></li>
+<li><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Janusz Ulanowski.
+    </div>
+  </body>
+</html>
