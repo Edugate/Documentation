@@ -425,14 +425,30 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
-<ul>
-<li><p class="first">entpartschangesdisallowed - (optional) - array of elements do not allow to modify by enduser. For the moment entityid and scope may be disabled.</p>
-<p>$config[&#8216;entpartschangesdisallowed&#8217;] = array(&#8216;entityid&#8217;,&#8217;scope&#8217;);</p>
-</li>
-<li><p class="first">arpbyinherit - (optional) - enable AttributeReleasePolicy generator with new logic. Policy for attribute is inherited in order &#8220;supported -&gt; default -&gt; federation -&gt; service provider&#8221; . If disabled then default generator is used: If there is any attribute set for specific SP then default/federation policies are ignored and rest supported attributes which have not set policy fot this SP are set as Deny. Recommended is to use new generator:</p>
-</li>
+<ul class="simple">
+<li>disable support for generating circle of trust metadata - (optional) only if it&#8217;s set to TRUE then &#8220;federation metadata(s)&#8221; will be generated and hyperlinks related to circle of trust metadata will be hidden</li>
 </ul>
-<p>$config[&#8216;arpbyinherit&#8217;] = TRUE;</p>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;featdisable&#39;][&#39;circlemeta&#39;] = true;
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>entpartschangesdisallowed - (optional) - array of elements do not allow to modify by enduser. For the moment entityid and scope may be disabled.</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;entpartschangesdisallowed&#39;] = array(&#39;entityid&#39;,&#39;scope&#39;);
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>arpbyinherit - (optional) - enable AttributeReleasePolicy generator with new logic. Policy for attribute is inherited in order &#8220;supported -&gt; default -&gt; federation -&gt; service provider&#8221; . If disabled then default generator is used: If there is any attribute set for specific SP then default/federation policies are ignored and rest supported attributes which have not set policy fot this SP are set as Deny. Recommended is to use new generator:</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;arpbyinherit&#39;] = TRUE;
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="email-php">
 <h2>email.php<a class="headerlink" href="#email-php" title="Permalink to this headline">¶</a></h2>

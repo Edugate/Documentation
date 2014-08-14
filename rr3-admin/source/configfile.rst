@@ -339,13 +339,24 @@ $config['shibb_updatefullname'] = TRUE;
 
   $config['disable_extcirclemeta'] = TRUE;
 
+* disable support for generating circle of trust metadata - (optional) only if it's set to TRUE then "federation metadata(s)" will be generated and hyperlinks related to circle of trust metadata will be hidden
+
+ .. code:: php
+
+  $config['featdisable']['circlemeta'] = true;   
+
+
 * entpartschangesdisallowed - (optional) - array of elements do not allow to modify by enduser. For the moment entityid and scope may be disabled.
+ 
+ .. code:: php
 
   $config['entpartschangesdisallowed'] = array('entityid','scope');
 
 * arpbyinherit - (optional) - enable AttributeReleasePolicy generator with new logic. Policy for attribute is inherited in order "supported -> default -> federation -> service provider" . If disabled then default generator is used: If there is any attribute set for specific SP then default/federation policies are ignored and rest supported attributes which have not set policy fot this SP are set as Deny. Recommended is to use new generator:
 
-$config['arpbyinherit'] = TRUE;
+ .. code:: php
+
+  $config['arpbyinherit'] = TRUE;
 
 
 email.php
