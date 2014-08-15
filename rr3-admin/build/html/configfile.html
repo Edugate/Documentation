@@ -101,7 +101,7 @@ $config[&#39;sess_time_to_update&#39;]  = 300;
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>csrf_protection - set to TRUE, however as csrf_regenerate set to FALSE as there is a problem with ajax forms</li>
+<li>csrf_protection - set to TRUE</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;csrf_protection&#39;] = TRUE;
@@ -110,6 +110,14 @@ $config[&#39;csrf_cookie_name&#39;] = &#39;csrf_cookie_name&#39;;
 $config[&#39;csrf_expire&#39;] = 7200;
 $config[&#39;csrf_regenerate&#39;] = FALSE;
 $config[&#39;csrf_exclude_uris&#39;] = array();
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>standardize_newlines - in most cases set to TRUE</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;standardize_newlines&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>

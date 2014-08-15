@@ -53,7 +53,7 @@ Please follow Codeigniter documentation. In most cases it will be default with s
    $config['sess_match_useragent'] = TRUE;
    $config['sess_time_to_update']  = 300;
  
-* csrf_protection - set to TRUE, however as csrf_regenerate set to FALSE as there is a problem with ajax forms
+* csrf_protection - set to TRUE
 
  .. code:: php
 
@@ -63,6 +63,13 @@ Please follow Codeigniter documentation. In most cases it will be default with s
    $config['csrf_expire'] = 7200;
    $config['csrf_regenerate'] = FALSE;
    $config['csrf_exclude_uris'] = array();
+
+
+* standardize_newlines - in most cases set to TRUE
+
+ .. code:: php
+
+   $config['standardize_newlines'] = TRUE;
 
 
 config_rr.php
