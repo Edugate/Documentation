@@ -48,11 +48,12 @@ Please contribute your changes to main code on github
 Add new language
 ================
 
-If you want to add language which is not supported nor allowed yet you need to make some temporary changes.
+If you want to add language which is not supported nor allowed yet. Here is example for german language
 
-#. the best option is firstly to send request on Github to add lang to allowed group. Then pull new revision and you can start translating and after even partial translation please contribute your code.
-
-#. If you want to do it on your own. then you need to create and modify few files. For instance we want you create German translation:
+#. into config_rr.php add
+    .. code:: php
+     
+     $config['guilangs']['de'] = array('path'=>'de','val'=>'deutsch'); 
 
 #. create folder **de** in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english 
 
@@ -63,93 +64,13 @@ If you want to add language which is not supported nor allowed yet you need to m
     
     and set proper owner/permissions
 
- #. open /opt/rr3/application/controllers/manage/Translator.php
-    
-    find **$allowedlangs** in 
 
-    .. code:: php
-     
-     public function tolanguage($l)
-     {
-
-     }
-
-    and add new language code. Then you need to add below line into **config_rr.php** file
+#. and add new language code. Then you need to add below line into **config_rr.php** file
    
-    .. code:: php
+   .. code:: php
 
      $config['translator_access']['de'] = 'your username';
     
- #. This part adds your language to selection form (top-right corner of the website)
-
-    open /opt/rr3/application/view/page.php
-    
-    find part 
-
-    .. code:: php
-      
-       $langs = array(
-                    'en' => array('path'=>'english','val'=>'english'),
-                    'it' => array('path'=>'it','val'=>'italiano'),
-                    'lt' => array('path'=>'lt','val'=>'lietuvos'),
-                    'pl' => array('path'=>'pl','val'=>'polski'),
-                    'pt' => array('path'=>'pt','val'=>'português'),
-                    'es' => array('path'=>'es','val'=>'española'),
-                   );
-     
-    and add definition for German language, it should look like 
-
-    .. code:: php
-      
-       $langs = array(
-                    'de' => array('path'=>'de','val'=>'deutsch'),
-                    'en' => array('path'=>'english','val'=>'english'),
-                    'it' => array('path'=>'it','val'=>'italiano'),
-                    'lt' => array('path'=>'lt','val'=>'lietuvos'),
-                    'pl' => array('path'=>'pl','val'=>'polski'),
-                    'pt' => array('path'=>'pt','val'=>'português'),
-                    'es' => array('path'=>'es','val'=>'española'),
-                   );
- 
-
- #. modify ajax
-  
-    open **/opt/rr3/application/controllers/Ajax.php** 
-
-    and find function
-
-    .. code:: php
-
-     public function changelanguage($language)
-     {
-        if ($this->input->is_ajax_request())
-        {
-            log_message('debug', 'ajax');
-            $language = substr($language, 0, 2);
-            if ($language === 'pl')
-            {
-                $cookie_value = 'pl';
-            }
-            elseif ($language === 'pt')
-            {
-                $cookie_value = 'pt';
-            }
-        
-    
-    And again add definition for your language 
-
-    
- #. This last part that allows to switch into your new language 
-
-    open **/opt/rr3/application/core/MY_Controller.php**
-
-    find 
-
-    .. code:: php 
-     
-     $langs = array('pl','pt','it','lt','es');
-
-    and add you language.    
 
 
 
