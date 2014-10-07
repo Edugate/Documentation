@@ -9,6 +9,13 @@ In the documentation there predefined:
 
 Requirements
 ============
+* composer https://getcomposer.org/
+ 
+ .. code:: bash
+
+  curl -sS https://getcomposer.org/installer | php
+  cp composer.phar /usr/local/bin/composer
+
 * mysql > 5.1  (it should work with postgres etc but not tested) 
 * PHP >= 5.3 with modules: php-apc, php5-cli, php5-curl, php5-mysql, php5-mcrypt, php5-memcached
 * Apache >= 2.2 with enabled modules: rewrite, unique_id 
@@ -17,9 +24,9 @@ Requirements
 
  .. important::    please use release/3.0 branch
 
-* Doctrine > 2.3.3 http://www.doctrine-project.org/downloads/DoctrineORM-2.3.3-full.tar.gz into APP_PATH/libraries/Doctrine
+* Doctrine > 2.3.3 http://www.doctrine-project.org
 
- .. note:: Doctrine it will be downloaded within install script
+ .. note:: Doctrine it will be installed with composer
 
 * Zend Framework 
 
@@ -52,6 +59,11 @@ ResourceRegistry3 is published on GITHUB https://github.com/Edugate/ResourceRegi
  git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
  cd /opt/rr3
 
+Install dcotrine with composer tool
+
+.. code:: bash
+
+ composer install
 
 Set *index.php* file 
 

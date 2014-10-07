@@ -60,6 +60,15 @@
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>composer <a class="reference external" href="https://getcomposer.org/">https://getcomposer.org/</a></li>
+</ul>
+<blockquote>
+<div><div class="code bash highlight-python"><div class="highlight"><pre>curl -sS https://getcomposer.org/installer | php
+cp composer.phar /usr/local/bin/composer
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
 <li>mysql &gt; 5.1  (it should work with postgres etc but not tested)</li>
 <li>PHP &gt;= 5.3 with modules: php-apc, php5-cli, php5-curl, php5-mysql, php5-mcrypt, php5-memcached</li>
 <li>Apache &gt;= 2.2 with enabled modules: rewrite, unique_id</li>
@@ -73,12 +82,12 @@
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>Doctrine &gt; 2.3.3 <a class="reference external" href="http://www.doctrine-project.org/downloads/DoctrineORM-2.3.3-full.tar.gz">http://www.doctrine-project.org/downloads/DoctrineORM-2.3.3-full.tar.gz</a> into APP_PATH/libraries/Doctrine</li>
+<li>Doctrine &gt; 2.3.3 <a class="reference external" href="http://www.doctrine-project.org">http://www.doctrine-project.org</a></li>
 </ul>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Doctrine it will be downloaded within install script</p>
+<p class="last">Doctrine it will be installed with composer</p>
 </div>
 </div></blockquote>
 <ul>
@@ -111,6 +120,10 @@ git pull
 <p>ResourceRegistry3 is published on GITHUB <a class="reference external" href="https://github.com/Edugate/ResourceRegistry">https://github.com/Edugate/ResourceRegistry</a>  under MIT License.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
 cd /opt/rr3
+</pre></div>
+</div>
+<p>Install dcotrine with composer tool</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>composer install
 </pre></div>
 </div>
 <p>Set <em>index.php</em> file</p>
