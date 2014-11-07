@@ -6,7 +6,6 @@ In the documentation there predefined:
 * Codeigniter framework will be installed in  */opt/codeigniter*
 * ResourceRegistry3 source code will stored in */opt/rr3*
 
-
 Requirements
 ============
 * composer https://getcomposer.org/
@@ -22,9 +21,9 @@ Requirements
 * Shibboleth-SP >= 2.4 - optional needed for federated access 
 * Codeigniter framework 3.0 - it's not official release yet from git://github.com/EllisLab/CodeIgniter.git
 
- .. important::    please use release/3.0 branch
+ .. warning::  Since Oct 2014 Codeigninter has new home and changes licence to MIT. Also location on github has been changed https://github.com/bcit-ci/CodeIgniter
 
-* Doctrine > 2.3.3 http://www.doctrine-project.org
+* Doctrine >= 2.4.x http://www.doctrine-project.org
 
  .. note:: Doctrine it will be installed with composer
 
@@ -45,11 +44,13 @@ Download JAGGER and Codeigniter
 In the time writting this document there wasn't official release of Codeigniter version 3.0.
 So we are going to use source code from GitHub repository
 
+ .. note:: we will be using develop branch 
+
 .. code:: bash
 
- git clone git://github.com/EllisLab/CodeIgniter.git /opt/codeigniter
+ git clone git://github.com/bcit-ci/CodeIgniter.git /opt/codeigniter
  cd /opt/codeigniter
- git checkout -b release/3.0 origin/release/3.0 
+ git checkout -b develop origin/develop 
  git pull
 
 ResourceRegistry3 is published on GITHUB https://github.com/Edugate/ResourceRegistry  under MIT License.
@@ -199,7 +200,7 @@ In the future after every update you will need to run
 
 .. code:: bash
 
- ./doctrine orm:schema-tool:update
+ ./doctrine orm:schema-tool:update --force
  ./doctrine orm:generate-proxies
 
 
@@ -226,7 +227,7 @@ Open page **https://yourhost.example.com/rr3/setup** and fill the form.
 
 After submit user you entered will be in Administration group.
 
-Again: **please change rr_setup_allowed to FALSE**
+.. warning:: Again: **please change rr_setup_allowed to FALSE**
 
 
 

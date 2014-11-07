@@ -283,7 +283,6 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <ul class="simple">
 <li>shibb_updatefullname - optional - if TRUE then every time when user is loggedin his first and last name will be updated with values (if exist) provided by Shibboleth.</li>
 </ul>
-<p>$config[&#8216;shibb_updatefullname&#8217;] = TRUE;</p>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;shibb_updatefullname&#39;] = TRUE;
 </pre></div>
@@ -450,10 +449,19 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>arpbyinherit - (optional) - enable AttributeReleasePolicy generator with new logic. Policy for attribute is inherited in order &#8220;supported -&gt; default -&gt; federation -&gt; service provider&#8221; . If disabled then default generator is used: If there is any attribute set for specific SP then default/federation policies are ignored and rest supported attributes which have not set policy fot this SP are set as Deny. Recommended is to use new generator:</li>
+<li>arpbyinherit</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;arpbyinherit&#39;] = TRUE;
+<div><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">arpbyinherit - not used anymore</p>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>addlogocheckssl - optional - default is TRUE - used in entity edit form, when add new logo url - checks webserver ssl - you can disable it by setting in config with FALSE</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;addlogocheckssl&#39;] = FALSE;
 </pre></div>
 </div>
 </div></blockquote>

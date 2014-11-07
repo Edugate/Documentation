@@ -76,13 +76,13 @@ cp composer.phar /usr/local/bin/composer
 <li>Codeigniter framework 3.0 - it&#8217;s not official release yet from git://github.com/EllisLab/CodeIgniter.git</li>
 </ul>
 <blockquote>
-<div><div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">please use release/3.0 branch</p>
+<div><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Since Oct 2014 Codeigninter has new home and changes licence to MIT. Also location on github has been changed <a class="reference external" href="https://github.com/bcit-ci/CodeIgniter">https://github.com/bcit-ci/CodeIgniter</a></p>
 </div>
 </div></blockquote>
 <ul class="simple">
-<li>Doctrine &gt; 2.3.3 <a class="reference external" href="http://www.doctrine-project.org">http://www.doctrine-project.org</a></li>
+<li>Doctrine &gt;= 2.4.x <a class="reference external" href="http://www.doctrine-project.org">http://www.doctrine-project.org</a></li>
 </ul>
 <blockquote>
 <div><div class="admonition note">
@@ -111,9 +111,15 @@ into APP_PATH/libraries/Zend</p>
 <h2>Download JAGGER and Codeigniter<a class="headerlink" href="#download-jagger-and-codeigniter" title="Permalink to this headline">¶</a></h2>
 <p>In the time writting this document there wasn&#8217;t official release of Codeigniter version 3.0.
 So we are going to use source code from GitHub repository</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>git clone git://github.com/EllisLab/CodeIgniter.git /opt/codeigniter
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">we will be using develop branch</p>
+</div>
+</div></blockquote>
+<div class="code bash highlight-python"><div class="highlight"><pre>git clone git://github.com/bcit-ci/CodeIgniter.git /opt/codeigniter
 cd /opt/codeigniter
-git checkout -b release/3.0 origin/release/3.0
+git checkout -b develop origin/develop
 git pull
 </pre></div>
 </div>
@@ -222,7 +228,7 @@ cp memcached-default.php -&gt; memcached.php
 </div>
 <p>and verify owner of application/models/Proxies/* - apache user should be owner</p>
 <p>In the future after every update you will need to run</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:update
+<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:update --force
 ./doctrine orm:generate-proxies
 </pre></div>
 </div>
@@ -240,7 +246,10 @@ To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
 </div>
 <p>Open page <strong>https://yourhost.example.com/rr3/setup</strong> and fill the form.</p>
 <p>After submit user you entered will be in Administration group.</p>
-<p>Again: <strong>please change rr_setup_allowed to FALSE</strong></p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Again: <strong>please change rr_setup_allowed to FALSE</strong></p>
+</div>
 </div>
 </div>
 

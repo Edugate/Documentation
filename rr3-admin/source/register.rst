@@ -23,13 +23,6 @@ This process will populate basic information into fields on next steps.
     :scale: 60%
     :alt: IdP Register Form Step1 - after metadata parsed
 
-.. image:: images/idpreg3.png
-    :scale: 60%
-    :alt: IdP Register Form Step2
-
-.. image:: images/idpreg4.png
-    :scale: 60%
-    :alt: IdP Register Form Step3 
 
 Home Organization
     The name of your organization 

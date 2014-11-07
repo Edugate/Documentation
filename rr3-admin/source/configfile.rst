@@ -209,8 +209,6 @@ As template please use **config_rr-default.php**
 
 * shibb_updatefullname - optional - if TRUE then every time when user is loggedin his first and last name will be updated with values (if exist) provided by Shibboleth.  
 
-$config['shibb_updatefullname'] = TRUE;
-
  .. code:: php
  
   $config['shibb_updatefullname'] = TRUE;
@@ -259,6 +257,7 @@ $config['shibb_updatefullname'] = TRUE;
  .. code:: php
  
    $config['unsignedmeta_iplimits'] = array('127.0.0.1');
+
 
 * policy_dropdown - dropdown element for attribute policy - this config will be removed in future release, but right now is mandatory.
 
@@ -359,12 +358,15 @@ $config['shibb_updatefullname'] = TRUE;
 
   $config['entpartschangesdisallowed'] = array('entityid','scope');
 
-* arpbyinherit - (optional) - enable AttributeReleasePolicy generator with new logic. Policy for attribute is inherited in order "supported -> default -> federation -> service provider" . If disabled then default generator is used: If there is any attribute set for specific SP then default/federation policies are ignored and rest supported attributes which have not set policy fot this SP are set as Deny. Recommended is to use new generator:
+* arpbyinherit 
+
+ .. warning:: arpbyinherit - not used anymore
+
+* addlogocheckssl - optional - default is TRUE - used in entity edit form, when add new logo url - checks webserver ssl - you can disable it by setting in config with FALSE
 
  .. code:: php
 
-  $config['arpbyinherit'] = TRUE;
-
+  $config['addlogocheckssl'] = FALSE;
 
 email.php
 =========
