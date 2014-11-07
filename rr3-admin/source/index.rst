@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Jagger - Administration guide! (Draft) - updated: 2014/08/14
+Welcome to Jagger - Administration guide! (Draft) - updated: 2014/11/07
 =====================================
 
 .. note::
@@ -15,6 +15,7 @@ Welcome to Jagger - Administration guide! (Draft) - updated: 2014/08/14
  If section title has **(final)** means it's complete - if any mistake fill the bug
 
 
+.. warning:: document is being updated - updated version will be available withing few days
 
 
 Contents:

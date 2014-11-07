@@ -1,5 +1,6 @@
 .. _configfile:
 
+
 Configuration files
 *******************
 There are a few config files used by JAGGER and they're stored in **/opt/rr3/application/config/** folder. 
