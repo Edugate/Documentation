@@ -359,9 +359,9 @@ As template please use **config_rr-default.php**
 
   $config['entpartschangesdisallowed'] = array('entityid','scope');
 
-* arpbyinherit 
+* arpbyinherit - (optional) - default is TRUE
 
- .. warning:: arpbyinherit - not used anymore
+ .. warning:: arpbyinherit option is depreacted and shouldnt be used - default functionality behaves like it was set to TRUE
 
 * addlogocheckssl - optional - default is TRUE - used in entity edit form, when add new logo url - checks webserver ssl - you can disable it by setting in config with FALSE
 
