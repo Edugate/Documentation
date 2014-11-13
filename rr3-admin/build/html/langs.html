@@ -67,6 +67,8 @@ Files if langs definitions are located in <strong>/opt/rr3/application/language/
 <li>Polish (PL)</li>
 <li>Portuguese (PT)</li>
 <li>Spanish (ES)</li>
+<li>Irish (GA)</li>
+<li>Serbian (SR)</li>
 </ul>
 </div>
 <div class="section" id="translation">
@@ -76,29 +78,31 @@ Files if langs definitions are located in <strong>/opt/rr3/application/language/
 <div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;translator_access&#39;][&#39;pl&#39;] = &#39;joebloggs&#39;;
 </pre></div>
 </div>
-<p>Also make sure that lang file(s) in <strong>/opt/rr3/application/language/pl</strong> are writable by apache owner</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Make sure that lang file(s) in <strong>/opt/rr3/application/language/pl</strong> are writable by apache owner</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You also might need to set high enough (2000) <strong>max_input_vars</strong> in php.ini</p>
+</div>
 <p>Please contribute your changes to main code on github</p>
 </div>
 <div class="section" id="add-new-language">
 <h2>Add new language<a class="headerlink" href="#add-new-language" title="Permalink to this headline">¶</a></h2>
 <p>If you want to add language which is not supported nor allowed yet. Here is example for german language</p>
 <ol class="arabic">
-<li><dl class="first docutils">
-<dt>into config_rr.php add</dt>
-<dd><div class="code php first last highlight-python"><div class="highlight"><pre>$config[&#39;guilangs&#39;][&#39;de&#39;] = array(&#39;path&#39;=&gt;&#39;de&#39;,&#39;val&#39;=&gt;&#39;deutsch&#39;);
+<li><p class="first">into config_rr.php add</p>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;guilangs&#39;][&#39;de&#39;] = array(&#39;path&#39;=&gt;&#39;de&#39;,&#39;val&#39;=&gt;&#39;deutsch&#39;);
 </pre></div>
 </div>
-</dd>
-</dl>
 </li>
 <li><p class="first">create folder <strong>de</strong> in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english</p>
-<blockquote>
-<div><div class="code bash highlight-python"><div class="highlight"><pre>mkdir /opt/rr3/application/language/de
+<div class="code bash highlight-python"><div class="highlight"><pre>mkdir /opt/rr3/application/language/de
 cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/
 </pre></div>
 </div>
 <p>and set proper owner/permissions</p>
-</div></blockquote>
 </li>
 <li><p class="first">and add new language code. Then you need to add below line into <strong>config_rr.php</strong> file</p>
 <div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;translator_access&#39;][&#39;de&#39;] = &#39;your username&#39;;

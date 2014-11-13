@@ -26,6 +26,10 @@ You can select only one of below supported languages
 
 * Spanish (ES)
 
+* Irish (GA)
+
+* Serbian (SR)
+
 
 
 
@@ -40,7 +44,9 @@ Next thing is to define permission who can translate and into what language. You
 
  $config['translator_access']['pl'] = 'joebloggs';
 
-Also make sure that lang file(s) in **/opt/rr3/application/language/pl** are writable by apache owner
+.. warning:: Make sure that lang file(s) in **/opt/rr3/application/language/pl** are writable by apache owner
+.. warning:: You also might need to set high enough (2000) **max_input_vars** in php.ini
+
 
 Please contribute your changes to main code on github
 
@@ -51,18 +57,19 @@ Add new language
 If you want to add language which is not supported nor allowed yet. Here is example for german language
 
 #. into config_rr.php add
-    .. code:: php
+
+   .. code:: php
      
      $config['guilangs']['de'] = array('path'=>'de','val'=>'deutsch'); 
 
 #. create folder **de** in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english 
 
-    .. code:: bash
+   .. code:: bash
 
      mkdir /opt/rr3/application/language/de
      cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/
     
-    and set proper owner/permissions
+   and set proper owner/permissions
 
 
 #. and add new language code. Then you need to add below line into **config_rr.php** file
