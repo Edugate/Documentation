@@ -359,6 +359,13 @@ As template please use **config_rr-default.php**
 
   $config['entpartschangesdisallowed'] = array('entityid','scope');
 
+* rootSchemaFile - (optional) - you can set other than saml-schema-metadata-2.0.xsd for metadata validation. metadata validator loads defined xsd from {RR}/schemas/{old|new}/ folder. which of old, new folders is used- depends on php version. Example to validation against ws-federation.xsd
+
+ .. code:: php
+
+  $config['rootSchemaFile'] = 'ws-federation.xsd';
+
+
 * arpbyinherit - (optional) - default is TRUE
 
  .. warning:: arpbyinherit option is depreacted and shouldnt be used - default functionality behaves like it was set to TRUE

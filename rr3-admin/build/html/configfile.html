@@ -449,6 +449,14 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </div>
 </div></blockquote>
 <ul class="simple">
+<li>rootSchemaFile - (optional) - you can set other than saml-schema-metadata-2.0.xsd for metadata validation. metadata validator loads defined xsd from {RR}/schemas/{old|new}/ folder. which of old, new folders is used- depends on php version. Example to validation against ws-federation.xsd</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rootSchemaFile&#39;] = &#39;ws-federation.xsd&#39;;
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
 <li>arpbyinherit - (optional) - default is TRUE</li>
 </ul>
 <blockquote>
