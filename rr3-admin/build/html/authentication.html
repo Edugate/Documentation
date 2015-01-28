@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Authentication &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Upgrading" href="update.html" />
+    <link rel="prev" title="Language" href="langs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="update.html" title="Upgrading"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="langs.html" title="Language"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="authentication">
+<h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="enable-federated-access">
+<h2>Enable Federated access<a class="headerlink" href="#enable-federated-access" title="Permalink to this headline">¶</a></h2>
+<p>JAGGER supports both local authentication and federated access. Right now shibboleth-sp is supported. There will be support for simpleSAMLphp too.</p>
+<p>Obviusly you need to have shibboleth-sp configured.</p>
+<ol class="arabic">
+<li><p class="first">Enable federated access in JAGGER</p>
+<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a> :</p>
+<p>autoregister_federated, register_defaultrole, Shib_required, Shib_username, Shib_mail, Shibboleth</p>
+</li>
+<li><p class="first">Next thing is to protect specific URI in apache with shibboleth. Here is example part from apache config.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">remove or replace ALIAS with your base location for JAGGER</p>
+</div>
+<div class="code apache highlight-python"><div class="highlight"><pre>&lt;Location /ALIAS/auth/fedauth&gt;
+  Options -Indexes FollowSymLinks MultiViews
+  Order allow,deny
+  Allow from all
+  AuthType shibboleth
+  ShibRequireSession On
+  require valid-user
+&lt;/Location&gt;
+&lt;Location /ALIAS/index.php/auth/fedauth&gt;
+  Options -Indexes FollowSymLinks MultiViews
+  Order allow,deny
+  Allow from all
+  AuthType shibboleth
+  ShibRequireSession On
+  require valid-user
+ &lt;/Location&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">You may also want to enable embeded DiscoveryService. To get this working you need to have DiscoFeed enabled in shibboleth2.xml file:</p>
+<div class="code apache highlight-python"><div class="highlight"><pre>&lt;Handler type=&quot;DiscoveryFeed&quot; Location=&quot;/DiscoFeed&quot;/&gt;
+</pre></div>
+</div>
+<p>enable and set as default</p>
+<div class="code apache highlight-python"><div class="highlight"><pre>&lt;SessionInitiator type=&quot;Chaining&quot; Location=&quot;/DS&quot; id=&quot;DS&quot; isDefault=&quot;true&quot;  relayState=&quot;cookie&quot;&gt;
+   &lt;SessionInitiator type=&quot;SAML2&quot; acsIndex=&quot;1&quot; template=&quot;bindingTemplate.html&quot;/&gt;
+   &lt;SessionInitiator type=&quot;Shib1&quot; acsIndex=&quot;5&quot;/&gt;
+   &lt;SessionInitiator type=&quot;SAMLDS&quot; URL=&quot;https://yourHOST/ALIAS/eds&quot;/&gt;
+&lt;/SessionInitiator&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">replace URL=&#8221;<a class="reference external" href="https://yourHOST/ALIAS/eds">https://yourHOST/ALIAS/eds</a>&#8221; with yours</p>
+</div>
+</li>
+</ol>
+<p>Now you should be able to see both local authentication part and federated access.</p>
+<a class="reference internal image-reference" href="_images/loginform1.png"><img alt="Login Form" src="_images/loginform1.png" style="width: 1160.0px; height: 314.0px;" /></a>
+<p>You can decide what kind of access (local authn or/and federated access) can be used by user.
+If you create user and set only federated access then even there is password set during creation user can&#8217;t login using local authentication.</p>
+<p>There are three possibilites:</p>
+<ul class="simple">
+<li>only local authentication</li>
+<li>only federated access</li>
+<li>bot local authentication and federated access</li>
+</ul>
+</div>
+<div class="section" id="two-factor-authentication">
+<h2>Two factor authentication<a class="headerlink" href="#two-factor-authentication" title="Permalink to this headline">¶</a></h2>
+<p>Support for 2F authentication is available in develop branch for now as it is under test.
+Right now &#8220;Duo&#8221; <a class="reference external" href="https://www.duosecurity.com/">https://www.duosecurity.com/</a> is supported
+To enable and allow enduser set 2f authentication you need to set few options in config_rr.php file <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a></p>
+<ul>
+<li><p class="first">twofactorauthn - global option to enable/disable 2f (config_rr.php) , if option is not set then it&#8217;s false</p>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;twofactorauthn&#39;] = true;
+</pre></div>
+</div>
+</li>
+<li><p class="first">2fengines - global option to control what kind of 2f engines are available/allowed. If not set then no engines available. As only &#8220;duo&#8221; is supported then</p>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;2fengines&#39;] =  array(&#39;duo&#39;);
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="duo-2f-authentication">
+<h3>&#8220;Duo&#8221; 2F authentication<a class="headerlink" href="#duo-2f-authentication" title="Permalink to this headline">¶</a></h3>
+<p>To enable and allow enduser to use 2F Duo you need:</p>
+<ul class="simple">
+<li>have proper integration setup on <a class="reference external" href="https://www.duosecurity.com/">https://www.duosecurity.com/</a> and created the list of users/devices. Remember, during 2F process the username is the same as in jagger.</li>
+<li>as mentioned you need to following options  to be set in config_rr.php file</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;2fengines&#39;] = array(&#39;duo&#39;);
+</pre></div>
+</div>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;twofactorauthn&#39;] = true;
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>and few more options need to be set</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;duo-akey&#39;] = &#39;YOUR_SECRET_RANDOM_MIN_40_CHARS_STRING&#39;;
+$config[&#39;duo-skey&#39;] = &#39;Secret key from DUO ADMIN SITE&#39;;
+$config[&#39;duo-ikey&#39;] = &#39;Integration key FROM DUO ADMIN SITE&#39;;
+$config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
+</pre></div>
+</div>
+</div></blockquote>
+<p>That&#8217;s all about jagger global configuration.</p>
+<p>Enduser can now go to his profile, find section &#8220;Two factor authentication&#8221; and enable availabe 2F engine.</p>
+<a class="reference internal image-reference" href="_images/login2fduo.png"><img alt="2f duo" src="_images/login2fduo.png" style="width: 690.6px; height: 415.2px;" /></a>
+<a class="reference internal image-reference" href="_images/login2fduomobile.png"><img alt="2f duo mobile" src="_images/login2fduomobile.png" style="width: 270.0px; height: 480.0px;" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/jagger-withtext-on-light.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Authentication</a><ul>
+<li><a class="reference internal" href="#enable-federated-access">Enable Federated access</a></li>
+<li><a class="reference internal" href="#two-factor-authentication">Two factor authentication</a><ul>
+<li><a class="reference internal" href="#duo-2f-authentication">&#8220;Duo&#8221; 2F authentication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="langs.html"
+                        title="previous chapter">Language</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="update.html"
+                        title="next chapter">Upgrading</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="update.html" title="Upgrading"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="langs.html" title="Language"
+             >previous</a> |</li>
+        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Janusz Ulanowski.
+    </div>
+  </body>
+</html>

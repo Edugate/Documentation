@@ -376,6 +376,31 @@ As template please use **config_rr-default.php**
 
   $config['addlogocheckssl'] = FALSE;
 
+two factor (for the moment in develop branch)
+----------
+
+* twofactorauthn - global option to enable/disable 2f , if option is not set then it's false 
+
+  .. code:: php
+
+    $config['twofactorauthn'] = true;
+
+
+* 2fengines - global option to control what kind of 2f engines are available/allowed. If not set then no engines available. As only "duo" is supported then
+
+  .. code:: php
+
+    $config['2fengines'] =  array('duo');
+
+* additional setting for duo 2f
+
+ .. code:: php
+
+   $config['duo-akey'] = 'YOUR_SECRET_RANDOM_MIN_40_CHARS_STRING';
+   $config['duo-skey'] = 'Secret key from DUO ADMIN SITE';
+   $config['duo-ikey'] = 'Integration key FROM DUO ADMIN SITE';
+   $config['duo-host'] = 'API hostname FROM DUO ADMIN SITE';
+
 email.php
 =========
 

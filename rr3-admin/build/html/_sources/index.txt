@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Jagger - Administration guide! (Draft) - updated: 2014/11/17
+Welcome to Jagger - Administration guide! (Draft) - updated: 2015/01/28
 =====================================
 
 .. note::
@@ -15,7 +15,7 @@ Welcome to Jagger - Administration guide! (Draft) - updated: 2014/11/17
  If section title has **(final)** means it's complete - if any mistake fill the bug
 
 
-.. warning:: document is being updated - updated version will be available withing few days
+.. warning:: updating in progress
 
 
 Contents:
@@ -25,12 +25,12 @@ Installation, configuration ...
 ################################
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    installation.rst
    configfile.rst
    langs.rst
-   federatedconf.rst
+   authentication.rst
    update.rst
    metadata.rst
    metadatasigner.rst

@@ -473,6 +473,31 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
+<div class="section" id="two-factor-for-the-moment-in-develop-branch">
+<h3>two factor (for the moment in develop branch)<a class="headerlink" href="#two-factor-for-the-moment-in-develop-branch" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">twofactorauthn - global option to enable/disable 2f , if option is not set then it&#8217;s false</p>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;twofactorauthn&#39;] = true;
+</pre></div>
+</div>
+</li>
+<li><p class="first">2fengines - global option to control what kind of 2f engines are available/allowed. If not set then no engines available. As only &#8220;duo&#8221; is supported then</p>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;2fengines&#39;] =  array(&#39;duo&#39;);
+</pre></div>
+</div>
+</li>
+<li><p class="first">additional setting for duo 2f</p>
+</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;duo-akey&#39;] = &#39;YOUR_SECRET_RANDOM_MIN_40_CHARS_STRING&#39;;
+$config[&#39;duo-skey&#39;] = &#39;Secret key from DUO ADMIN SITE&#39;;
+$config[&#39;duo-ikey&#39;] = &#39;Integration key FROM DUO ADMIN SITE&#39;;
+$config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="email-php">
 <h2>email.php<a class="headerlink" href="#email-php" title="Permalink to this headline">¶</a></h2>
@@ -645,7 +670,10 @@ As template <strong>memcached-default.php</strong> can be used - default</p>
   <ul>
 <li><a class="reference internal" href="#">Configuration files</a><ul>
 <li><a class="reference internal" href="#config-php">config.php</a></li>
-<li><a class="reference internal" href="#config-rr-php">config_rr.php</a></li>
+<li><a class="reference internal" href="#config-rr-php">config_rr.php</a><ul>
+<li><a class="reference internal" href="#two-factor-for-the-moment-in-develop-branch">two factor (for the moment in develop branch)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#email-php">email.php</a></li>
 <li><a class="reference internal" href="#database-php">database.php</a></li>
 <li><a class="reference internal" href="#memcached-php">memcached.php</a></li>
