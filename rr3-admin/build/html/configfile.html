@@ -82,11 +82,13 @@
 </pre></div>
 </div>
 </div></blockquote>
-<ul class="simple">
-<li>sess_driver - please uset native  drive, example:</li>
-</ul>
-<blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;sess_driver&#39;]                  = &#39;native&#39;;
+<ul>
+<li><p class="first">sess_driver</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you update jagger please change sess_driver from &#8220;native&#8221; to &#8220;files&#8221; as there was some changes in core CI</p>
+</div>
+<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;sess_driver&#39;]                  = &#39;files&#39;;
 $config[&#39;sess_valid_drivers&#39;]   = array();
 $config[&#39;sess_cookie_name&#39;]             = &#39;ci_session&#39;;
 $config[&#39;sess_expiration&#39;]              = 7200;
@@ -99,9 +101,9 @@ $config[&#39;sess_match_useragent&#39;] = TRUE;
 $config[&#39;sess_time_to_update&#39;]  = 300;
 </pre></div>
 </div>
-</div></blockquote>
-<ul class="simple">
-<li>csrf_protection - set to TRUE</li>
+</li>
+<li><p class="first">csrf_protection - set to TRUE</p>
+</li>
 </ul>
 <blockquote>
 <div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;csrf_protection&#39;] = TRUE;
@@ -127,6 +129,10 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <p>As template please use <strong>config_rr-default.php</strong></p>
 <ul>
 <li><p class="first">pageTitlePref - if set then is included into every page&#8217;s title as prefix, example:</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">deprecated, managed via web. you should remove it from config_rr.php file</p>
+</div>
 <div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;pageTitlePref&#39;] = &#39;Jagger:: &#39;;
 </pre></div>
 </div>
@@ -148,8 +154,10 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <div><div class="code bash highlight-python"><div class="highlight"><pre>tr -c -d &#39;0123456789abcdefghijklmnopqrstuvwxyz&#39; &lt;/dev/urandom | dd bs=32 count=1 2&gt;/dev/null;echo
 </pre></div>
 </div>
+</div></blockquote>
 <p>then assign generated value to attr like:</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;syncpass&#39;] = &#39;qp7zwgm6vqzptb87uoe7zzfiq1gx1oa6&#39;;
+<blockquote>
+<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;syncpass&#39;] = &#39;qp7zwgm6vqzptb87uoe7zzfiq1gx1oa6&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -473,8 +481,8 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
-<div class="section" id="two-factor-for-the-moment-in-develop-branch">
-<h3>two factor (for the moment in develop branch)<a class="headerlink" href="#two-factor-for-the-moment-in-develop-branch" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="two-factor">
+<h3>two factor<a class="headerlink" href="#two-factor" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">twofactorauthn - global option to enable/disable 2f , if option is not set then it&#8217;s false</p>
 <div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;twofactorauthn&#39;] = true;
@@ -671,7 +679,7 @@ As template <strong>memcached-default.php</strong> can be used - default</p>
 <li><a class="reference internal" href="#">Configuration files</a><ul>
 <li><a class="reference internal" href="#config-php">config.php</a></li>
 <li><a class="reference internal" href="#config-rr-php">config_rr.php</a><ul>
-<li><a class="reference internal" href="#two-factor-for-the-moment-in-develop-branch">two factor (for the moment in develop branch)</a></li>
+<li><a class="reference internal" href="#two-factor">two factor</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#email-php">email.php</a></li>

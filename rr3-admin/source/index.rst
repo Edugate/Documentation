@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Jagger - Administration guide! (Draft) - updated: 2015/01/28
+Welcome to Jagger - Administration guide! (Draft) - updated: 2015/02/02
 =====================================
 
 .. note::
@@ -15,7 +15,14 @@ Welcome to Jagger - Administration guide! (Draft) - updated: 2015/01/28
  If section title has **(final)** means it's complete - if any mistake fill the bug
 
 
-.. warning:: updating in progress
+.. note:: updating in progress
+
+.. warning:: 
+ if you updated Codeigniter code and Jagger, please make sure have changed 
+
+ from $config['sess_driver'] = 'native'; 
+
+ to   $config['sess_driver'] = 'files';
 
 
 Contents:

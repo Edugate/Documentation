@@ -38,11 +38,15 @@ Please follow Codeigniter documentation. In most cases it will be default with s
     
     tr -c -d '0123456789abcdefghijklmnopqrstuvwxyz' </dev/urandom | dd bs=32 count=1 2>/dev/null;echo
 
-* sess_driver - please uset native  drive, example:
+* sess_driver 
 
- .. code:: php
+  .. warning::
 
-   $config['sess_driver']                  = 'native';
+      If you update jagger please change sess_driver from "native" to "files" as there was some changes in core CI
+
+  .. code:: php
+
+   $config['sess_driver']                  = 'files';
    $config['sess_valid_drivers']   = array();
    $config['sess_cookie_name']             = 'ci_session';
    $config['sess_expiration']              = 7200;
@@ -80,6 +84,9 @@ As template please use **config_rr-default.php**
 
 * pageTitlePref - if set then is included into every page's title as prefix, example:
 
+  .. warning:: deprecated, managed via web. you should remove it from config_rr.php file
+   
+
   .. code:: php
  
     $config['pageTitlePref'] = 'Jagger:: ';
@@ -102,7 +109,7 @@ As template please use **config_rr-default.php**
     
     tr -c -d '0123456789abcdefghijklmnopqrstuvwxyz' </dev/urandom | dd bs=32 count=1 2>/dev/null;echo
  
- then assign generated value to attr like:
+then assign generated value to attr like:
 
  .. code:: php
      
@@ -316,9 +323,7 @@ As template please use **config_rr-default.php**
  
   $config['cacheprefix'] = 'rr3_';
 
- .. warning::
- 
-  cacheprefix is deprecated 
+ .. warning:: cacheprefix is deprecated 
    
 
 * translator_access - (optional) allows permitted user to modify existing translation. You can set only one person per language.
@@ -376,7 +381,7 @@ As template please use **config_rr-default.php**
 
   $config['addlogocheckssl'] = FALSE;
 
-two factor (for the moment in develop branch)
+two factor 
 ----------
 
 * twofactorauthn - global option to enable/disable 2f , if option is not set then it's false 
