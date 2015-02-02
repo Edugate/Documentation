@@ -82,7 +82,7 @@ There are three possibilites:
 Two factor authentication
 =========================
 
-Support for 2F authentication is available in develop branch for now as it is under test.
+Support for 2F authentication is available.
 Right now "Duo" https://www.duosecurity.com/ is supported
 To enable and allow enduser set 2f authentication you need to set few options in config_rr.php file :ref:`configfile`
 
