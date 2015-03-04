@@ -27,12 +27,9 @@ Requirements
 
  .. note:: Doctrine it will be installed with composer
 
-* Zend Framework 
+* Zend-ACL Framework 
 
-  Only Zend-ACL (Acl dir, Acl.php,  Exception.php) part from http://framework.zend.com/download/current/
-  into APP_PATH/libraries/Zend
-
- .. note:: Zend-ACL it will be downloaded within install script
+ .. note:: Zend-ACL it will be installed with composer 
 
 * Memcached server on the same host
 
@@ -53,14 +50,14 @@ So we are going to use source code from GitHub repository
  git checkout -b develop origin/develop 
  git pull
 
-ResourceRegistry3 is published on GITHUB https://github.com/Edugate/ResourceRegistry  under MIT License.
+JAGGER (ResourceRegistry3) is published on GITHUB https://github.com/Edugate/Jagger  under MIT License.
 
 .. code:: bash
 
  git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
  cd /opt/rr3
 
-Install dcotrine with composer tool
+Install required third parties libraries with composer tool. Go to application folder and run
 
 .. code:: bash
 

@@ -76,6 +76,13 @@ Please follow Codeigniter documentation. In most cases it will be default with s
 
    $config['standardize_newlines'] = TRUE;
 
+* enable composer autoloader - it always should be set to TRUE
+
+ .. code:: php
+
+   $config['composer_autoload'] = TRUE;
+ 
+
 
 config_rr.php
 =============

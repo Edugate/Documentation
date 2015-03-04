@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Jagger - Administration guide! (Draft) - updated: 2015/02/02
+Welcome to Jagger - Administration guide! (Draft) - updated: 2015/03/04
 =====================================
 
 .. note::
@@ -17,16 +17,19 @@ Welcome to Jagger - Administration guide! (Draft) - updated: 2015/02/02
 
 .. note:: updating in progress
 
-.. warning:: 
- if you updated Codeigniter code and Jagger, please make sure have changed 
-
- from $config['sess_driver'] = 'native'; 
-
- to   $config['sess_driver'] = 'files';
 
 
 Contents:
 
+
+
+.. warning:: 
+
+   .. toctree::
+
+      :maxdepth: 3
+
+      important.rst
 
 Installation, configuration ...
 ################################
