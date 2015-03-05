@@ -25,7 +25,7 @@ Obviusly you need to have shibboleth-sp configured.
    .. code:: apache
 
        <Location /ALIAS/auth/fedauth>
-         Options -Indexes FollowSymLinks MultiViews
+         Options -Indexes +FollowSymLinks +MultiViews
          Order allow,deny
          Allow from all
          AuthType shibboleth
@@ -33,7 +33,7 @@ Obviusly you need to have shibboleth-sp configured.
          require valid-user
        </Location>
        <Location /ALIAS/index.php/auth/fedauth>
-         Options -Indexes FollowSymLinks MultiViews
+         Options -Indexes +FollowSymLinks +MultiViews
          Order allow,deny
          Allow from all
          AuthType shibboleth
