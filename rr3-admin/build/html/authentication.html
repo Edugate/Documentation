@@ -66,7 +66,7 @@
 <p class="last">remove or replace ALIAS with your base location for JAGGER</p>
 </div>
 <div class="code apache highlight-python"><div class="highlight"><pre>&lt;Location /ALIAS/auth/fedauth&gt;
-  Options -Indexes FollowSymLinks MultiViews
+  Options -Indexes +FollowSymLinks +MultiViews
   Order allow,deny
   Allow from all
   AuthType shibboleth
@@ -74,7 +74,7 @@
   require valid-user
 &lt;/Location&gt;
 &lt;Location /ALIAS/index.php/auth/fedauth&gt;
-  Options -Indexes FollowSymLinks MultiViews
+  Options -Indexes +FollowSymLinks +MultiViews
   Order allow,deny
   Allow from all
   AuthType shibboleth
