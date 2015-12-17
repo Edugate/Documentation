@@ -27,8 +27,8 @@
     <link rel="next" title="Configuration files" href="configfile.html" />
     <link rel="prev" title="Important changes" href="important.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,14 +40,14 @@
         <li class="right" >
           <a href="important.html" title="Important changes"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation-process-final">
 <h1>Installation process (final)<a class="headerlink" href="#installation-process-final" title="Permalink to this headline">¶</a></h1>
@@ -106,17 +106,16 @@ cp composer.phar /usr/local/bin/composer
 </div>
 <div class="section" id="download-jagger-and-codeigniter">
 <h2>Download JAGGER and Codeigniter<a class="headerlink" href="#download-jagger-and-codeigniter" title="Permalink to this headline">¶</a></h2>
-<p>In the time writting this document there wasn&#8217;t official release of Codeigniter version 3.0.
-So we are going to use source code from GitHub repository</p>
+<p>We are going to use source code from GitHub repository. Using 3.0-stable branch is preferred as develop branch sometimes doesn&#8217;t work properly.</p>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">we will be using develop branch</p>
+<p class="last">we will be using 3.0-stable branch</p>
 </div>
 </div></blockquote>
 <div class="code bash highlight-python"><div class="highlight"><pre>git clone git://github.com/bcit-ci/CodeIgniter.git /opt/codeigniter
 cd /opt/codeigniter
-git checkout -b develop origin/develop
+git checkout -b 3.0-stable origin/3.0-stable
 git pull
 </pre></div>
 </div>
@@ -201,7 +200,7 @@ cp email-default.php -&gt; email.php
 cp memcached-default.php -&gt; memcached.php
 </pre></div>
 </div>
-<p>Please follow section <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a></p>
+<p>Please follow section <a class="reference internal" href="configfile.html#configfile"><span>Configuration files</span></a></p>
 <p>Set permission - writeable by apache user. Ralive path of folders need to be set:</p>
 <ul class="simple">
 <li>application/cache</li>
@@ -254,7 +253,7 @@ To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/jagger-withtext-on-light.png" alt="Logo"/>
@@ -279,7 +278,7 @@ To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="configfile.html"
                         title="next chapter">Configuration files</a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -296,7 +295,7 @@ To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -308,10 +307,10 @@ To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
         <li class="right" >
           <a href="important.html" title="Important changes"
              >previous</a> |</li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>

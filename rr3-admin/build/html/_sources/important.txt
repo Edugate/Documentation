@@ -1,6 +1,16 @@
 Important changes
 ****************
 
+* 2015/12/17
+
+  Please, don't use CodeIgniter's develop branch anymore and preferably switch to "3.0-stable" branch instead. Recent develop branch (as of 17 December 2015) breaks local authentication. If you're using develop branch, switching to 3.0-stable may be achieved by the following code if you installed CodeIgniter into :code:`/opt/codeigniter` directory:
+
+  .. code:: bash
+
+    cd /opt/codeigniter
+    git checkout -b 3.0-stable origin/3.0-stable
+    git pull
+
 * 2015/02/25
   Since now Doctrine, Zend-ACL is loaded via autoloader. 
 

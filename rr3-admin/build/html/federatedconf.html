@@ -25,21 +25,21 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="enable-federated-access">
 <h1>Enable Federated access<a class="headerlink" href="#enable-federated-access" title="Permalink to this headline">¶</a></h1>
@@ -47,7 +47,7 @@
 <p>Obviusly you need to have shibboleth-sp configured.</p>
 <ol class="arabic">
 <li><p class="first">Enable federated access in JAGGER</p>
-<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a> :</p>
+<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><span>Configuration files</span></a> :</p>
 <p>autoregister_federated, register_defaultrole, Shib_required, Shib_username, Shib_mail, Shibboleth</p>
 </li>
 <li><p class="first">Next thing is to protect specific URI in apache with shibboleth. Here is example part from apache config.</p>
@@ -108,12 +108,12 @@ If you create user and set only federated access then even there is password set
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/jagger-withtext-on-light.png" alt="Logo"/>
             </a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -130,16 +130,16 @@ If you create user and set only federated access then even there is password set
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>

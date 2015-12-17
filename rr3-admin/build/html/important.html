@@ -25,10 +25,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" />
     <link rel="next" title="Installation process (final)" href="installation.html" />
-    <link rel="prev" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/02/02" href="index.html" /> 
+    <link rel="prev" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/03/04" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -38,20 +38,28 @@
           <a href="installation.html" title="Installation process (final)"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/02/02"
+          <a href="index.html" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/03/04"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="important-changes">
 <h1>Important changes<a class="headerlink" href="#important-changes" title="Permalink to this headline">¶</a></h1>
 <ul>
+<li><p class="first">2015/12/17</p>
+<p>Please, don&#8217;t use CodeIgniter&#8217;s develop branch anymore and preferably switch to &#8220;3.0-stable&#8221; branch instead. Recent develop branch (as of 17 December 2015) breaks local authentication. If you&#8217;re using develop branch, switching to 3.0-stable may be achieved by the following code if you installed CodeIgniter into <code class="code docutils literal"><span class="pre">/opt/codeigniter</span></code> directory:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>cd /opt/codeigniter
+git checkout -b 3.0-stable origin/3.0-stable
+git pull
+</pre></div>
+</div>
+</li>
 <li><p class="first">2015/02/25
 Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
 <p>Steps for updates:</p>
@@ -104,18 +112,18 @@ Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/jagger-withtext-on-light.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to Jagger - Administration guide! (Draft) - updated: 2015/02/02</a></p>
+                        title="previous chapter">Welcome to Jagger - Administration guide! (Draft) - updated: 2015/03/04</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="installation.html"
                         title="next chapter">Installation process (final)</a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -132,7 +140,7 @@ Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -142,12 +150,12 @@ Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
           <a href="installation.html" title="Installation process (final)"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/02/02"
+          <a href="index.html" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/03/04"
              >previous</a> |</li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>

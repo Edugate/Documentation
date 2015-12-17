@@ -27,8 +27,8 @@
     <link rel="next" title="Upgrading" href="update.html" />
     <link rel="prev" title="Language" href="langs.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,14 +40,14 @@
         <li class="right" >
           <a href="langs.html" title="Language"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="authentication">
 <h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
@@ -57,7 +57,7 @@
 <p>Obviusly you need to have shibboleth-sp configured.</p>
 <ol class="arabic">
 <li><p class="first">Enable federated access in JAGGER</p>
-<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a> :</p>
+<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><span>Configuration files</span></a> :</p>
 <p>autoregister_federated, register_defaultrole, Shib_required, Shib_username, Shib_mail, Shibboleth</p>
 </li>
 <li><p class="first">Next thing is to protect specific URI in apache with shibboleth. Here is example part from apache config.</p>
@@ -117,7 +117,7 @@ If you create user and set only federated access then even there is password set
 <h2>Two factor authentication<a class="headerlink" href="#two-factor-authentication" title="Permalink to this headline">¶</a></h2>
 <p>Support for 2F authentication is available.
 Right now &#8220;Duo&#8221; <a class="reference external" href="https://www.duosecurity.com/">https://www.duosecurity.com/</a> is supported
-To enable and allow enduser set 2f authentication you need to set few options in config_rr.php file <a class="reference internal" href="configfile.html#configfile"><em>Configuration files</em></a></p>
+To enable and allow enduser set 2f authentication you need to set few options in config_rr.php file <a class="reference internal" href="configfile.html#configfile"><span>Configuration files</span></a></p>
 <ul>
 <li><p class="first">twofactorauthn - global option to enable/disable 2f (config_rr.php) , if option is not set then it&#8217;s false</p>
 <div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;twofactorauthn&#39;] = true;
@@ -168,7 +168,7 @@ $config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/jagger-withtext-on-light.png" alt="Logo"/>
@@ -191,7 +191,7 @@ $config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
   <h4>Next topic</h4>
   <p class="topless"><a href="update.html"
                         title="next chapter">Upgrading</a></p>
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -208,7 +208,7 @@ $config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -220,10 +220,10 @@ $config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
         <li class="right" >
           <a href="langs.html" title="Language"
              >previous</a> |</li>
-        <li><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
