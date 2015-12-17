@@ -38,16 +38,15 @@ Requirements
 Download JAGGER and Codeigniter
 ===============================
 
-In the time writting this document there wasn't official release of Codeigniter version 3.0.
-So we are going to use source code from GitHub repository
+We are going to use source code from GitHub repository. Using 3.0-stable branch is preferred as develop branch sometimes doesn't work properly.
 
- .. note:: we will be using develop branch 
+ .. note:: we will be using 3.0-stable branch
 
 .. code:: bash
 
  git clone git://github.com/bcit-ci/CodeIgniter.git /opt/codeigniter
  cd /opt/codeigniter
- git checkout -b develop origin/develop 
+ git checkout -b 3.0-stable origin/3.0-stable
  git pull
 
 JAGGER (ResourceRegistry3) is published on GITHUB https://github.com/Edugate/Jagger  under MIT License.
