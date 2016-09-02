@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Important changes &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Important changes &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/03/04"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -54,9 +54,9 @@
 <ul>
 <li><p class="first">2015/12/17</p>
 <p>Please, don&#8217;t use CodeIgniter&#8217;s develop branch anymore and preferably switch to &#8220;3.0-stable&#8221; branch instead. Recent develop branch (as of 17 December 2015) breaks local authentication. If you&#8217;re using develop branch, switching to 3.0-stable may be achieved by the following code if you installed CodeIgniter into <code class="code docutils literal"><span class="pre">/opt/codeigniter</span></code> directory:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>cd /opt/codeigniter
-git checkout -b 3.0-stable origin/3.0-stable
-git pull
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">codeigniter</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="mf">3.0</span><span class="o">-</span><span class="n">stable</span> <span class="n">origin</span><span class="o">/</span><span class="mf">3.0</span><span class="o">-</span><span class="n">stable</span>
+<span class="n">git</span> <span class="n">pull</span>
 </pre></div>
 </div>
 </li>
@@ -65,29 +65,29 @@ Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
 <p>Steps for updates:</p>
 <ul>
 <li><p class="first">composer.json has been moved from APP_ROOT into application folder -&gt; you need to run in that folder:</p>
-<div class="code php highlight-python"><div class="highlight"><pre>composer install
+<div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">install</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">edit index.php file and make sure the below line is removed if exists</p>
-<div class="code php highlight-python"><div class="highlight"><pre><span class="n">require_once</span><span class="p">(</span><span class="s">&#39;vendor/autoload.php&#39;</span><span class="p">);</span>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="n">require_once</span><span class="p">(</span><span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">edit application/config/config.php and add line:</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;composer_autoload&#39;] = true;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;composer_autoload&#39;] = true;
 </pre></div>
 </div>
 </li>
 <li><p class="first">in aplpication folder run:</p>
-<div class="code php highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:update --force
-./octrine orm:generate:proxies
+<div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">doctrine</span> <span class="n">orm</span><span class="p">:</span><span class="n">schema</span><span class="o">-</span><span class="n">tool</span><span class="p">:</span><span class="n">update</span> <span class="o">--</span><span class="n">force</span>
+<span class="o">./</span><span class="n">octrine</span> <span class="n">orm</span><span class="p">:</span><span class="n">generate</span><span class="p">:</span><span class="n">proxies</span>
 </pre></div>
 </div>
 <p>set proper ownership (apache user) for application/models/Proxies</p>
 </li>
 <li><p class="first">finaly you can delete following folders as they will be loaded from application/vendor:</p>
-<div class="code php highlight-python"><div class="highlight"><pre><span class="n">application</span><span class="o">/</span><span class="n">libraries</span><span class="o">/</span><span class="n">Doctrine</span>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span><span class="n">application</span><span class="o">/</span><span class="n">libraries</span><span class="o">/</span><span class="n">Doctrine</span>
 <span class="n">application</span><span class="o">/</span><span class="n">libraries</span><span class="o">/</span><span class="n">Zend</span>
 </pre></div>
 </div>
@@ -97,11 +97,11 @@ Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
 <li><p class="first">2015/02/20</p>
 <p>The recent changes in Codeigniter Core , please make sure have changed</p>
 <p>from</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;sess_driver&#39;] = &#39;native&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;sess_driver&#39;] = &#39;native&#39;;
 </pre></div>
 </div>
 <p>to</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;sess_driver&#39;] = &#39;files&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;sess_driver&#39;] = &#39;files&#39;;
 </pre></div>
 </div>
 </li>
@@ -126,14 +126,11 @@ Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -152,11 +149,11 @@ Since now Doctrine, Zend-ACL is loaded via autoloader.</p>
         <li class="right" >
           <a href="index.html" title="Welcome to Jagger - Administration guide! (Draft) - updated: 2015/03/04"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

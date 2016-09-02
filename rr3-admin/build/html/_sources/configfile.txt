@@ -246,6 +246,9 @@ then assign generated value to attr like:
 
 * nameids - array of allowed NameID in JAGGER
 
+ .. warning:: deprecated - you can remove it from config
+
+
  .. code:: php
 
    $config['nameids'] = array(
@@ -256,9 +259,6 @@ then assign generated value to attr like:
         'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
                 );
 
- .. warning:: 
- 
-  $config['nameids'] - is obsolete and not used any more 
 
 * metadata_validuntil_days - the value in days give how long generated metadata is valid - in metadata **validUntil** is generated datetime from now + number of days
 
@@ -387,6 +387,27 @@ then assign generated value to attr like:
  .. code:: php
 
   $config['addlogocheckssl'] = FALSE;
+
+* statuscheck -default is false. If set to true then https://youhost/rrpath/jaggerstatus/gstatus show status db connectivity 
+  .. code:: php
+
+  $config['statuscheck'] = true;
+
+
+languages
+---------
+
+* langselectlimit - optional - limit dropdown list (localized entity properties) to specified list of available languages , example:
+ .. code:: php
+
+  $config['langselectlimit'] = array('en', 'de', 'pl', 'fr');
+
+* langselectdefault - language to be selected in dropdown
+ .. code:: php 
+
+  $config['langselectdefault'] = 'de';
+
+
 
 two factor 
 ----------

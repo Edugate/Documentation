@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Metadata &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Metadata &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="update.html" title="Upgrading"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,27 +57,27 @@
 <li><p class="first">metadata for federation</p>
 <p>Generates metadata containing all entities (Identity Providers and Relying Parties) not matter if they are managed localy or imported as external entities.</p>
 <p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/federation/ENCODED_FEDNAME/metadata.xml">https://yourhost.example.com/rr3/metadata/federation/ENCODED_FEDNAME/metadata.xml</a>
-where <strong>ENCODED_FEDNAME</strong> is genereated by taking <strong>Federation name</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span>base64url_encode</span></a></p>
+where <strong>ENCODED_FEDNAME</strong> is genereated by taking <strong>Federation name</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span class="std std-ref">base64url_encode</span></a></p>
 <p>So it&#8217;s imported to not change the name of federation created in JAGGER</p>
 </li>
 <li><p class="first">metadata for federation exported for interfederation purpose</p>
 <p>Generates metadata containing only  localy managed Identity Providers and Relying Parties</p>
 <p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/federationexport/ENCODED_FEDNAME/metadata.xml">https://yourhost.example.com/rr3/metadata/federationexport/ENCODED_FEDNAME/metadata.xml</a>
-where <strong>ENCODED_FEDNAME</strong> is genereated by taking <strong>Federation name</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span>base64url_encode</span></a></p>
+where <strong>ENCODED_FEDNAME</strong> is genereated by taking <strong>Federation name</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span class="std std-ref">base64url_encode</span></a></p>
 </li>
 <li><p class="first">metadata for single entity</p>
 <p>Generated metadata containing single entity. General purpose is to review how information about entity are presented in Metadata.</p>
 <p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/service/ENCODED_ENTITYID/metadata.xml">https://yourhost.example.com/rr3/metadata/service/ENCODED_ENTITYID/metadata.xml</a>
-where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID of IdP/SP</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span>base64url_encode</span></a></p>
+where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID of IdP/SP</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span class="std std-ref">base64url_encode</span></a></p>
 </li>
 <li><p class="first">metadata - circle of trust - per entity</p>
 <p>Generated metadata contains all trusted entities. If metadata is generated for Sevice Provider then it contains trusted IdPs.
 If metadata is generated for Identity Provider then it will contain only trusted Service Providers.</p>
 <p>The URL of unsigned metadata is like <a class="reference external" href="https://yourhost.example.com/rr3/metadata/circle/ENCODED_ENTITYID/metadata.xml">https://yourhost.example.com/rr3/metadata/circle/ENCODED_ENTITYID/metadata.xml</a>
-where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID of IdP/SP</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span>base64url_encode</span></a></p>
+where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID of IdP/SP</strong> and encoding it with helper function <a class="reference internal" href="helpers.html#base64url-encode"><span class="std std-ref">base64url_encode</span></a></p>
 </li>
 </ol>
-<p><a class="reference internal" href="metadatasigner.html#metadatasigning"><span>Metadata (signing)</span></a></p>
+<p><a class="reference internal" href="metadatasigner.html#metadatasigning"><span class="std std-ref">Metadata (signing)</span></a></p>
 </div>
 
 
@@ -98,14 +98,11 @@ where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -124,11 +121,11 @@ where <strong>ENCODED_ENTITYID</strong> is genereated by taking <strong>entityID
         <li class="right" >
           <a href="update.html" title="Upgrading"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

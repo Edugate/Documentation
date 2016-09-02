@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Enable Federated access &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Enable Federated access &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -32,7 +32,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -47,7 +47,7 @@
 <p>Obviusly you need to have shibboleth-sp configured.</p>
 <ol class="arabic">
 <li><p class="first">Enable federated access in JAGGER</p>
-<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><span>Configuration files</span></a> :</p>
+<p>Find and set following keywords  in  <a class="reference internal" href="configfile.html#configfile"><span class="std std-ref">Configuration files</span></a> :</p>
 <p>autoregister_federated, register_defaultrole, Shib_required, Shib_username, Shib_mail, Shibboleth</p>
 </li>
 <li><p class="first">Next thing is to protect specific URI in apache with shibboleth. Here is example part from apache config.</p>
@@ -55,35 +55,35 @@
 <p class="first admonition-title">Note</p>
 <p class="last">remove or replace ALIAS with your base location for JAGGER</p>
 </div>
-<div class="code apache highlight-python"><div class="highlight"><pre>&lt;Location /ALIAS/auth/fedauth&gt;
-  Options -Indexes FollowSymLinks MultiViews
-  Order allow,deny
-  Allow from all
-  AuthType shibboleth
-  ShibRequireSession On
-  require valid-user
-&lt;/Location&gt;
-&lt;Location /ALIAS/index.php/auth/fedauth&gt;
-  Options -Indexes FollowSymLinks MultiViews
-  Order allow,deny
-  Allow from all
-  AuthType shibboleth
-  ShibRequireSession On
-  require valid-user
- &lt;/Location&gt;
+<div class="code apache highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Location</span> <span class="o">/</span><span class="n">ALIAS</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">fedauth</span><span class="o">&gt;</span>
+  <span class="n">Options</span> <span class="o">-</span><span class="n">Indexes</span> <span class="n">FollowSymLinks</span> <span class="n">MultiViews</span>
+  <span class="n">Order</span> <span class="n">allow</span><span class="p">,</span><span class="n">deny</span>
+  <span class="n">Allow</span> <span class="kn">from</span> <span class="nn">all</span>
+  <span class="n">AuthType</span> <span class="n">shibboleth</span>
+  <span class="n">ShibRequireSession</span> <span class="n">On</span>
+  <span class="n">require</span> <span class="n">valid</span><span class="o">-</span><span class="n">user</span>
+<span class="o">&lt;/</span><span class="n">Location</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">Location</span> <span class="o">/</span><span class="n">ALIAS</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">fedauth</span><span class="o">&gt;</span>
+  <span class="n">Options</span> <span class="o">-</span><span class="n">Indexes</span> <span class="n">FollowSymLinks</span> <span class="n">MultiViews</span>
+  <span class="n">Order</span> <span class="n">allow</span><span class="p">,</span><span class="n">deny</span>
+  <span class="n">Allow</span> <span class="kn">from</span> <span class="nn">all</span>
+  <span class="n">AuthType</span> <span class="n">shibboleth</span>
+  <span class="n">ShibRequireSession</span> <span class="n">On</span>
+  <span class="n">require</span> <span class="n">valid</span><span class="o">-</span><span class="n">user</span>
+ <span class="o">&lt;/</span><span class="n">Location</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">You may also want to enable embeded DiscoveryService. To get this working you need to have DiscoFeed enabled in shibboleth2.xml file:</p>
-<div class="code apache highlight-python"><div class="highlight"><pre>&lt;Handler type=&quot;DiscoveryFeed&quot; Location=&quot;/DiscoFeed&quot;/&gt;
+<div class="code apache highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Handler</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;DiscoveryFeed&quot;</span> <span class="n">Location</span><span class="o">=</span><span class="s2">&quot;/DiscoFeed&quot;</span><span class="o">/&gt;</span>
 </pre></div>
 </div>
 <p>enable and set as default</p>
-<div class="code apache highlight-python"><div class="highlight"><pre>&lt;SessionInitiator type=&quot;Chaining&quot; Location=&quot;/DS&quot; id=&quot;DS&quot; isDefault=&quot;true&quot;  relayState=&quot;cookie&quot;&gt;
-   &lt;SessionInitiator type=&quot;SAML2&quot; acsIndex=&quot;1&quot; template=&quot;bindingTemplate.html&quot;/&gt;
-   &lt;SessionInitiator type=&quot;Shib1&quot; acsIndex=&quot;5&quot;/&gt;
-   &lt;SessionInitiator type=&quot;SAMLDS&quot; URL=&quot;https://yourHOST/ALIAS/eds&quot;/&gt;
-&lt;/SessionInitiator&gt;
+<div class="code apache highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">SessionInitiator</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;Chaining&quot;</span> <span class="n">Location</span><span class="o">=</span><span class="s2">&quot;/DS&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;DS&quot;</span> <span class="n">isDefault</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>  <span class="n">relayState</span><span class="o">=</span><span class="s2">&quot;cookie&quot;</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">SessionInitiator</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;SAML2&quot;</span> <span class="n">acsIndex</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">template</span><span class="o">=</span><span class="s2">&quot;bindingTemplate.html&quot;</span><span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="n">SessionInitiator</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;Shib1&quot;</span> <span class="n">acsIndex</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">/&gt;</span>
+   <span class="o">&lt;</span><span class="n">SessionInitiator</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;SAMLDS&quot;</span> <span class="n">URL</span><span class="o">=</span><span class="s2">&quot;https://yourHOST/ALIAS/eds&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">SessionInitiator</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -116,14 +116,11 @@ If you create user and set only federated access then even there is password set
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -136,11 +133,11 @@ If you create user and set only federated access then even there is password set
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

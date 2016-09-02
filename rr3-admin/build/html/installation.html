@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation process (final) &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Installation process (final) &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="important.html" title="Important changes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -63,8 +63,8 @@
 <li>composer <a class="reference external" href="https://getcomposer.org/">https://getcomposer.org/</a></li>
 </ul>
 <blockquote>
-<div><div class="code bash highlight-python"><div class="highlight"><pre>curl -sS https://getcomposer.org/installer | php
-cp composer.phar /usr/local/bin/composer
+<div><div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sS</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">getcomposer</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">installer</span> <span class="o">|</span> <span class="n">php</span>
+<span class="n">cp</span> <span class="n">composer</span><span class="o">.</span><span class="n">phar</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">composer</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -113,45 +113,45 @@ cp composer.phar /usr/local/bin/composer
 <p class="last">we will be using 3.0-stable branch</p>
 </div>
 </div></blockquote>
-<div class="code bash highlight-python"><div class="highlight"><pre>git clone git://github.com/bcit-ci/CodeIgniter.git /opt/codeigniter
-cd /opt/codeigniter
-git checkout -b 3.0-stable origin/3.0-stable
-git pull
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">bcit</span><span class="o">-</span><span class="n">ci</span><span class="o">/</span><span class="n">CodeIgniter</span><span class="o">.</span><span class="n">git</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">codeigniter</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">codeigniter</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="mf">3.0</span><span class="o">-</span><span class="n">stable</span> <span class="n">origin</span><span class="o">/</span><span class="mf">3.0</span><span class="o">-</span><span class="n">stable</span>
+<span class="n">git</span> <span class="n">pull</span>
 </pre></div>
 </div>
 <p>JAGGER (ResourceRegistry3) is published on GITHUB <a class="reference external" href="https://github.com/Edugate/Jagger">https://github.com/Edugate/Jagger</a>  under MIT License.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
-cd /opt/rr3
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Edugate</span><span class="o">/</span><span class="n">ResourceRegistry</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rr3</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rr3</span>
 </pre></div>
 </div>
 <p>Install required third parties libraries with composer tool. Go to application folder and run</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>composer install
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">composer</span> <span class="n">install</span>
 </pre></div>
 </div>
 <p>Set <em>index.php</em> file</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>cp /opt/codeigniter/index.php /opt/rr3/
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">codeigniter</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">php</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rr3</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>and modify it. You need to change default path to system folder. Open <em>/opt/rr3/index.php</em> file and find</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$system_path = &#39;system&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$system_path = &#39;system&#39;;
 </pre></div>
 </div>
 <p>and change to</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$system_path = &#39;/opt/codeigniter/system&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$system_path = &#39;/opt/codeigniter/system&#39;;
 </pre></div>
 </div>
 <p>You may also want to set production environment. To do it find line</p>
-<div class="code php highlight-python"><div class="highlight"><pre>define(&#39;ENVIRONMENT&#39;, isset($_SERVER[&#39;CI_ENV&#39;]) ? $_SERVER[&#39;CI_ENV&#39;] : &#39;development&#39;);
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>define(&#39;ENVIRONMENT&#39;, isset($_SERVER[&#39;CI_ENV&#39;]) ? $_SERVER[&#39;CI_ENV&#39;] : &#39;development&#39;);
 </pre></div>
 </div>
 <p>and before that line add</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$_SERVER[&#39;CI_ENV&#39;] = &#39;production&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$_SERVER[&#39;CI_ENV&#39;] = &#39;production&#39;;
 </pre></div>
 </div>
 </div>
 <div class="section" id="apache-php-configuration">
 <h2>Apache/PHP configuration<a class="headerlink" href="#apache-php-configuration" title="Permalink to this headline">¶</a></h2>
-<div class="code apache highlight-python"><div class="highlight"><pre>Alias /rr3 /opt/rr3
+<div class="code apache highlight-default"><div class="highlight"><pre><span></span>Alias /rr3 /opt/rr3
   &lt;Directory /opt/rr3&gt;
 
         #  you may need to uncomment next line
@@ -172,35 +172,35 @@ cd /opt/rr3
 <div class="section" id="mysql">
 <h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
 <p>You need to create database and set permissions for instance:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span class="n">DBUSER</span> <span class="o">=</span> <span class="s">&#39;rr3user&#39;</span>
-<span class="n">DBPASS</span> <span class="o">=</span> <span class="s">&#39;rr3pass&#39;</span>
-<span class="n">DATABASENAME</span><span class="o">=</span> <span class="s">&#39;rr3&#39;</span>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">DBUSER</span> <span class="o">=</span> <span class="s1">&#39;rr3user&#39;</span>
+<span class="n">DBPASS</span> <span class="o">=</span> <span class="s1">&#39;rr3pass&#39;</span>
+<span class="n">DATABASENAME</span><span class="o">=</span> <span class="s1">&#39;rr3&#39;</span>
 </pre></div>
 </div>
 <p>Log in to mysql as superuser and run:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>mysql&gt; create database rr3 CHARACTER SET utf8 COLLATE utf8_general_ci;
-mysql&gt; grant all on rr3.* to rr3user@&#39;localhost&#39; identified by &#39;rr3pass&#39;;
-mysql&gt; flush privileges;
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">create</span> <span class="n">database</span> <span class="n">rr3</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">grant</span> <span class="nb">all</span> <span class="n">on</span> <span class="n">rr3</span><span class="o">.*</span> <span class="n">to</span> <span class="n">rr3user</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">identified</span> <span class="n">by</span> <span class="s1">&#39;rr3pass&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">flush</span> <span class="n">privileges</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-sh-script">
 <h2>install.sh script<a class="headerlink" href="#install-sh-script" title="Permalink to this headline">¶</a></h2>
 <p>Now it&#8217;s time to run install.sh script. Go to <strong>/opt/rr3/</strong></p>
-<div class="code bash highlight-python"><div class="highlight"><pre>./install.sh
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>What it does is downloading Doctrine, Zend-ACL, Geshi, XMLseclib and exctract them.
 Then you need to set required config files - you can copy templates and customize them.
 Stay in  <strong>/opt/rr3/</strong></p>
-<div class="code bash highlight-python"><div class="highlight"><pre>cp config-default.php -&gt; config.php
-cp config_rr-default.php -&gt; config_rr.php
-cp database-default.php -&gt; database.php
-cp email-default.php -&gt; email.php
-cp memcached-default.php -&gt; memcached.php
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">config</span><span class="o">-</span><span class="n">default</span><span class="o">.</span><span class="n">php</span> <span class="o">-&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">php</span>
+<span class="n">cp</span> <span class="n">config_rr</span><span class="o">-</span><span class="n">default</span><span class="o">.</span><span class="n">php</span> <span class="o">-&gt;</span> <span class="n">config_rr</span><span class="o">.</span><span class="n">php</span>
+<span class="n">cp</span> <span class="n">database</span><span class="o">-</span><span class="n">default</span><span class="o">.</span><span class="n">php</span> <span class="o">-&gt;</span> <span class="n">database</span><span class="o">.</span><span class="n">php</span>
+<span class="n">cp</span> <span class="n">email</span><span class="o">-</span><span class="n">default</span><span class="o">.</span><span class="n">php</span> <span class="o">-&gt;</span> <span class="n">email</span><span class="o">.</span><span class="n">php</span>
+<span class="n">cp</span> <span class="n">memcached</span><span class="o">-</span><span class="n">default</span><span class="o">.</span><span class="n">php</span> <span class="o">-&gt;</span> <span class="n">memcached</span><span class="o">.</span><span class="n">php</span>
 </pre></div>
 </div>
-<p>Please follow section <a class="reference internal" href="configfile.html#configfile"><span>Configuration files</span></a></p>
+<p>Please follow section <a class="reference internal" href="configfile.html#configfile"><span class="std std-ref">Configuration files</span></a></p>
 <p>Set permission - writeable by apache user. Ralive path of folders need to be set:</p>
 <ul class="simple">
 <li>application/cache</li>
@@ -211,21 +211,21 @@ cp memcached-default.php -&gt; memcached.php
 <h2>Database - populate tables<a class="headerlink" href="#database-populate-tables" title="Permalink to this headline">¶</a></h2>
 <p>To populate tables we are going to use doctrine tool.</p>
 <p>Go to <strong>application</strong> folder and you should see <strong>doctrine</strong> file. It should be executable.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">doctrine</span>
 </pre></div>
 </div>
 <p>You will get many available options, be carefull. To populate tables please run below command. It will parse all entities in application/model</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:create
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">doctrine</span> <span class="n">orm</span><span class="p">:</span><span class="n">schema</span><span class="o">-</span><span class="n">tool</span><span class="p">:</span><span class="n">create</span>
 </pre></div>
 </div>
 <p>If you going to run application in production mode then you also need to regenerate proxies:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:generate-proxies
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">doctrine</span> <span class="n">orm</span><span class="p">:</span><span class="n">generate</span><span class="o">-</span><span class="n">proxies</span>
 </pre></div>
 </div>
 <p>and verify owner of application/models/Proxies/* - apache user should be owner</p>
 <p>In the future after every update you will need to run</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>./doctrine orm:schema-tool:update --force
-./doctrine orm:generate-proxies
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">doctrine</span> <span class="n">orm</span><span class="p">:</span><span class="n">schema</span><span class="o">-</span><span class="n">tool</span><span class="p">:</span><span class="n">update</span> <span class="o">--</span><span class="n">force</span>
+<span class="o">./</span><span class="n">doctrine</span> <span class="n">orm</span><span class="p">:</span><span class="n">generate</span><span class="o">-</span><span class="n">proxies</span>
 </pre></div>
 </div>
 </div>
@@ -233,7 +233,7 @@ cp memcached-default.php -&gt; memcached.php
 <span id="id1"></span><h2>Final setup step<a class="headerlink" href="#final-setup-step" title="Permalink to this headline">¶</a></h2>
 <p>This is the last step in Installation process.
 To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_setup_allowed&#39;] = TRUE;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_setup_allowed&#39;] = TRUE;
 </pre></div>
 </div>
 <div class="admonition note">
@@ -281,14 +281,11 @@ To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -307,11 +304,11 @@ To be able to run it you need to set in <strong>config_rr.php</strong> file:</p>
         <li class="right" >
           <a href="important.html" title="Important changes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

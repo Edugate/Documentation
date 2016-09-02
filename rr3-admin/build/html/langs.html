@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Language &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Language &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="configfile.html" title="Configuration files"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -75,7 +75,7 @@ Files if langs definitions are located in <strong>/opt/rr3/application/language/
 <h2>Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h2>
 <p>To modify existing translation open <strong>https://yourhost.example.com/rr3/manage/translator/tolanguage/${langCode}</strong> where <strong>${langCode}</strong> is two-letter lang code like es, pt, pl etc  can be any of allowed langs. Example URL for polish translation: <strong>https://yourhost.example.com/rr3/manage/translator/tolanguage/pl</strong>.</p>
 <p>Next thing is to define permission who can translate and into what language. You need to set it in <strong>config_rr.php</strong> file. For example to give polish translation permission to user with username <strong>joebloggs</strong> add below line into <strong>config_rr.php</strong></p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;translator_access&#39;][&#39;pl&#39;] = &#39;joebloggs&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;translator_access&#39;][&#39;pl&#39;] = &#39;joebloggs&#39;;
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -93,19 +93,19 @@ Files if langs definitions are located in <strong>/opt/rr3/application/language/
 <p>If you want to add language which is not supported nor allowed yet. Here is example for german language</p>
 <ol class="arabic">
 <li><p class="first">into config_rr.php add</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;guilangs&#39;][&#39;de&#39;] = array(&#39;path&#39;=&gt;&#39;de&#39;,&#39;val&#39;=&gt;&#39;deutsch&#39;);
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;guilangs&#39;][&#39;de&#39;] = array(&#39;path&#39;=&gt;&#39;de&#39;,&#39;val&#39;=&gt;&#39;deutsch&#39;);
 </pre></div>
 </div>
 </li>
 <li><p class="first">create folder <strong>de</strong> in /opt/rr3/application/language and copy all files from /opt/rr3/application/language/english</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>mkdir /opt/rr3/application/language/de
-cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rr3</span><span class="o">/</span><span class="n">application</span><span class="o">/</span><span class="n">language</span><span class="o">/</span><span class="n">de</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rr3</span><span class="o">/</span><span class="n">application</span><span class="o">/</span><span class="n">language</span><span class="o">/</span><span class="n">english</span><span class="o">/*</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rr3</span><span class="o">/</span><span class="n">application</span><span class="o">/</span><span class="n">language</span><span class="o">/</span><span class="n">de</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>and set proper owner/permissions</p>
 </li>
 <li><p class="first">and add new language code. Then you need to add below line into <strong>config_rr.php</strong> file</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;translator_access&#39;][&#39;de&#39;] = &#39;your username&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;translator_access&#39;][&#39;de&#39;] = &#39;your username&#39;;
 </pre></div>
 </div>
 </li>
@@ -141,14 +141,11 @@ cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -167,11 +164,11 @@ cp /opt/rr3/application/language/english/* /opt/rr3/application/language/de/
         <li class="right" >
           <a href="configfile.html" title="Configuration files"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

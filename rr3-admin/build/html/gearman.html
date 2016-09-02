@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Gearman &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Gearman &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="metadatasigner.html" title="Metadata (signing)"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -63,15 +63,15 @@ and install it</p>
 <div class="section" id="php-gearman">
 <h2>php-gearman<a class="headerlink" href="#php-gearman" title="Permalink to this headline">¶</a></h2>
 <p>We&#8217;re going to use pecl  so before please make sure have installed php-pear.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>pecl search  gearman
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">pecl</span> <span class="n">search</span>  <span class="n">gearman</span>
 </pre></div>
 </div>
 <p>you should get listed gearman 1.1.1 (stable)  1.1.1 PHP wrapper to libgearman</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>pecl install  gearman
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">pecl</span> <span class="n">install</span>  <span class="n">gearman</span>
 </pre></div>
 </div>
 <p>then enable gearman in one of php ini files (depends on distribution)</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span class="n">extension</span><span class="o">=</span><span class="n">gearman</span><span class="o">.</span><span class="n">so</span>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">extension</span><span class="o">=</span><span class="n">gearman</span><span class="o">.</span><span class="n">so</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -79,13 +79,13 @@ and install it</p>
 <p class="last">some distribution have seperated config for php (apache) and php (cli)</p>
 </div>
 <p>restart apache  and  check</p>
-<div class="code php highlight-python"><div class="highlight"><pre>&lt;?php
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
   phpinfo();
 ?&gt;
 </pre></div>
 </div>
 <p>and/or</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>php -i|grep -i gearm
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">php</span> <span class="o">-</span><span class="n">i</span><span class="o">|</span><span class="n">grep</span> <span class="o">-</span><span class="n">i</span> <span class="n">gearm</span>
 </pre></div>
 </div>
 </div>
@@ -94,11 +94,11 @@ and install it</p>
 <p>You need gearman-job-server server running to handle jobs. As gearman-job-server has no security profile please configure the service to listen on local interface.</p>
 <p>example:</p>
 <p><strong>/etc/default/gearman-job-server</strong></p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span class="n">PARAMS</span><span class="o">=</span><span class="s">&quot;--listen=127.0.0.1&quot;</span>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">PARAMS</span><span class="o">=</span><span class="s2">&quot;--listen=127.0.0.1&quot;</span>
 </pre></div>
 </div>
 <p><strong>/etc/init.d/gearman-job-server</strong></p>
-<div class="code bash highlight-python"><div class="highlight"><pre>#!/bin/sh
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
 
 # Gearman server and library
 # Copyright (C) 2008 Brian Aker, Eric Day
@@ -238,14 +238,11 @@ esac
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -264,11 +261,11 @@ esac
         <li class="right" >
           <a href="metadatasigner.html" title="Metadata (signing)"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

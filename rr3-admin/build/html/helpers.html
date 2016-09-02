@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Helper functions &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Helper functions &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -32,7 +32,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -47,7 +47,7 @@
 <span id="id1"></span><h2>base64url_encode<a class="headerlink" href="#base64url-encode" title="Permalink to this headline">¶</a></h2>
 <p>Helper function in file <em>${RR3}/application/helpers/url_encoder_helper.php</em>
 This modified base64_encode to get working with codeigniter.</p>
-<div class="code php highlight-python"><div class="highlight"><pre>function base64url_encode($plainText)
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>function base64url_encode($plainText)
 {
    $base64 = base64_encode($plainText);
    $base64url = strtr($base64, &#39;+/=&#39;, &#39;-_~&#39;);
@@ -60,7 +60,7 @@ This modified base64_encode to get working with codeigniter.</p>
 <span id="id2"></span><h2>base64url_decode<a class="headerlink" href="#base64url-decode" title="Permalink to this headline">¶</a></h2>
 <p>Helper function in file <em>${RR3}/application/helpers/url_encoder_helper.php</em>
 Oposite to base64url_encode</p>
-<div class="code php highlight-python"><div class="highlight"><pre>function base64url_decode($encoded)
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>function base64url_decode($encoded)
 {
    $base64 = strtr($encoded,&#39;-_~&#39;,&#39;+/=&#39;);
    $plainText = base64_decode($base64);
@@ -92,14 +92,11 @@ Oposite to base64url_encode</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -112,11 +109,11 @@ Oposite to base64url_encode</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

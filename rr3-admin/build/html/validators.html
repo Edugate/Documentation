@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Federation Metadata Validators &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Federation Metadata Validators &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="entitydetails.html" title="Identity/Service Providers overview"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -84,7 +84,7 @@
 <div class="section" id="validation-results">
 <h2>Validation Results<a class="headerlink" href="#validation-results" title="Permalink to this headline">¶</a></h2>
 <p>A XML document sent back to JAGGER as a validation result has to be a well-formed XML document, i.e. all the elements (returncode, message and info as mentioned above) have to be inside a root-element, for example:</p>
-<div class="code xml highlight-python"><div class="highlight"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<div class="code xml highlight-default"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;validation&gt;
    &lt;returncode&gt;0&lt;/returncode&gt;
    &lt;message&gt;Lorem ipsum&lt;/message&gt;
@@ -96,7 +96,7 @@
 <div class="section" id="metadata-validator-example">
 <h2>Metadata Validator Example<a class="headerlink" href="#metadata-validator-example" title="Permalink to this headline">¶</a></h2>
 <p>Metadata can be validated in a number of ways. In the example below, a shell script is executed by a PHP script. Depending on the exit code of the shell script a PHP script generates a XML document as an answer.</p>
-<div class="code php highlight-python"><div class="highlight"><pre>&lt;?php
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>&lt;?php
 $command = &quot;./ext-scope.sh $_GET[from]&quot;;
 exec($command, $output, $returncode);
 
@@ -157,14 +157,11 @@ if($returncode == 0) {
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -180,11 +177,11 @@ if($returncode == 0) {
         <li class="right" >
           <a href="entitydetails.html" title="Identity/Service Providers overview"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

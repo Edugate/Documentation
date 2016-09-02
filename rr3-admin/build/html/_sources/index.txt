@@ -46,6 +46,14 @@ Installation, configuration ...
    metadatasigner.rst
    gearman.rst
    notifications.rst
+ 
+Administration   
+##############
+
+.. toctree::
+   :maxdepth: 3
+
+   entityaccesslevel.rst
 
 Userguide
 #########

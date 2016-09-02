@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Configuration files &mdash; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Configuration files &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation process (final)"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -58,19 +58,19 @@
 <p>Please follow Codeigniter documentation. In most cases it will be default with some below exceptions:</p>
 <ul>
 <li><p class="first">base_url</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;base_url&#39;]     = &#39;https://yourhost.example.com/rr3/&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;base_url&#39;]     = &#39;https://yourhost.example.com/rr3/&#39;;
 </pre></div>
 </div>
 </li>
 <li><p class="first">index_page</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;index_page&#39;] = &#39;&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;index_page&#39;] = &#39;&#39;;
 </pre></div>
 </div>
 </li>
 <li><p class="first">log_threshold - you decide what log level</p>
 </li>
 <li><p class="first">log_path - set location for example:</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;log_path&#39;] = &#39;/var/log/rr3/&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;log_path&#39;] = &#39;/var/log/rr3/&#39;;
 </pre></div>
 </div>
 </li>
@@ -78,7 +78,7 @@
 </li>
 </ul>
 <blockquote>
-<div><div class="code bash highlight-python"><div class="highlight"><pre>tr -c -d &#39;0123456789abcdefghijklmnopqrstuvwxyz&#39; &lt;/dev/urandom | dd bs=32 count=1 2&gt;/dev/null;echo
+<div><div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">tr</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;0123456789abcdefghijklmnopqrstuvwxyz&#39;</span> <span class="o">&lt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">urandom</span> <span class="o">|</span> <span class="n">dd</span> <span class="n">bs</span><span class="o">=</span><span class="mi">32</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="p">;</span><span class="n">echo</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -88,7 +88,7 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">If you update jagger please change sess_driver from &#8220;native&#8221; to &#8220;files&#8221; as there was some changes in core CI</p>
 </div>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;sess_driver&#39;]                  = &#39;files&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;sess_driver&#39;]                  = &#39;files&#39;;
 $config[&#39;sess_valid_drivers&#39;]   = array();
 $config[&#39;sess_cookie_name&#39;]             = &#39;ci_session&#39;;
 $config[&#39;sess_expiration&#39;]              = 7200;
@@ -106,7 +106,7 @@ $config[&#39;sess_time_to_update&#39;]  = 300;
 </li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;csrf_protection&#39;] = TRUE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;csrf_protection&#39;] = TRUE;
 $config[&#39;csrf_token_name&#39;] = &#39;csrf_test_name&#39;;
 $config[&#39;csrf_cookie_name&#39;] = &#39;csrf_cookie_name&#39;;
 $config[&#39;csrf_expire&#39;] = 7200;
@@ -119,7 +119,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>standardize_newlines - in most cases set to TRUE</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;standardize_newlines&#39;] = TRUE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;standardize_newlines&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -127,7 +127,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>enable composer autoloader - it always should be set to TRUE</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;composer_autoload&#39;] = TRUE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;composer_autoload&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -141,17 +141,17 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <p class="first admonition-title">Warning</p>
 <p class="last">deprecated, managed via web. you should remove it from config_rr.php file</p>
 </div>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;pageTitlePref&#39;] = &#39;Jagger:: &#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;pageTitlePref&#39;] = &#39;Jagger:: &#39;;
 </pre></div>
 </div>
 </li>
 <li><p class="first">rr_setup_allowed - it should be always be set to FALSE. TRUE only when setup is initialized</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_setup_allowed&#39;] = FALSE;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_setup_allowed&#39;] = FALSE;
 </pre></div>
 </div>
 </li>
 <li><p class="first">site_logo - set filename to be used as main logo in top-left corner. File should be stored in <strong>/opt/rr3/images/</strong> folder.</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;site_logo&#39;] = &#39;logo-default.png&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;site_logo&#39;] = &#39;logo-default.png&#39;;
 </pre></div>
 </div>
 </li>
@@ -159,13 +159,13 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 </li>
 </ul>
 <blockquote>
-<div><div class="code bash highlight-python"><div class="highlight"><pre>tr -c -d &#39;0123456789abcdefghijklmnopqrstuvwxyz&#39; &lt;/dev/urandom | dd bs=32 count=1 2&gt;/dev/null;echo
+<div><div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">tr</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;0123456789abcdefghijklmnopqrstuvwxyz&#39;</span> <span class="o">&lt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">urandom</span> <span class="o">|</span> <span class="n">dd</span> <span class="n">bs</span><span class="o">=</span><span class="mi">32</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="p">;</span><span class="n">echo</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>then assign generated value to attr like:</p>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;syncpass&#39;] = &#39;qp7zwgm6vqzptb87uoe7zzfiq1gx1oa6&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;syncpass&#39;] = &#39;qp7zwgm6vqzptb87uoe7zzfiq1gx1oa6&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -174,7 +174,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>rr_rm_member_from_fed - right now it must be set to TRUE</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_rm_member_from_fed&#39;] = TRUE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_rm_member_from_fed&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -182,7 +182,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>rr_logobaseurl - if NULL then <strong>base_url</strong> is set. It&#8217;s used for generating Metadata logo paths if JAGGER is a source of logo.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logobaseurl&#39;] = NULL;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_logobaseurl&#39;] = NULL;
 </pre></div>
 </div>
 </div></blockquote>
@@ -190,7 +190,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>rr_logouriprefix - used together with <strong>rr_logobaseurl</strong> . By default <strong>logos</strong> directory is used.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logouriprefix&#39;] = &#39;logos/&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_logouriprefix&#39;] = &#39;logos/&#39;;
 </pre></div>
 </div>
 <p>The url generated will look like: <em>https://yourhost.example.com/rr3/logos/example-logo.png</em></p>
@@ -203,7 +203,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>rr_logoupload - it decides wether user may upload logos to the system. By default set to FALSE</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logoupload&#39;] = FALSE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_logoupload&#39;] = FALSE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -211,7 +211,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>rr_logoupload_relpath -  if <strong>rr_logoupload</strong> is TRUE then you can decide the defaul location for uploaded logos by users. Bu default you can set <strong>logos/</strong> . You may decide to review every uploaded image the please create another folder under <strong>/opt/rr3</strong> and set its name. The you will need to copy manually reviewed logos from this location into &#8220;logos&#8221; folder.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logoupload&#39;] = &#39;logos/&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_logoupload&#39;] = &#39;logos/&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -219,7 +219,7 @@ $config[&#39;csrf_exclude_uris&#39;] = array();
 <li>rr_logo_maxwidth, rr_logo_maxheight - if <strong>rr_logoupload</strong> is TRUE then  you can decide maximum allowed dimesions in px.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logo_maxwidth&#39;] = 300;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_logo_maxwidth&#39;] = 300;
 $config[&#39;rr_logo_maxheight&#39;] = 300;
 </pre></div>
 </div>
@@ -228,7 +228,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>rr_logo_types -  applied when <strong>rr_logoupload</strong> is TRUE. What type of logos is allowed to be uploaded. Recommended : png</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logo_types&#39;] = &#39;png|jpg&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_logo_types&#39;] = &#39;png|jpg&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -236,7 +236,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>rr_logo_maxsize - applied when <strong>rr_logoupload</strong> is TRUE. Maximum allowed size upladed image in KB</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rr_logo_maxsize&#39;] = 2000;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rr_logo_maxsize&#39;] = 2000;
 </pre></div>
 </div>
 </div></blockquote>
@@ -244,7 +244,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>autoregister_federated - if federated access to JAGGER is enabled you can decide wether user who used federated access but doesn&#8217;t exist in JAGGER should be autoprovisioned or not. Strongly recommend to not allow it. If it&#8217;s set to FALSE then new (not registered) user will get error page with contact support email address.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;autoregister_federated&#39;] = FALSE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;autoregister_federated&#39;] = FALSE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -252,7 +252,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>register_defaultrole - if you decide to enable <strong>autoregister_federated</strong> then please set default role with lowest permissions. In this case please set &#8220;Guest&#8221;</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;register_defaultrole&#39;] = &#39;Guest&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;register_defaultrole&#39;] = &#39;Guest&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -260,7 +260,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>Shib_required - define required attributes needed to be provided by IdP. By default please require Shib_username and Shib_mail which their mapping are defined next</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_required&#39;] = array(&#39;Shib_mail&#39;,&#39;Shib_username&#39;);
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;Shib_required&#39;] = array(&#39;Shib_mail&#39;,&#39;Shib_username&#39;);
 </pre></div>
 </div>
 </div></blockquote>
@@ -268,7 +268,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>Shib_username - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as username in Jagger. Strongly recommend eppn or othe unique scoped attr</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_username&#39;] = &#39;eppn&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;Shib_username&#39;] = &#39;eppn&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -276,7 +276,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>Shib_mail - id of attribute from Shibboleth (attribute-map.xml) which will be mapped as user&#8217;s email address in Jagger. By default mail</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_mail&#39;] = &#39;mail&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;Shib_mail&#39;] = &#39;mail&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -284,7 +284,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>Shib_fname - optional - id of attribute from Shibboleth (attribute-map.xml) wchich will be mapped as user&#8217;s first name in Jagger.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_fname&#39;] = &#39;givenName&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;Shib_fname&#39;] = &#39;givenName&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -292,7 +292,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>Shib_sname - optional - id of attribute from Shibboleth (attribute-map.xml) wchich will be mapped as user&#8217;s surname in Jagger.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shib_fname&#39;] = &#39;sn&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;Shib_fname&#39;] = &#39;sn&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -300,7 +300,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>shibb_updatefullname - optional - if TRUE then every time when user is loggedin his first and last name will be updated with values (if exist) provided by Shibboleth.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;shibb_updatefullname&#39;] = TRUE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;shibb_updatefullname&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -308,7 +308,7 @@ $config[&#39;rr_logo_maxheight&#39;] = 300;
 <li>Shibboleth - is array containing information wether shibboleth based federated access should be enabled, uri which resolves shibboleth assertion and logout uri which is called in iframe during JAGGER logout process - it allows to destroy both JAGGER and shibboleth session</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;Shibboleth&#39;][&#39;loginapp_uri&#39;] = &#39;auth/fedauth&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;Shibboleth&#39;][&#39;loginapp_uri&#39;] = &#39;auth/fedauth&#39;;
 $config[&#39;Shibboleth&#39;][&#39;logout_uri&#39;] = &#39;/Shibboleth.sso/Logout&#39;;
 $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </pre></div>
@@ -323,7 +323,11 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>nameids - array of allowed NameID in JAGGER</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;nameids&#39;] = array(
+<div><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">deprecated - you can remove it from config</p>
+</div>
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;nameids&#39;] = array(
      &#39;urn:mace:shibboleth:1.0:nameIdentifier&#39; =&gt; &#39;urn:mace:shibboleth:1.0:nameIdentifier&#39;,
      &#39;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#39; =&gt; &#39;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&#39;,
      &#39;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#39;=&gt;&#39;urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified&#39;,
@@ -332,16 +336,12 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
              );
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">$config[&#8216;nameids&#8217;] - is obsolete and not used any more</p>
-</div>
 </div></blockquote>
 <ul class="simple">
 <li>metadata_validuntil_days - the value in days give how long generated metadata is valid - in metadata <strong>validUntil</strong> is generated datetime from now + number of days</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;metadata_validuntil_days&#39;] = &#39;7&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;metadata_validuntil_days&#39;] = &#39;7&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -349,7 +349,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>unsignedmeta_iplimits - optional - limit direct access to unsigned (circle, federation, federationexport) metadatas. dont forget to add ip(s) of server(s) which are user to sign metadata, monitoring etc. example:</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;unsignedmeta_iplimits&#39;] = array(&#39;127.0.0.1&#39;);
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;unsignedmeta_iplimits&#39;] = array(&#39;127.0.0.1&#39;);
 </pre></div>
 </div>
 </div></blockquote>
@@ -357,7 +357,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>policy_dropdown - dropdown element for attribute policy - this config will be removed in future release, but right now is mandatory.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;policy_dropdown&#39;] = array(&#39;0&#39; =&gt; &#39;never&#39;, &#39;1&#39; =&gt; &#39;permit only if required&#39;, &#39;2&#39; =&gt; &#39;permit if required or desired&#39;);
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;policy_dropdown&#39;] = array(&#39;0&#39; =&gt; &#39;never&#39;, &#39;1&#39; =&gt; &#39;permit only if required&#39;, &#39;2&#39; =&gt; &#39;permit if required or desired&#39;);
 </pre></div>
 </div>
 </div></blockquote>
@@ -369,7 +369,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>fedloginbtn - optional value used to replace default text for federated button in login form. Example can be like this:</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;fedloginbtn&#39;] = &#39;Login via Edugate or Social Media&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;fedloginbtn&#39;] = &#39;Login via Edugate or Social Media&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -377,7 +377,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>arp_cache_time - set time in seconds how long generated array for AttributeReleasePolicy XML file (shibboleth format) should be in cache.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;arp_cache_time&#39;] = 1200;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;arp_cache_time&#39;] = 1200;
 </pre></div>
 </div>
 <p>metadata_cache_time</p>
@@ -386,7 +386,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>geocenterpoint - this option allows you to define default lang/lat for loaded map when no geo points are set. If not set then (-6.247856140071235,53.34961629053703). Example:</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;geocenterpoint&#39;] = array(&#39;-9.126273968749956&#39;,&#39;38.684286647936936&#39;);
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;geocenterpoint&#39;] = array(&#39;-9.126273968749956&#39;,&#39;38.684286647936936&#39;);
 </pre></div>
 </div>
 </div></blockquote>
@@ -394,7 +394,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>memcached - it&#8217;s optional but please use memcached.php config file instead</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;memcached&#39;] = array(
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;memcached&#39;] = array(
                &#39;optional&#39;=&gt;array(
                       &#39;hostname&#39;  =&gt; &#39;localhost&#39;,
                       &#39;port&#39;      =&gt; &#39;11211&#39;,
@@ -408,7 +408,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>cacheprefix - add prefix to each key cached object</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;cacheprefix&#39;] = &#39;rr3_&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;cacheprefix&#39;] = &#39;rr3_&#39;;
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -420,7 +420,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>translator_access - (optional) allows permitted user to modify existing translation. You can set only one person per language.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;translator_access&#39;][&#39;pl&#39;] = &#39;user444@example&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;translator_access&#39;][&#39;pl&#39;] = &#39;user444@example&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -428,7 +428,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>gearman - (optional) boolean value - whether to enable gearman. There some benefits using gearman.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;gearman&#39;] = TRUE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;gearman&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -436,7 +436,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>gearmanconf - used if  <strong>$config[&#8216;gearman&#8217;]</strong>  is set TRUE. Details about gearman-job-server</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;gearmanconf&#39;][&#39;jobserver&#39;] = array(array(&#39;ip&#39;=&gt;&#39;127.0.0.1&#39;,&#39;port&#39;=&gt;&#39;4730&#39;));
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;gearmanconf&#39;][&#39;jobserver&#39;] = array(array(&#39;ip&#39;=&gt;&#39;127.0.0.1&#39;,&#39;port&#39;=&gt;&#39;4730&#39;));
 </pre></div>
 </div>
 </div></blockquote>
@@ -444,7 +444,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>disable_extcirclemeta - (optional) but in most cases should be set to TRUE. It defines whether should or shouldnt generate circle metadata for providers which are set external.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;disable_extcirclemeta&#39;] = TRUE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;disable_extcirclemeta&#39;] = TRUE;
 </pre></div>
 </div>
 </div></blockquote>
@@ -452,7 +452,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>disable support for generating circle of trust metadata - (optional) only if it&#8217;s set to TRUE then &#8220;federation metadata(s)&#8221; will be generated and hyperlinks related to circle of trust metadata will be hidden</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;featdisable&#39;][&#39;circlemeta&#39;] = true;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;featdisable&#39;][&#39;circlemeta&#39;] = true;
 </pre></div>
 </div>
 </div></blockquote>
@@ -460,7 +460,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>entpartschangesdisallowed - (optional) - array of elements do not allow to modify by enduser. For the moment entityid and scope may be disabled.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;entpartschangesdisallowed&#39;] = array(&#39;entityid&#39;,&#39;scope&#39;);
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;entpartschangesdisallowed&#39;] = array(&#39;entityid&#39;,&#39;scope&#39;);
 </pre></div>
 </div>
 </div></blockquote>
@@ -468,7 +468,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>rootSchemaFile - (optional) - you can set other than saml-schema-metadata-2.0.xsd for metadata validation. metadata validator loads defined xsd from {RR}/schemas/{old|new}/ folder. which of old, new folders is used- depends on php version. Example to validation against ws-federation.xsd</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;rootSchemaFile&#39;] = &#39;ws-federation.xsd&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;rootSchemaFile&#39;] = &#39;ws-federation.xsd&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -485,20 +485,45 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 <li>addlogocheckssl - optional - default is TRUE - used in entity edit form, when add new logo url - checks webserver ssl - you can disable it by setting in config with FALSE</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;addlogocheckssl&#39;] = FALSE;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;addlogocheckssl&#39;] = FALSE;
 </pre></div>
 </div>
 </div></blockquote>
+<ul>
+<li><p class="first">statuscheck -default is false. If set to true then <a class="reference external" href="https://youhost/rrpath/jaggerstatus/gstatus">https://youhost/rrpath/jaggerstatus/gstatus</a> show status db connectivity
+.. code:: php</p>
+<p>$config[&#8216;statuscheck&#8217;] = true;</p>
+</li>
+</ul>
+<div class="section" id="languages">
+<h3>languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>langselectlimit - optional - limit dropdown list (localized entity properties) to specified list of available languages , example:</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;langselectlimit&#39;] = array(&#39;en&#39;, &#39;de&#39;, &#39;pl&#39;, &#39;fr&#39;);
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>langselectdefault - language to be selected in dropdown</li>
+</ul>
+<blockquote>
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;langselectdefault&#39;] = &#39;de&#39;;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
 <div class="section" id="two-factor">
 <h3>two factor<a class="headerlink" href="#two-factor" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">twofactorauthn - global option to enable/disable 2f , if option is not set then it&#8217;s false</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;twofactorauthn&#39;] = true;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;twofactorauthn&#39;] = true;
 </pre></div>
 </div>
 </li>
 <li><p class="first">2fengines - global option to control what kind of 2f engines are available/allowed. If not set then no engines available. As only &#8220;duo&#8221; is supported then</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;2fengines&#39;] =  array(&#39;duo&#39;);
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;2fengines&#39;] =  array(&#39;duo&#39;);
 </pre></div>
 </div>
 </li>
@@ -506,7 +531,7 @@ $config[&#39;Shibboleth&#39;][&#39;enabled&#39;] = TRUE;
 </li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;duo-akey&#39;] = &#39;YOUR_SECRET_RANDOM_MIN_40_CHARS_STRING&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;duo-akey&#39;] = &#39;YOUR_SECRET_RANDOM_MIN_40_CHARS_STRING&#39;;
 $config[&#39;duo-skey&#39;] = &#39;Secret key from DUO ADMIN SITE&#39;;
 $config[&#39;duo-ikey&#39;] = &#39;Integration key FROM DUO ADMIN SITE&#39;;
 $config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
@@ -520,7 +545,7 @@ $config[&#39;duo-host&#39;] = &#39;API hostname FROM DUO ADMIN SITE&#39;;
 <p>You can use <strong>email-default.php</strong> as a template. Ther are two parts:</p>
 <ol class="arabic">
 <li><p class="first">connection details</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;protocol&#39;] = &#39;smtp&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;protocol&#39;] = &#39;smtp&#39;;
 $config[&#39;smtp_host&#39;] = &quot;SMTP_HOST&quot;;
 $config[&#39;smtp_port&#39;] = 25;
 $config[&#39;charset&#39;] = &#39;utf-8&#39;;
@@ -537,17 +562,17 @@ $config[&#39;smtp_crypto&#39;] = &#39;tls&#39;;
 <li><p class="first">usage in JAGGER</p>
 <ul>
 <li><p class="first">mail_sending_active - boolean FALSE/TRUE - if FALSE then not mails are sent at all. It takes presedence..</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;mail_sending_active&#39;] = TRUE;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;mail_sending_active&#39;] = TRUE;
 </pre></div>
 </div>
 </li>
 <li><p class="first">notify_if_provider_rm_from_fed - boolean  - if TRUE then notification will be sent when IdP or SP has been removed from federation. The recipients are: all contacts for IdP/SP and members of Administators group in JAGGER</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;notify_if_provider_rm_from_fed&#39;] = TRUE;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;notify_if_provider_rm_from_fed&#39;] = TRUE;
 </pre></div>
 </div>
 </li>
 <li><p class="first">notify_if_queue_rejected - boolean - if TRUE then requestere will be notified by email if his request is rejected.</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;notify_if_queue_rejected&#39;] = TRUE;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;notify_if_queue_rejected&#39;] = TRUE;
 </pre></div>
 </div>
 </li>
@@ -565,7 +590,7 @@ $config[&#39;smtp_crypto&#39;] = &#39;tls&#39;;
 </li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;mail_subject_suffix&#39;] = &#39;[JAGGER]&#39;;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;mail_subject_suffix&#39;] = &#39;[JAGGER]&#39;;
 </pre></div>
 </div>
 </div></blockquote>
@@ -574,7 +599,7 @@ $config[&#39;smtp_crypto&#39;] = &#39;tls&#39;;
 <li>mail_footer - adds footer to sent mails</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;mail_footer&#39;] = &quot;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;mail_footer&#39;] = &quot;
 \r\n \r\n
 YOUR FOOTER \r\n
 -- \r\n
@@ -591,7 +616,7 @@ email:xxxxxxxxxxxx\r\n&quot;;
 <li>defaultmail[&#8216;joinfed&#8217;] - override defaul mail sent when join federation is requested.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;defaultmail&#39;][&#39;joinfed&#39;] = &quot;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;defaultmail&#39;][&#39;joinfed&#39;] = &quot;
           Hi,\r\nJust few moments ago Administator of Provider %s (%s) \r\n
           sent request to Administrators of Federation: %s \r\n
           to access  him as new federation member.\r\n
@@ -610,7 +635,7 @@ email:xxxxxxxxxxxx\r\n&quot;;
 <li>localizedmail[&#8216;joinfed&#8217;] - Sometime you&#8217;d like to sen notification in you local language. Thanks to this option you can easly override default. However as we work in multinational world the final mail will contain both localized part and builtin/($config[&#8216;defaultmail&#8217;][&#8216;joinfed&#8217;]) part.</li>
 </ul>
 <blockquote>
-<div><div class="code php highlight-python"><div class="highlight"><pre>$config[&#39;localized&#39;][&#39;joinfed&#39;] = &quot;
+<div><div class="code php highlight-default"><div class="highlight"><pre><span></span>$config[&#39;localized&#39;][&#39;joinfed&#39;] = &quot;
           Hi,\r\nWlasnie przed chwila Administator of Dostawcy Serwisu/Tozsamosci: %s (%s) \r\n
           wyslal prosbe  do Administratorow Federacji: %s \r\n
           to access  him as new federation member.\r\n
@@ -632,7 +657,7 @@ email:xxxxxxxxxxxx\r\n&quot;;
 <h2>database.php<a class="headerlink" href="#database-php" title="Permalink to this headline">¶</a></h2>
 <p>this file contains information about connection to dabase.
 As template <strong>database-default.php</strong> can be used. Some of options are ignored by doctrine. So please focus and change username, password, database</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$active_group = &#39;default&#39;;
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$active_group = &#39;default&#39;;
 $active_record = TRUE;
 
 $db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;
@@ -657,7 +682,7 @@ $db[&#39;default&#39;][&#39;stricton&#39;] = FALSE;
 <h2>memcached.php<a class="headerlink" href="#memcached-php" title="Permalink to this headline">¶</a></h2>
 <p>file contains information about available memcached servers
 As template <strong>memcached-default.php</strong> can be used - default</p>
-<div class="code php highlight-python"><div class="highlight"><pre>$config = array(
+<div class="code php highlight-default"><div class="highlight"><pre><span></span>$config = array(
        &#39;default&#39; =&gt; array(
                &#39;hostname&#39; =&gt; &#39;127.0.0.1&#39;,
                &#39;port&#39;     =&gt; &#39;11211&#39;,
@@ -687,6 +712,7 @@ As template <strong>memcached-default.php</strong> can be used - default</p>
 <li><a class="reference internal" href="#">Configuration files</a><ul>
 <li><a class="reference internal" href="#config-php">config.php</a></li>
 <li><a class="reference internal" href="#config-rr-php">config_rr.php</a><ul>
+<li><a class="reference internal" href="#languages">languages</a></li>
 <li><a class="reference internal" href="#two-factor">two factor</a></li>
 </ul>
 </li>
@@ -706,14 +732,11 @@ As template <strong>memcached-default.php</strong> can be used - default</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -732,11 +755,11 @@ As template <strong>memcached-default.php</strong> can be used - default</p>
         <li class="right" >
           <a href="installation.html" title="Installation process (final)"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Janusz Ulanowski.
+        &#169; Copyright 2014, Janusz Ulanowski.
     </div>
   </body>
 </html>

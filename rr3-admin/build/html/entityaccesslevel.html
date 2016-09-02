@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>&lt;no title&gt; &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
+    <title>Entity and access level &#8212; JAGGER - Admin Guide Draft 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" /> 
+    <link rel="top" title="JAGGER - Admin Guide Draft 1.0 documentation" href="index.html" />
+    <link rel="next" title="Registration process" href="register.html" />
+    <link rel="prev" title="Notification system" href="notifications.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -32,6 +34,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="notifications.html" title="Notification system"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -41,7 +49,51 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  
+  <div class="section" id="entity-and-access-level">
+<h1>Entity and access level<a class="headerlink" href="#entity-and-access-level" title="Permalink to this headline">¶</a></h1>
+<p>Default access level</p>
+<ul class="simple">
+<li>Administrator role has access to everything.</li>
+<li>Member role has view access to entity excluding Logs/Stats</li>
+<li>Guest role has no access to vie entitie&#8217;s details</li>
+</ul>
+<p>Obviosly you can still set access level per user.
+There are three levels: read, write, manage</p>
+<ul class="simple">
+<li>read<ul>
+<li>access to view details about entity excluding Logs</li>
+<li>no access to edit, manage</li>
+</ul>
+</li>
+<li>write include read<ul>
+<li>can edit entity<ul>
+<li>most changes are not sent for approval except:<ul>
+<li>changing IDPSSODescriptor/AADescriptor - scope</li>
+<li>assigning EntityAttribute (EntityCategory etc)</li>
+<li>assigning RegistrationPolicy</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>can apply to join federation</li>
+<li>can leave federation</li>
+<li>view/edit stats (if feature is enabled)</li>
+<li>view logs</li>
+<li>manage attribute policy (if feature is enabled)</li>
+</ul>
+</li>
+<li>manage includes read and write<ul>
+<li>all above</li>
+<li>manage access level for entity</li>
+<li>change status (disabled, locked)</li>
+<li>change status of membership (temporary disable membership)</li>
+<li>remove entity from the system</li>
+</ul>
+</li>
+</ul>
+<p>Administrator role has additional access to change registrationAuthority and registrationDate</p>
+</div>
+
 
           </div>
         </div>
@@ -51,6 +103,12 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/jagger-withtext-on-light.png" alt="Logo"/>
             </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="notifications.html"
+                        title="previous chapter">Notification system</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="register.html"
+                        title="next chapter">Registration process</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -71,6 +129,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="register.html" title="Registration process"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="notifications.html" title="Notification system"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">JAGGER - Admin Guide Draft 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
