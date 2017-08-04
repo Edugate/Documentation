@@ -16,13 +16,10 @@ Requirements
   cp composer.phar /usr/local/bin/composer
 
 * mysql > 5.1  (it should work with postgres etc but not tested) 
-* PHP >= 5.3 with modules: php-apc, php5-cli, php5-curl, php5-mysql, php5-mcrypt, php5-memcached
+* PHP >= 5.5.x with modules: php-apc, php5-cli, php5-curl, php5-mysql, php5-mcrypt, php5-memcached
 * Apache >= 2.2 with enabled modules: rewrite, unique_id 
 * Shibboleth-SP >= 2.4 - optional needed for federated access 
-* Codeigniter framework 3.0 - it's not official release yet from git://github.com/EllisLab/CodeIgniter.git
-
- .. warning::  Since Oct 2014 Codeigninter has new home and changes licence to MIT. Also location on github has been changed https://github.com/bcit-ci/CodeIgniter
-
+* Codeigniter framework 3.1.5 
 * Doctrine >= 2.4.x http://www.doctrine-project.org
 
  .. note:: Doctrine it will be installed with composer
@@ -38,22 +35,17 @@ Requirements
 Download JAGGER and Codeigniter
 ===============================
 
-We are going to use source code from GitHub repository. Using 3.0-stable branch is preferred as develop branch sometimes doesn't work properly.
 
- .. note:: we will be using 3.0-stable branch
+ .. note:: we will be using CodeIgniter 3.1.5 available from https://github.com/bcit-ci/CodeIgniter/archive/3.1.5.zip
 
-.. code:: bash
+Download codeigniter and unpack into /opt and rename to "codeigniter"
 
- git clone git://github.com/bcit-ci/CodeIgniter.git /opt/codeigniter
- cd /opt/codeigniter
- git checkout -b 3.0-stable origin/3.0-stable
- git pull
 
 JAGGER (ResourceRegistry3) is published on GITHUB https://github.com/Edugate/Jagger  under MIT License.
 
 .. code:: bash
 
- git clone https://github.com/Edugate/ResourceRegistry /opt/rr3
+ git clone https://github.com/Edugate/Jagger /opt/rr3
  cd /opt/rr3
 
 Install required third parties libraries with composer tool. Go to application folder and run

@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Jagger - Administration guide! (Draft) - updated: 2016/09/02
+Welcome to Jagger - Administration guide! (Draft) - updated: 2017/08/04
 =====================================
 
 .. note::
@@ -45,6 +45,7 @@ Installation, configuration ...
    metadata.rst
    metadatasigner.rst
    gearman.rst
+   rabbitmq.rst
    notifications.rst
  
 Administration   
